@@ -70,4 +70,4 @@ isWebp();
 
 import data from "./modules/strapiData/data.js"
 import burger from "./modules/burger.js";
-import cardsSwiper from "./modules/swiper.js"
+import cardsSwiper from "./modules/swiper.js";

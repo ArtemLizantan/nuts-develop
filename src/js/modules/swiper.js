@@ -4,16 +4,15 @@ Swiper.use([Navigation, Pagination, Autoplay, Scrollbar]);
 
 function cardsSwiper() {
   const products = document.querySelector(".products");
+  const productsSwiperImg = document.querySelectorAll(".products__swiperImg");
+  console.log(productsSwiperImg);
   if (products) {
-    const swiper = new Swiper(".products__swiperImgs", {
-      centeredSlides: true,
+    const swiper = new Swiper(".products__swiperImg", {
       navigation: {
-        nextEl: ".products__img-button-next",
-        prevEl: ".products__img-button-prev",
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
       },
     });
   }
 }
-
 cardsSwiper();
-
