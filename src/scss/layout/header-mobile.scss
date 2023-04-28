@@ -1,0 +1,277 @@
+.header {
+  // .header__center-mobile
+
+  //.header__container-open-mobile
+
+  &__container-open-mobile {
+    padding: 0 11px;
+  }
+
+  &__center-mobile {
+    @media (min-width: $md2+px) {
+      display: none;
+    }
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    margin-top: 3px;
+  }
+
+  // .header__mobile-burger
+
+  &__mobile-burger {
+    width: fit-content;
+  }
+
+  // .header__mobile-logo
+
+  &__mobile-logo {
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
+    left: 2px;
+    top: 4px;
+  }
+
+  // .header__logo-mobile
+
+  &__logo-mobile {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-direction: column;
+    img {
+      width: 34px;
+      height: 33px;
+    }
+  }
+
+  // .header__logo-title-mobile
+
+  &__logo-title-mobile {
+    text-align: center;
+    font-size: 11px;
+    line-height: 13px;
+  }
+
+  // .header__cart
+
+  &__cart {
+  }
+
+  //.header__cart-mobile
+
+  &__cart-mobile {
+    width: fit-content;
+    margin-left: auto;
+    &::before {
+      font-size: 27px;
+      color: $yellowGreenColor;
+    }
+  }
+
+  // .header__cart-link
+
+  &__cart-link {
+  }
+}
+
+.open-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  z-index: 20;
+  background-color: $whiteColor;
+  overflow: hidden;
+  padding-top: 16px;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+
+  &._active {
+    transition: all 0.5s ease-in-out;
+    height: 384px;
+    overflow: visible;
+    opacity: 1;
+  }
+  
+
+  // .open-menu__logo
+
+  &__logo,
+  &__top {
+    width: fit-content;
+  }
+  // .open-menu__top
+
+  &__top {
+    min-height: 44px;
+  }
+
+  // .open-menu__logo-link
+
+  &__logo-link {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    img {
+      width: 34px;
+      height: 33px;
+      position: relative;
+      left: 1px;
+      bottom: 2px;
+    }
+  }
+
+  // .open-menu__logo-title
+
+  &__logo-title {
+    text-align: left;
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  // .open-menu__center
+
+  &__center {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fafafa;
+    min-height: 42px;
+  }
+
+  // .open-menu__block
+
+  &__block {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+
+  // .open-menu__reg
+
+  &__reg {
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.02em;
+    color: #323232;
+    &::before {
+      color: $yellowGreenColor;
+      font-size: 13px;
+      margin-right: 7px;
+    }
+  }
+
+  // .open-menu__links
+
+  &__links {
+    display: flex;
+    gap: 23px;
+    align-items: center;
+  }
+
+  // .open-menu__social-link
+
+  &__social-link {
+  }
+
+  // .open-menu__bottom
+
+  &__bottom {
+  }
+
+  // .open-menu__menu
+
+  &__menu {
+  }
+
+  // .open-menu__menu-list
+
+  &__menu-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  // .open-menu__menu-link
+
+  &__menu-link {
+    min-height: 48px;
+    padding: 0 12px;
+  }
+
+  // .open-menu__menu-item
+
+  &__menu-item {
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: 0.02em;
+    color: #1a2f3f;
+
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  }
+}
+
+// Burger
+.icon-menu {
+  display: none;
+  @include media(991) {
+    &._active {
+      position: absolute;
+      top: 21px;
+      right: 8px;
+      z-index: 30;
+      span {
+        display: none;
+      }
+      &::before {
+        top: calc(50% - rem(0.5));
+        transform: rotate(-45deg);
+      }
+      &::after {
+        width: 100%;
+        bottom: calc(50% - rem(1));
+        transform: rotate(45deg);
+      }
+    }
+    display: block;
+    position: relative;
+    width: rem(19);
+    height: rem(17);
+    cursor: pointer;
+    z-index: 5;
+    span,
+    &::before,
+    &::after {
+      content: "";
+      transition: all 300ms ease 0ms;
+      right: 0;
+      position: absolute;
+      width: 100%;
+      height: rem(2.6);
+      background-color: #000;
+    }
+    &::before {
+      top: 0;
+    }
+    &::after {
+      bottom: 0;
+      width: 13px;
+      left: 0;
+    }
+    span {
+      top: calc(50% - rem(1));
+    }
+  }
+}

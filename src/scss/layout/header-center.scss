@@ -1,0 +1,134 @@
+.header {
+  // .header__center
+
+  &__center {
+    margin-top: rem(18);
+    @media (max-width: $md2+px) {
+        display: none;
+    }
+  }
+
+  // .header__center-body
+
+  &__center-body {
+    display: flex;
+    align-items: center;
+    gap: rem(28);
+  }
+
+  //.header__logo
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: rem(8);
+  }
+
+  // .header__center-left
+
+  &__center-left {
+  }
+
+  // .header__logo-title
+
+  &__logo-title {
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 800;
+    font-size: rem(15);
+    line-height: rem(18);
+    letter-spacing: 0.02em;
+    color: #1a2f3f;
+  }
+
+  // .header__center-right
+
+  &__center-right {
+    display: flex;
+    align-items: center;
+    @include adaptiv-value(gap, 93, -20, 3);
+    flex: 1 1 auto;
+    justify-content: end;
+    margin-top: rem(-6);
+  }
+
+  // .header__right
+
+  &__right {
+  }
+
+  // .header__right-block
+
+  &__right-block {
+    display: flex;
+    align-items: center;
+    &:nth-child(1) {
+      gap: rem(32);
+    }
+    &:nth-child(2) {
+        gap: rem(14);
+    }
+  }
+
+  // .header__right-links
+
+  &__right-links {
+    display: flex;
+    gap: rem(8);
+    margin-top: rem(-3);
+    &::before {
+      color: $whiteColor;
+      background-color: $greenColor;
+      border-radius: 50%;
+      padding: rem(8);
+    }
+  }
+
+  // .header__right-phones
+
+  &__right-phones {
+    display: flex;
+    flex-direction: column;
+    gap: rem(3);
+    a {
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 600;
+      font-size: rem(13);
+      line-height: rem(16);
+      span {
+        color: #337d5a;
+      }
+    }
+  }
+
+  // .header__right-callback
+
+  &__right-callback {
+    &__button {
+      @extend %mainButton;
+      padding: rem(13) rem(20);
+    }
+    &__text {
+      font-family: "Montserrat";
+      font-size: rem(12);
+      line-height: rem(15);
+      letter-spacing: 0.02em;
+      color: #8a8a8a;
+      max-width: rem(178);
+    }
+  }
+
+  // .header__cart
+
+  &__cart {
+    position: relative;
+    left: rem(-4);
+    bottom: rem(3);
+    cursor: pointer;
+    &::before {
+      color: #337d5a;
+      font-size: 27px;
+    }
+  }
+}

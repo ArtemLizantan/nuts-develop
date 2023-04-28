@@ -1,0 +1,144 @@
+/* Шаблоны (заготовки)
+* @extend %имя шаблона;
+*/
+// Счетчик для списка
+
+@use "sass:math";
+//<МИКСИНЫ>===============================================================================================
+@import "config/mixins";
+
+%listCounter {
+  list-style-type: none;
+  counter-reset: item;
+  li {
+    position: relative;
+    &:before {
+      counter-increment: item;
+      content: counter(item);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+}
+// Адаптивное видео
+%responsiveVideo {
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  padding-bottom: 56.25%;
+  video,
+  iframe,
+  object,
+  embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+// Видео в качестве фона
+%videoBackground {
+  video,
+  iframe,
+  object,
+  embed {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+  }
+}
+// Серый фильтр
+%grayfilter {
+  transition: all 0.3s ease 0s;
+  filter: grayscale(1);
+  @media (any-hover: hover) {
+    &:hover {
+      filter: grayscale(0);
+    }
+  }
+}
+// Отменить выделение
+%noselect {
+  user-select: none;
+}
+// Зеркальное отображение
+%mirror {
+  transform: scale(-1, 1);
+}
+// Плавный скролл
+%smoothscroll {
+  -webkit-overflow-scrolling: touch;
+}
+// Скрыть скролл
+%hidescroll {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+%mainButton {
+  background: #337d5a;
+
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 15px;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  transition: all 0.4s ease;
+  border: 1px solid #337d5a;
+  @media (min-width: 992px) {
+    &:hover {
+      background-color: transparent;
+      color: #337d5a;
+    }
+  }
+}
+
+%main-title {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 45px;
+  line-height: 53px;
+  letter-spacing: 0.01em;
+  color: #1a2f3f;
+}
+%main-subtitle {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #1a2f3f;
+}
+
+%hero-title {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 62px;
+  line-height: 73px;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+}
+
+%hero-subtitle {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 29px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+}

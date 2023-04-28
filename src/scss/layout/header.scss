@@ -1,0 +1,251 @@
+// =====================================================================================================================
+.header {
+  min-height: rem(179);
+  @media (max-width: $md2+px) {
+    min-height: rem(120);
+  }
+  // .header__container
+
+  &__container {
+    max-width: rem(1320);
+    padding: 0 rem(15);
+    @media (max-width: $md4+px) {
+      padding: 0 rem(13);
+    }
+  }
+
+  // .header__top
+
+  &__top {
+    background: rgba(245, 245, 245, 0.5);
+    align-items: center;
+    position: relative;
+    height: rem(38);
+  }
+
+  // .header__top-body
+
+  &__top-body {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    min-height: rem(38);
+    @media (max-width: $md2+px) {
+      display: none;
+    }
+  }
+
+  // .header__social
+
+  &__social {
+    display: flex;
+    align-items: center;
+  }
+
+  // .header__social-item
+
+  &__social-item {
+    &::before {
+      font-size: rem(15);
+    }
+  }
+
+  //header__social-link
+
+  &__social-link {
+    &:nth-child(1) {
+      margin-right: rem(16);
+    }
+    &:nth-child(2) {
+      margin-right: rem(19);
+    }
+  }
+
+  // .header__discount
+
+  &__discount {
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size: rem(14);
+    line-height: rem(17);
+    color: #337d5a;
+
+    position: absolute;
+    top: 56%;
+    left: 50.8%;
+    width: rem(245);
+    height: rem(21);
+    transform: translate(-50%, -50%);
+
+    @media (max-width: $md2+px) {
+      display: none;
+    }
+  }
+
+  // .header__right
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: rem(31);
+    margin-top: rem(7);
+  }
+
+  // .header__login
+
+  &__login {
+    display: flex;
+    align-items: center;
+    gap: rem(25);
+  }
+  // .header__login-text
+
+  &__login-text {
+    font-size: rem(14);
+    line-height: rem(15);
+    letter-spacing: 0.02em;
+    color: #323232;
+    padding-bottom: rem(3);
+    transition: border-bottom 0.4s;
+    border-bottom: 2px solid $whiteColor;
+    &::before {
+      margin-right: rem(6);
+      color: $yellowGreenColor;
+      font-size: rem(11);
+    }
+    @media (min-width: $md2+px) {
+      &:hover {
+        border-bottom: 2px solid $greenColor;
+      }
+    }
+  }
+
+  // .header__select
+
+  &__select {
+    font-size: rem(13);
+    line-height: rem(15);
+    letter-spacing: 0.02em;
+    color: #000000;
+    cursor: pointer;
+
+    position: relative;
+    left: rem(5);
+    bottom: rem(2);
+  }
+
+  // .header__top-mobile
+
+  &__top-mobile {
+    @media (min-width: $md2+px) {
+      display: none;
+    }
+    @media (max-width: $md2+px) {
+      display: block;
+    }
+  }
+
+  // .header__top-mobile-body
+
+  &__top-mobile-body {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    min-height: 40px;
+    align-items: center;
+    @media (max-width: $md4+px) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  // .header__mobile-number
+
+  &__mobile-number {
+    width: fit-content;
+    &::before {
+      font-size: rem(10);
+      color: $greenColor;
+      margin-right: rem(1);
+    }
+    a {
+      font-family: "Montserrat";
+      font-weight: 600;
+      font-size: rem(12);
+      line-height: rem(15);
+      span {
+        color: $greenColor;
+      }
+    }
+  }
+
+  // .header__order
+
+  &__order {
+    text-align: center;
+    margin: 0 auto;
+    width: fit-content;
+
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.02em;
+    color: #337d5a;
+
+    @media (max-width: $md4+px) {
+      margin: unset;
+      position: relative;
+      top: 1px;
+      left: -2px;
+      letter-spacing: 0;
+    }
+  }
+
+  // .header__select
+
+  &__select {
+    text-align: right;
+    width: 45px;
+    margin-left: auto;
+
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.02em;
+
+    color: $blackColor;
+
+    @media (max-width: $md4+px) {
+      margin-left: unset;
+      bottom: 0;
+      left: rem(9);
+    }
+  }
+
+  // .header__option
+
+  &__option {
+  }
+
+  // .header__option
+
+  &__option {
+  }
+
+  // .header__logo
+
+  &__logo {
+  }
+
+  // .header__menu
+
+  &__menu {
+  }
+}
+
+
