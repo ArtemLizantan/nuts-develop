@@ -119,9 +119,8 @@
     }
   }
 
-  
   // .header__cart-box
-  
+
   &__cart-box {
     position: relative;
   }
@@ -137,5 +136,26 @@
       color: #337d5a;
       font-size: 27px;
     }
+  }
+
+  //header__cart-quantity
+
+  &__cart-quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 5px;
+    position: absolute;
+    top: -5px;
+    z-index: 2;
+    right: 0;
+    background-color: $yellowGreenColor;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 10px;
+    color: #ffffff;
   }
 }

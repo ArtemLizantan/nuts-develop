@@ -72,4 +72,5 @@ isWebp();
 
 import burger from "./modules/burger.js";
 import data from "./modules/strapiData/data.js";
-import swiperManufacturer from "./modules/swiper.js"
+import addToCart from "./modules/cart/cart.js"
+import swiperManufacturer from "./modules/swiper.js";

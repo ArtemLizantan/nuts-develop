@@ -30,7 +30,7 @@ function data() {
         ) => {
           const markup = () => {
             return ` 
-            <div data-pid="${id}" class="products__card">
+            <div data-id="${id}" class="products__card">
             <div class="products__swiper-img">
             <!-- Swiper IMG CARD -->
   
@@ -130,3 +130,7 @@ function data() {
 }
 
 data();
+
+
+
+

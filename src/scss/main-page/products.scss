@@ -275,6 +275,10 @@
   &__bottom-button {
     @extend %mainButton;
     padding: 11px 37px;
+    &:disabled {
+      opacity: 0.3;
+      pointer-events: none;
+    }
   }
 
   // .products__img-button-next
