@@ -14,6 +14,8 @@ import {
   addLoadedClass,
   menuInit,
 } from "./modules";
+
+
 /* Раскомментировать для использования */
 // import { MousePRLX } from './libs/parallaxMouse'
 
@@ -68,6 +70,6 @@ isWebp();
 // =======================================================================================================
 
 
-import data from "./modules/strapiData/data.js"
 import burger from "./modules/burger.js";
-import cardsSwiper from "./modules/swiper.js";
+import data from "./modules/strapiData/data.js";
+import swiperManufacturer from "./modules/swiper.js"

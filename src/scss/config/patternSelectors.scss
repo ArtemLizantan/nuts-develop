@@ -87,20 +87,39 @@
 
 %mainButton {
   background: #337d5a;
-
   font-family: "Raleway";
   font-style: normal;
   font-weight: 600;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 15px;
   letter-spacing: 0.02em;
   color: #ffffff;
   transition: all 0.4s ease;
   border: 1px solid #337d5a;
+  cursor: pointer;
   @media (min-width: 992px) {
     &:hover {
       background-color: transparent;
       color: #337d5a;
+    }
+  }
+}
+
+%mainButtonWhite {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 15px;
+  letter-spacing: 0.02em;
+  color: #337D5A;
+  transition: all 0.4s ease;
+  border: 1px solid #337d5a;
+  cursor: pointer;
+  @media (min-width: 992px) {
+    &:hover {
+      background: #337d5a;
+      color: #fff;
     }
   }
 }
