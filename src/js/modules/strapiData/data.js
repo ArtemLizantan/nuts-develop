@@ -30,7 +30,7 @@ function data() {
         ) => {
           const markup = () => {
             return ` 
-            <div data-id="${id}" class="products__card">
+            <div data-art="${Articul}" class="products__card">
             <div class="products__swiper-img">
             <!-- Swiper IMG CARD -->
   
@@ -101,7 +101,7 @@ function data() {
           <div class="products__bottom">
             <div class="products__bottom-left">
               <div class="products__bottom-price">Цена:</div>
-              <div class="products__bottom-price-item">
+              <div  class="products__bottom-price-item">
                 <span>от</span> ${price} <span>грн.</span>
               </div>
             </div>

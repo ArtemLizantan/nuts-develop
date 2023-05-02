@@ -7,23 +7,22 @@ function addToCart() {
   const buttonCart = document.querySelector(".header__cart");
   const textNothing = document.querySelector(".cart-open__nothing");
   const cartOpenFullPrice = document.querySelector(".cart-open__fullprice");
-  const cartBody = document.querySelector(".cart-open__body");
-  const cartButtonPlus = document.querySelectorAll(".cart-open__plus");
-  let cartOpenPrice = document.querySelectorAll(".cart-open__price-product");
 
-  let price = 0;
+  buttonCart.addEventListener("click", () => {
+    cart.classList.toggle("_active");
+  });
 
   const generateCartProduct = (title, price, id, weight, articul) => {
     return `<li class="cart-open__li">
         <div class="cart-open__flex">
-          <div data-id="${id}" class="cart-open__item">
+          <div data-art="${articul}" class="cart-open__item">
             <div class="cart-open__title">${title} <span>${weight}г.</span></div>
             <div class="cart-open__buttons">
               <button data-art="${articul}" class="cart-open__plus">+</button>
               <span>1</span>
               <button data-art="${articul}" class="cart-open__minus">-</button>
             </div>
-            <div class="cart-open__price-product">${price}грн.</div>
+            <div data-price="${price}" class="cart-open__price-product">${price}грн.</div>
             <button class="cart-open__close">X</button>
           </div>
         </div>
@@ -36,28 +35,41 @@ function addToCart() {
     return str.replace(/[^a-zA-Z0-9]/g, "");
   };
 
-  //PlusFullPrice
+  // print and sum full price
 
-  const plusFullPrice = (currentPrice) => {
-    return (price += currentPrice);
+  const printFullPrice = (sumAllPrices) => {
+    const allPrices = document.querySelectorAll(".cart-open__price-product");
+    sumAllPrices = 0;
+    for (let i = 0; i < allPrices.length; i++) {
+      sumAllPrices += parseInt(priceWithoutSpaces(allPrices[i].textContent));
+    }
+    console.log(allPrices);
+    return (fullPrice.innerHTML = sumAllPrices);
   };
 
-  //MinusFullPrice
-
-  const minusFullPrice = (currentPrice) => {
-    return (price -= currentPrice);
-  };
-
-  //printFullPrice
-
-  const printFullPrice = () => {
-    fullPrice.textContent = `${String(price)}`;
-  };
+  //print Quantity
 
   const printQuantity = () => {
     let length = cartProductList.children.length;
     cartQuantity.textContent = length;
   };
+
+  //updateProductPrice
+
+  const updateProductPrice = (articul, quantity) => {
+    const productItem = document.querySelector(`[data-art="${articul}"]`);
+    const productPrice = parseInt(
+      productItem.querySelector(".cart-open__price-product").dataset.price
+    );
+
+    const totalPrice = productPrice * quantity;
+    productItem.querySelector(".cart-open__price-product").textContent =
+      totalPrice.toLocaleString() + "грн";
+
+    printFullPrice();
+  };
+
+  //productPlus
 
   const productPlus = (plus) => {
     if (plus) {
@@ -65,12 +77,17 @@ function addToCart() {
       const value = document.querySelector(`[data-art="${articul}"] + span`);
       let result = parseInt(value.textContent);
       result++;
-      if (result <= 0) {
+      if (result <= 20) {
+        updateProductPrice(articul, result);
+      } else {
         return;
       }
+      //..............................................................................................
       return (value.innerHTML = result);
     }
   };
+
+  //productMinus
 
   const productMinus = (minus) => {
     if (minus) {
@@ -78,40 +95,33 @@ function addToCart() {
       const value = document.querySelector(`[data-art="${articul}"] + span`);
       let result = parseInt(value.textContent);
       result--;
+
       if (result <= 0) {
         return;
+      } else {
+        updateProductPrice(articul, result);
       }
+      //.................................................................................................
       return (value.innerHTML = result);
     }
   };
 
+  //deleteProducts
+
   const deleteProducts = (productParent) => {
-    let id = productParent.querySelector(".cart-open__item").dataset.id;
+    let articul = productParent.querySelector(".cart-open__item").dataset.art;
     document
-      .querySelector(`.products__card[data-id="${id}"]`)
+      .querySelector(`.products__card[data-art="${articul}"]`)
       .querySelector(".products__bottom-button").disabled = false;
-
-    let currentPrice = parseInt(
-      priceWithoutSpaces(
-        productParent.querySelector(".cart-open__price").textContent
-      )
-    );
-
-    minusFullPrice(currentPrice);
-    printFullPrice();
     productParent.remove();
     printQuantity();
+    printFullPrice();
   };
-
-  buttonCart.addEventListener("click", () => {
-    cart.classList.toggle("_active");
-  });
 
   productBtn.forEach((el) => {
     el.addEventListener("click", (e) => {
       e.preventDefault();
       cartOpenFullPrice.classList.add("_active");
-
       let articul = el.dataset.art;
 
       let self = e.currentTarget;
@@ -130,9 +140,6 @@ function addToCart() {
 
       let weight = parent.querySelector(".products__info-subtitle").textContent;
 
-      plusFullPrice(priceNumber);
-      printFullPrice();
-
       cartProductList.insertAdjacentHTML(
         "afterbegin",
         generateCartProduct(title, priceNumber, id, weight, articul)
@@ -142,6 +149,7 @@ function addToCart() {
 
       //count and print quntity
       printQuantity();
+      printFullPrice();
 
       //diabled btn
 
