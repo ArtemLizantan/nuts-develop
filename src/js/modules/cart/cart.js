@@ -7,36 +7,48 @@ function addToCart() {
   const buttonCart = document.querySelector(".header__cart");
   const textNothing = document.querySelector(".cart-open__nothing");
   const cartOpenFullPrice = document.querySelector(".cart-open__fullprice");
+  const cartBody = document.querySelector(".cart-open__body");
+  const cartButtonPlus = document.querySelectorAll(".cart-open__plus");
+  let cartOpenPrice = document.querySelectorAll(".cart-open__price-product");
+
   let price = 0;
 
-  const generateCartProduct = (title, price, id, weight) => {
+  const generateCartProduct = (title, price, id, weight, articul) => {
     return `<li class="cart-open__li">
         <div class="cart-open__flex">
           <div data-id="${id}" class="cart-open__item">
             <div class="cart-open__title">${title} <span>${weight}г.</span></div>
             <div class="cart-open__buttons">
-              <button class="cart-open__plus">+</button>
+              <button data-art="${articul}" class="cart-open__plus">+</button>
               <span>1</span>
-              <button class="cart-open__minus">-</button>
+              <button data-art="${articul}" class="cart-open__minus">-</button>
             </div>
-            <div class="cart-open__price">${price}грн.</div>
+            <div class="cart-open__price-product">${price}грн.</div>
             <button class="cart-open__close">X</button>
           </div>
         </div>
       </li>`;
   };
 
+  //priceWithoutSpaces
+
   const priceWithoutSpaces = (str) => {
     return str.replace(/[^a-zA-Z0-9]/g, "");
   };
+
+  //PlusFullPrice
 
   const plusFullPrice = (currentPrice) => {
     return (price += currentPrice);
   };
 
+  //MinusFullPrice
+
   const minusFullPrice = (currentPrice) => {
     return (price -= currentPrice);
   };
+
+  //printFullPrice
 
   const printFullPrice = () => {
     fullPrice.textContent = `${String(price)}`;
@@ -45,6 +57,32 @@ function addToCart() {
   const printQuantity = () => {
     let length = cartProductList.children.length;
     cartQuantity.textContent = length;
+  };
+
+  const productPlus = (plus) => {
+    if (plus) {
+      const articul = plus.dataset.art;
+      const value = document.querySelector(`[data-art="${articul}"] + span`);
+      let result = parseInt(value.textContent);
+      result++;
+      if (result <= 0) {
+        return;
+      }
+      return (value.innerHTML = result);
+    }
+  };
+
+  const productMinus = (minus) => {
+    if (minus) {
+      const articul = minus.dataset.art;
+      const value = document.querySelector(`[data-art="${articul}"] + span`);
+      let result = parseInt(value.textContent);
+      result--;
+      if (result <= 0) {
+        return;
+      }
+      return (value.innerHTML = result);
+    }
   };
 
   const deleteProducts = (productParent) => {
@@ -58,18 +96,11 @@ function addToCart() {
         productParent.querySelector(".cart-open__price").textContent
       )
     );
-    //minus price
 
     minusFullPrice(currentPrice);
     printFullPrice();
     productParent.remove();
-    printQuantity()
-
-    //printFullprice
-
-    //cound and print quantuty
-
-    //remove productParent
+    printQuantity();
   };
 
   buttonCart.addEventListener("click", () => {
@@ -80,6 +111,8 @@ function addToCart() {
     el.addEventListener("click", (e) => {
       e.preventDefault();
       cartOpenFullPrice.classList.add("_active");
+
+      let articul = el.dataset.art;
 
       let self = e.currentTarget;
 
@@ -97,19 +130,12 @@ function addToCart() {
 
       let weight = parent.querySelector(".products__info-subtitle").textContent;
 
-      //sum
-
       plusFullPrice(priceNumber);
-      console.log(price);
       printFullPrice();
-
-      //print full price
-
-      //add to cart
 
       cartProductList.insertAdjacentHTML(
         "afterbegin",
-        generateCartProduct(title, priceNumber, id, weight)
+        generateCartProduct(title, priceNumber, id, weight, articul)
       );
 
       textNothing.remove();
@@ -123,9 +149,17 @@ function addToCart() {
     });
   });
 
+  // delete products
+
   cart.addEventListener("click", (e) => {
     if (e.target.classList.contains("cart-open__close")) {
       deleteProducts(e.target.closest(".cart-open__li"));
+    }
+    if (e.target.classList.contains("cart-open__plus")) {
+      productPlus(e.target);
+    }
+    if (e.target.classList.contains("cart-open__minus")) {
+      productMinus(e.target);
     }
   });
 }

@@ -106,7 +106,7 @@ function data() {
               </div>
             </div>
             <div class="products__bottom-right">
-              <button class="products__bottom-button">Купить</button>
+              <button data-art="${Articul}" class="products__bottom-button">Купить</button>
             </div>
           </div>
             </div>
