@@ -60,10 +60,12 @@
               </div>
             </div>
           </div>
-          <div class="header__cart-box">
-            <button c class="_icon-bag header__cart"></button>
-            <div class="header__cart-quantity">0</div>
-            @@include('main-page/cart-click.html', {})
+          <div class="header__desctop-cart">
+            <div class="header__cart-box">
+              <button class="_icon-bag header__cart"></button>
+              <div class="header__cart-quantity">0</div>
+              @@include('main-page/cart-click.html', {})
+            </div>
           </div>
         </div>
       </div>
@@ -125,11 +127,7 @@
             </div></a
           >
         </div>
-        <div class="header__cart-box">
-          <button c class="_icon-bag header__cart"></button>
-          <div class="header__cart-quantity">0</div>
-          @@include('main-page/cart-click.html', {})
-        </div>
+        <div class="header__mobile-cart-box"></div>
       </div>
       <div class="header__open-menu open-menu">
         <div class="header__container-open-mobile">
@@ -196,4 +194,5 @@
       </div>
     </div>
   </div>
+  <div class="menu__pre-scrin"></div>
 </header>
