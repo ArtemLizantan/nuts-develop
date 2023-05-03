@@ -43,7 +43,11 @@ function addToCart() {
     for (let i = 0; i < allPrices.length; i++) {
       sumAllPrices += parseInt(priceWithoutSpaces(allPrices[i].textContent));
     }
-    console.log(allPrices);
+    if (allPrices.length === 0) {
+      cartOpenFullPrice.classList.remove("_active");
+    } else {
+      cartOpenFullPrice.classList.add("_active");
+    }
     return (fullPrice.innerHTML = sumAllPrices);
   };
 
@@ -52,6 +56,12 @@ function addToCart() {
   const printQuantity = () => {
     let length = cartProductList.children.length;
     cartQuantity.textContent = length;
+    console.log(length);
+    if (length == 0) {
+      textNothing.classList.add("_active");
+    } else if (length <= 1) {
+      textNothing.classList.remove("_active");
+    }
   };
 
   //updateProductPrice
@@ -121,7 +131,6 @@ function addToCart() {
   productBtn.forEach((el) => {
     el.addEventListener("click", (e) => {
       e.preventDefault();
-      cartOpenFullPrice.classList.add("_active");
       let articul = el.dataset.art;
 
       let self = e.currentTarget;
@@ -144,8 +153,6 @@ function addToCart() {
         "afterbegin",
         generateCartProduct(title, priceNumber, id, weight, articul)
       );
-
-      textNothing.remove();
 
       //count and print quntity
       printQuantity();
@@ -170,6 +177,8 @@ function addToCart() {
       productMinus(e.target);
     }
   });
+
+  
 }
 
 setTimeout(() => {

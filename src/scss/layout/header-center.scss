@@ -123,6 +123,9 @@
 
   &__cart-box {
     position: relative;
+    @media (max-width: $md2+px) {
+      margin-left: auto;
+    }
   }
   // .header__cart
 
