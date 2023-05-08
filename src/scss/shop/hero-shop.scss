@@ -1,0 +1,22 @@
+.hero-shop {
+    height: 300px;
+  // .hero-shop__bg
+
+  &__bg {
+    img{
+        height: 300px;
+    }
+  }
+
+  // .hero-shop__body
+
+  &__body {
+    align-items: center;
+  }
+
+  // .hero-shop__text-box
+
+  &__text-box {
+    margin-top: 0;
+  }
+}

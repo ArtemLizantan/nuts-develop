@@ -259,10 +259,8 @@
     max-width: 200px;
     padding: rem(17) rem(27);
     margin-top: rem(72);
-    @media (min-width: 1600px) {
-      max-width: 250px;
-      text-align: center;
-    }
+    text-align: center;
+    background: none;
   }
 
   // .products__bottom-right
@@ -274,7 +272,8 @@
 
   &__bottom-button {
     @extend %mainButton;
-    padding: 11px 37px;
+    padding: 11px 34px;
+    text-align: center;
     &:disabled {
       opacity: 0.3;
       pointer-events: none;
@@ -301,6 +300,19 @@
   }
   &__img-button-next {
     right: 0;
+  }
+  &__card-link {
+    opacity: 1;
+    height: auto;
+    pointer-events: unset;
+    overflow: visible;
+    transition: all 0.4s ease;
+    &._hide {
+      opacity: 0;
+      height: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
   }
 }
 

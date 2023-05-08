@@ -1,0 +1,19 @@
+.eco {
+  margin-top: 90px;
+  &__icon {
+    text-align: center;
+    @include adaptiv-value(margin-bottom, 45, 10, 3);
+  }
+  &__text-box {
+    @include adaptiv-value(margin-top, 233, 50, 3);
+  }
+  &__title{
+    margin-bottom: 20px;
+    @include adaptiv-value(margin-bottom, 20, 10, 3);
+  }
+  &__subtitle{
+    max-width: 750px;
+    font-size: 22px;
+    margin-top: 0;
+  }
+}

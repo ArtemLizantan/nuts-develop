@@ -1,0 +1,37 @@
+.big-picture {
+  //   height: 740px;
+  margin-top: 92px;
+  @include adaptiv-value(height, 740, 400, 3);
+  &__bg {
+    img {
+      @include adaptiv-value(height, 740, 400, 3);
+    }
+  }
+
+  &__text-box {
+    @include adaptiv-value(margin-top, 240, 50, 3);
+  }
+  // .big-picture__title
+
+  &__title {
+    @extend %main-title;
+    color: #fff;
+    text-align: center;
+    @include adaptiv-font(45, 25, 4);
+    @include adaptiv-value(margin-bottom, 71, 20, 3);
+  }
+  // .big-picture__subtitle
+
+  &__subtitle {
+    font-family: "Raleway";
+    font-style: italic;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 30px;
+    @include adaptiv-font(24, 18, 3);
+  }
+}

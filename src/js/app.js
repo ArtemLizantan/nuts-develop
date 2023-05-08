@@ -74,4 +74,6 @@ import burger from "./modules/burger.js";
 import data from "./modules/strapiData/data.js";
 import dynamicHtml from "./modules/cart/dynamicHtml.js";
 import addToCart from "./modules/cart/cart";
-import swiperManufacturer from "./modules/swiper.js";
+import swiperManufacturer from "./modules/swiper.js";4
+import newsSwiper from "./modules/swiper.js";
+import filter from "./modules/filter/filter.js";

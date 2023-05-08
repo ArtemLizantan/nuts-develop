@@ -3,33 +3,35 @@ Swiper.use([Navigation, Pagination, Autoplay, Scrollbar]);
 
 function data() {
   const productsCards = document.querySelectorAll(".products__card-link");
-  const data = fetch("http://localhost:1337/api/products?populate=deep")
-    .then((response) => response.json())
-    .then(({ data }) => {
-      console.log(data);
-      data.forEach(
-        (
-          {
-            id,
-            attributes: {
-              img: {
-                data: [
-                  {
-                    attributes: { url },
-                  },
-                ],
+  const productsButtonShowMore = document.querySelector(".products__show-more");
+  if (productsCards.length != 0) {
+    const data = fetch("http://localhost:1337/api/products?populate=deep")
+      .then((response) => response.json())
+      .then(({ data }) => {
+        console.log(data);
+        data.forEach(
+          (
+            {
+              id,
+              attributes: {
+                img: {
+                  data: [
+                    {
+                      attributes: { url },
+                    },
+                  ],
+                },
+                Articul,
+                price,
+                subtitle,
+                title,
+                weight,
               },
-              Articul,
-              price,
-              subtitle,
-              title,
-              weight,
             },
-          },
-          i
-        ) => {
-          const markup = () => {
-            return ` 
+            i
+          ) => {
+            const markup = () => {
+              return ` 
             <div data-art="${Articul}" class="products__card">
             <div class="products__swiper-img">
             <!-- Swiper IMG CARD -->
@@ -101,7 +103,7 @@ function data() {
           <div class="products__bottom">
             <div class="products__bottom-left">
               <div class="products__bottom-price">Цена:</div>
-              <div  class="products__bottom-price-item">
+              <div data-price="${price}" class="products__bottom-price-item">
                 <span>от</span> ${price} <span>грн.</span>
               </div>
             </div>
@@ -111,26 +113,36 @@ function data() {
           </div>
             </div>
              `;
-          };
-          productsCards[i].innerHTML = markup();
-          const swiperImgs = productsCards[i].querySelector(
-            ".products__swiperImgs"
-          );
-          new Swiper(swiperImgs, {
-            navigation: {
-              nextEl: ".products__swiper-button-next",
-              prevEl: ".products__swiper-button-prev",
-            },
-          });
-        }
-      );
-    })
+            };
+            productsCards[i].innerHTML = markup();
 
-    .catch((error) => console.error(error));
+            const swiperImgs = productsCards[i].querySelector(
+              ".products__swiperImgs"
+            );
+            new Swiper(swiperImgs, {
+              navigation: {
+                nextEl: ".products__swiper-button-next",
+                prevEl: ".products__swiper-button-prev",
+              },
+            });
+          }
+        );
+      })
+
+      .catch((error) => console.error(error));
+  }
+
+  for (let i = 6; i < productsCards.length; i++) {
+    productsCards[i].classList.add("_hide");
+  }
+  if (productsButtonShowMore) {
+    productsButtonShowMore.addEventListener("click", () => {
+      productsButtonShowMore.style.display = "none";
+      for (let i = 6; i < productsCards.length; i++) {
+        productsCards[i].classList.remove("_hide");
+      }
+    });
+  }
 }
 
 data();
-
-
-
-

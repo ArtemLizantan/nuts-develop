@@ -1,6 +1,9 @@
 // =====================================================================================================================
 .header {
   min-height: rem(179);
+  &:nth-child(2){
+    margin-top: 400px;
+  }
   @media (max-width: $md2+px) {
     min-height: rem(120);
     position: relative;

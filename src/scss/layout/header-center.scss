@@ -3,6 +3,8 @@
 
   &__center {
     margin-top: rem(18);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    padding-bottom: 8px;
     @media (max-width: $md2+px) {
       display: none;
     }
@@ -108,6 +110,7 @@
     &__button {
       @extend %mainButton;
       padding: rem(13) rem(20);
+      font-size: 13px;
     }
     &__text {
       font-family: "Montserrat";

@@ -1,0 +1,160 @@
+.owner {
+  padding-top: 107px;
+  padding-bottom: 84px;
+
+  background: #fbfbfb;
+
+  // .owner__container
+
+  &__container {
+    max-width: rem(1320);
+  }
+
+  // .owner__body
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: 1200px) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+    }
+  }
+
+  // .owner__left
+
+  &__left {
+  }
+
+  // .owner__about
+
+  &__about {
+    display: flex;
+    gap: 44px;
+    @media (max-width: $md3+px) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  // .owner__img
+
+  &__img {
+    img {
+      width: 342px;
+      height: 493px;
+    }
+  }
+
+  // .owner__about-text
+
+  &__about-text {
+    margin-top: 28px;
+  }
+
+  // .owner__about-title
+
+  &__about-title {
+    @extend %main-title;
+    font-size: 32px;
+    line-height: 38px;
+    margin-bottom: 14px;
+    @media (max-width: $md3+px) {
+      text-align: center;
+    }
+  }
+
+  // .owner__about-subtitle
+
+  &__about-subtitle {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    letter-spacing: 0.01em;
+    color: #1a2f3f;
+    max-width: 261px;
+    margin-bottom: 36px;
+    @media (max-width: $md3+px) {
+      text-align: center;
+      margin: 0 auto;
+      padding-bottom: 36px;
+    }
+  }
+
+  // .owner__about-goal-text\
+  &__about-goal {
+    display: flex;
+    gap: 18px;
+
+    margin-bottom: 70px;
+  }
+
+  &__about-goal-text {
+    font-family: "Raleway";
+    font-style: italic;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 13px;
+    letter-spacing: 0.01em;
+    color: #1a2f3f;
+    max-width: 359px;
+    margin: 5px;
+  }
+
+  // .owner__about-button
+
+  &__about-button {
+    @extend %mainButtonWhite;
+    padding: 18px 39px;
+    width: 189px;
+    @media (max-width: $md3+px) {
+      margin: 0 auto;
+    }
+  }
+
+  // .owner__right
+
+  &__right {
+    width: 453px;
+    padding: 28px 43px;
+    background-color: #337d5a;
+    @media (max-width: 1200px) {
+      width: 100%;
+    }
+  }
+
+  // .owner__right-title
+
+  &__right-title {
+    @extend %main-title;
+    font-size: 32px;
+    line-height: 38px;
+    color: #fff;
+    margin-bottom: 32px;
+  }
+
+  // .owner__subtitle
+
+  &__subtitle {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    p {
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 22px;
+      color: #fcfcfc;
+    }
+  }
+}
+
+.manufacturer-prod__body {
+  margin-top: 128px;
+}

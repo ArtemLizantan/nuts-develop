@@ -1,0 +1,114 @@
+.gallery {
+  margin-top: 178px;
+  // .gallery__container
+
+  &__container {
+    max-width: rem(1320);
+  }
+
+  // .gallery__body
+
+  &__body {
+  }
+
+  // .gallery__title
+
+  &__title {
+    text-align: center;
+    @extend %main-title;
+    @include adaptiv-font(45, 25, 4);
+    margin-bottom: 24px;
+  }
+
+  // .gallery__subtitle
+
+  &__subtitle {
+    @extend %main-subtitle;
+    line-height: 22px;
+    margin-bottom: 62px;
+  }
+
+  // .gallery__items
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 31px;
+    @media (max-width: 1330px) {
+      flex-direction: column;
+      flex-wrap: unset;
+    }
+    img {
+      &:nth-child(1) {
+        width: 739px;
+        height: 556px;
+        @media (max-width: 1330px) {
+          max-width: 100%;
+          margin: 0 auto;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      &:nth-child(2) {
+        width: 520px;
+        height: 556px;
+        @media (max-width: 1330px) {
+          max-width: 100%;
+          margin: 0 auto;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      &:nth-child(3) {
+        width: 1290px;
+        height: 556px;
+        @media (max-width: 1330px) {
+          max-width: 100%;
+          margin: 0 auto;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      &:nth-child(4) {
+        width: 409px;
+        height: 404px;
+        @media (max-width: 1330px) {
+          max-width: 100%;
+          margin: 0 auto;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      &:nth-child(5) {
+        width: 409px;
+        height: 404px;
+        @media (max-width: 1330px) {
+          max-width: 100%;
+          margin: 0 auto;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      &:nth-child(6) {
+        width: 409px;
+        height: 404px;
+        @media (max-width: 1330px) {
+          max-width: 100%;
+          margin: 0 auto;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  // .gallery__button
+
+  &__button {
+    @extend %mainButtonWhite;
+    padding: 18px 26px;
+    width: 233px;
+    margin: 0 auto;
+    margin-top: 71px;
+  }
+}

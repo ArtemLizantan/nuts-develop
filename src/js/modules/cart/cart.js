@@ -7,7 +7,8 @@ function addToCart() {
   const buttonCart = document.querySelector(".header__cart");
   const textNothing = document.querySelector(".cart-open__nothing");
   const cartOpenFullPrice = document.querySelector(".cart-open__fullprice");
-  const breakpoint = 991;
+  const productsCards = document.querySelectorAll(".products__card");
+  const breakpoint = 992;
   const breakpointMobile = 480;
   const body = document.querySelector("body");
   const main = document.querySelector("main");
@@ -86,7 +87,7 @@ function addToCart() {
     cartQuantity.textContent = length;
     if (length == 0) {
       textNothing.classList.add("_active");
-    } else if (length <= 1) {
+    } else if (length >= 1) {
       textNothing.classList.remove("_active");
     }
   };
@@ -147,17 +148,50 @@ function addToCart() {
 
   const deleteProducts = (productParent) => {
     let articul = productParent.querySelector(".cart-open__item").dataset.art;
-    document
-      .querySelector(`.products__card[data-art="${articul}"]`)
-      .querySelector(".products__bottom-button").disabled = false;
+    if (productsCards.length != 0) {
+      document
+        .querySelector(`.products__card[data-art="${articul}"]`)
+        .querySelector(".products__bottom-button").disabled = false;
+    }
     productParent.remove();
     printQuantity();
     printFullPrice();
+    updateStorage();
+  };
+
+  const initialState = () => {
+    if (localStorage.getItem("products") != null) {
+      cartProductList.innerHTML = localStorage.getItem("products");
+      printQuantity();
+      printFullPrice();
+      document.querySelectorAll(".cart-open__item").forEach((el) => {
+        let id = el.dataset.art;
+        if (productsCards.length != 0) {
+          document
+            .querySelector(`.products__card[data-art="${id}"]`)
+            .querySelector(".products__bottom-button").disabled = true;
+        }
+      });
+    }
+  };
+
+  initialState();
+
+  const updateStorage = () => {
+    let html = cartProductList.innerHTML;
+    html = html.trim();
+
+    if (html.length) {
+      localStorage.setItem("products", html);
+    } else {
+      localStorage.removeItem("products");
+    }
   };
 
   productBtn.forEach((el) => {
     el.addEventListener("click", (e) => {
       e.preventDefault();
+
       let articul = el.dataset.art;
 
       let self = e.currentTarget;
@@ -181,9 +215,10 @@ function addToCart() {
         generateCartProduct(title, priceNumber, id, weight, articul)
       );
 
-      //count and print quntity
+      //count and print quntity + localStorage
       printQuantity();
       printFullPrice();
+      updateStorage();
 
       //diabled btn
 
