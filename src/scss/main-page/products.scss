@@ -27,31 +27,14 @@
 
   &__cards {
     margin-top: rem(62);
-  }
-
-  // .products__cards-body
-
-  &__cards-body {
     display: flex;
-    flex-direction: column;
-    gap: rem(49);
-    @include adaptiv-value(gap, 49, -10, 3);
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    row-gap: 50px;
   }
 
-  // .products__cards-flex
 
-  &__cards-flex {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    @media (max-width: $md2+px) {
-      flex-direction: column;
-      @include adaptiv-value(gap, 49, -10, 3);
-    }
-    @media (max-width: $md3+px) {
-      @include adaptiv-value(gap, 20, 10, 3);
-    }
-  }
 
   // .products__card
 

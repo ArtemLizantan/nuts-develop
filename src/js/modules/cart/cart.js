@@ -41,6 +41,8 @@ function addToCart() {
     preScrin.classList.remove("_active");
   });
 
+ 
+
   const generateCartProduct = (title, price, id, weight, articul) => {
     return `<li class="cart-open__li">
         <div class="cart-open__flex">

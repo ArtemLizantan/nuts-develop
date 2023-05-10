@@ -258,7 +258,7 @@
         display: none;
       }
       &::before {
-        top: calc(50% - rem(0.5));
+        top: calc(50% - rem(1.5));
         transform: rotate(-45deg);
       }
       &::after {

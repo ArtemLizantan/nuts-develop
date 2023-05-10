@@ -3,33 +3,59 @@
     <div class="products__body">
       <div class="products__filter-body">
         <div class="filter">
+          <div class="filter__wrapper">
           <div class="filter__text _icon-filtr">Фильтр</div>
-          <button id="sort-asc">По возростания</button>
-          <button id="sort-desc">По убыванию</button>
+
+            <div class="filter__selects">
+              <div class="custom-select-mobile">
+                <div class="custom-select">
+                  <div class="select-header">Масса</div>
+                  <ul class="select-list">
+                    <li><button class="filter__button-weight" id="sort-weight-more">Больше 45г</button></li>
+                    <li><button class="filter__button-weight" id="sort-weight-less">Меньше 45г</button></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="custom-select-mobile">
+                <div class="custom-select">
+                  <div class="select-header">Вкус</div>
+                  <ul class="select-list">
+                    <li><button class="filter__button-weight" id="sort-sweet">Сладкий</button></li>
+                    <li><button class="filter__button-weight" id="sort-salty">Соленый</button></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="filter__cost">
+              <div class="filter__cost-text">
+                Стоимость
+              </div>
+              <div class="filter__cost-buttons">
+                <button class="filter__cost-button _icon-filter-arrow" id="sort-asc"></button>
+                <button class="filter__cost-button _icon-filter-arrow" id="sort-desc"></button>
+              </div>
+            </div>
+          </div>
+          <div class="filter__remove-filter">
+            <button class="filter__accept-button" id="accept">Применить</button>
+            <button class="filter__remove-button _icon-close-filtr" id="remove">Сбросить</button>
+          </div>
         </div>
       </div>
       <div class="products__cards">
-        <div class="products__cards-body">
-          <div class="products__cards-flex">
-            <a class="products__card-link" href="#"></a>
-            <a class="products__card-link" href="#"></a>
-            <a class="products__card-link" href="#"></a>
-          </div>
-          <div class="products__cards-flex">
-            <a class="products__card-link" href="#"></a>
-            <a class="products__card-link" href="#"></a>
-            <a class="products__card-link" href="#"></a>
-          </div>
-          <div class="products__cards-flex">
-            <a class="products__card-link" href="#"></a>
-            <a class="products__card-link" href="#"></a>
-            <a class="products__card-link" href="#"></a>
-          </div>
-        </div>
-        <button class="products__button products__show-more">
-          Загрузить еще
-        </button>
+        <a class="products__card-link" href="#"></a>
+        <a class="products__card-link" href="#"></a>
+        <a class="products__card-link" href="#"></a>
+        <a class="products__card-link" href="#"></a>
+        <a class="products__card-link" href="#"></a>
+        <a class="products__card-link" href="#"></a>
+        <a class="products__card-link" href="#"></a>
+        <a class="products__card-link" href="#"></a>
+        <a class="products__card-link" href="#"></a>
       </div>
+      <button class="products__button products__show-more">
+        Загрузить еще
+      </button>
     </div>
   </div>
 </section>

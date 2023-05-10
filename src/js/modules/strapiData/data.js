@@ -26,6 +26,7 @@ function data() {
                 subtitle,
                 title,
                 weight,
+                idTitle
               },
             },
             i
@@ -82,7 +83,7 @@ function data() {
           <div class="products__text">
             <div class="products__text-title">${title}</div>
             <div class="products__text-articul">Арт: ${Articul}</div>
-            <div class="products__text-subtitle">
+            <div  data-title="${idTitle}" class="products__text-subtitle">
               ${subtitle}
             </div>
             <div class="products__info">
