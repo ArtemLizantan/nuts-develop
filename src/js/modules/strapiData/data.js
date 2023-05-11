@@ -90,7 +90,7 @@ function data() {
               <div class="_icon-weight products__info-left">
                 <div class="products__info-wrapper-left">
                   <div class="products__info-title">Масса</div>
-                  <div class="products__info-subtitle">${weight}</div>
+                  <div data-weight="${weight}" class="products__info-subtitle">${weight}</div>
                 </div>
               </div>
               <div class="_icon-bag products__info-right">

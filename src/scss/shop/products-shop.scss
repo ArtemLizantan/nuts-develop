@@ -17,7 +17,7 @@
   // .hero-shop__text-box
 
   &__text-box {
-    margin-top: 0;
+    margin-top: 55px;
   }
 }
 
@@ -89,10 +89,10 @@
     &:nth-child(1) {
       transform: rotate(180deg);
     }
-    &::before{
-      color: #337D5A;
+    &::before {
+      color: #337d5a;
     }
-    &._active{
+    &._active {
       opacity: 0.5;
     }
   }
@@ -106,7 +106,7 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    &._active{
+    &._active {
       display: flex;
       pointer-events: unset;
       overflow: visible;
@@ -137,7 +137,8 @@
     color: #8a8a8a;
   }
 
-  &__button-weight {
+  &__button-weight,
+  &__button-taste {
     padding-left: 15px;
     background: none;
     width: 100%;

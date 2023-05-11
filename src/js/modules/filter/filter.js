@@ -1,161 +1,67 @@
 function filter() {
+  const accept = document.getElementById("accept");
+  const remove = document.getElementById("remove");
   const buttonAsc = document.getElementById("sort-asc");
   const buttonDesc = document.getElementById("sort-desc");
-  const buttonWeightMore = document.getElementById("sort-weight-more");
-  const buttonWeightLess = document.getElementById("sort-weight-less");
-  const buttonSweet = document.getElementById("sort-sweet");
-  const buttonSalty = document.getElementById("sort-salty");
   const productsCard = document.querySelectorAll(".products__card");
-  const prodBtnShowMore = document.querySelector(".products__show-more");
-  const filterAcceptButton = document.getElementById("accept");
+  const container = document.querySelector(".products__cards");
+  const filterRemoveButtons = document.querySelector(".filter__remove-filter");
+  const selectHeader = document.querySelectorAll(".select-header");
+  
+  let weightValue;
+  let tasteValue;
 
-  //сортировка по возростанию
+  const filterProducts = () => {
+    let filterProducts = [];
 
-  const sortAsc = () => {
-    const itemsArr = Array.from(productsCard);
+    productsCard.forEach((el) => {
+      const weight = +el.querySelector(".products__info-subtitle").dataset
+        .weight;
+      const taste = el.querySelector(".products__text-subtitle").dataset.title;
 
-    itemsArr.sort((a, b) => {
-      const priceA = +a.querySelector(".products__bottom-price-item").dataset
-        .price;
-      const priceB = +b.querySelector(".products__bottom-price-item").dataset
-        .price;
-      return priceA - priceB;
-    });
-
-    const container = document.querySelector(".products__cards");
-    container.innerHTML = "";
-
-    itemsArr.forEach((item) => container.appendChild(item));
-  };
-
-  //сортировка по убыванию
-
-  const sortDesc = () => {
-    const itemsArr = Array.from(productsCard);
-    itemsArr.sort((a, b) => {
-      const priceA = +a.querySelector(".products__bottom-price-item").dataset
-        .price;
-      const priceB = +b.querySelector(".products__bottom-price-item").dataset
-        .price;
-      return priceB - priceA;
-    });
-
-    const container = document.querySelector(".products__cards");
-    container.innerHTML = "";
-
-    itemsArr.forEach((item) => container.appendChild(item));
-  };
-
-  //Больше 50
-
-  const sortWeightLess = () => {
-    const itemsArr = Array.from(productsCard);
-    itemsArr.sort((a, b) => {
-      const weightA = +a.querySelector(".products__info-subtitle").textContent;
-      const weightB = +b.querySelector(".products__info-subtitle").textContent;
-
-      if (weightB < 50) {
-        return 1; // Возвращаем 1, чтобы элементы с маленьким весом были ниже
-      }
-
-      if (weightA < 50) {
-        return -1; // Возвращаем -1, чтобы элементы с маленьким весом были выше
-      }
-
-      return weightA - weightB;
-    });
-
-    const container = document.querySelector(".products__cards");
-    container.innerHTML = "";
-    itemsArr.forEach((item) => {
-      if (+item.querySelector(".products__info-subtitle").textContent < 45) {
-        container.appendChild(item);
-      }
-    });
-  };
-
-  const sortWeightMore = () => {
-    const itemsArr = Array.from(productsCard);
-    itemsArr.sort((a, b) => {
-      const weightA = +a.querySelector(".products__info-subtitle").textContent;
-      const weightB = +b.querySelector(".products__info-subtitle").textContent;
-
-      if (weightB < 50) {
-        return 1; // Возвращаем 1, чтобы элементы с маленьким весом были ниже
-      }
-
-      if (weightA < 50) {
-        return -1; // Возвращаем -1, чтобы элементы с маленьким весом были выше
-      }
-
-      return weightB - weightA;
-    });
-
-    const container = document.querySelector(".products__cards");
-    container.innerHTML = "";
-    itemsArr.forEach((item) => {
-      if (+item.querySelector(".products__info-subtitle").textContent > 40) {
-        container.appendChild(item);
-      }
-    });
-  };
-
-  const sortSweet = () => {
-    const itemsArr = Array.from(productsCard);
-    const container = document.querySelector(".products__cards");
-    container.innerHTML = "";
-    itemsArr.forEach((item) => {
       if (
-        item.querySelector(".products__text-subtitle").dataset.title ===
-        "Сладкий"
+        (!weightValue ||
+          (weightValue === "more" && weight > 45) ||
+          (weightValue === "less" && weight < 45)) &&
+        (!tasteValue ||
+          (tasteValue === "sweet" && taste === "Сладкий") ||
+          (tasteValue === "salty" && taste === "Соленый"))
       ) {
-        container.appendChild(item);
+        filterProducts.push(el);
       }
     });
+    if (filterProducts.length === 0) {
+      container.innerHTML =
+        "Не найдено продуктов, соответствующих вашим критериям.";
+    } else {
+      container.innerHTML = "";
+      filterProducts.forEach((el) => container.appendChild(el));
+    }
   };
 
-  const sortSalty = () => {
-    const itemsArr = Array.from(productsCard);
-    const container = document.querySelector(".products__cards");
+  const addEventListeners = () => {
+    document.querySelectorAll(".filter__button-weight").forEach((el) => {
+      el.addEventListener("click", (e) => {
+        weightValue = e.target.dataset.weight;
+      });
+    });
+
+    document.querySelectorAll(".filter__button-taste").forEach((el) => {
+      el.addEventListener("click", (e) => {
+        tasteValue = e.target.dataset.title;
+      });
+    });
+  };
+  addEventListeners();
+  accept.addEventListener("click", () => {
+    filterProducts();
+  });
+  remove.addEventListener("click", () => {
     container.innerHTML = "";
-    itemsArr.forEach((item) => {
-      if (
-        item.querySelector(".products__text-subtitle").dataset.title ===
-        "Соленый"
-      ) {
-        container.appendChild(item);
-      }
-    });
-  };
-
-  //Запуск функций
-
-  buttonAsc.addEventListener("click", () => {
-    if (prodBtnShowMore) {
-      prodBtnShowMore.style.display = "none";
-    }
-    if (!buttonDesc.classList.contains("_active")) {
-      buttonAsc.classList.add("_active");
-    } else {
-      buttonDesc.classList.remove("_active");
-      buttonAsc.classList.add("_active");
-    }
-    sortAsc();
-  });
-  buttonDesc.addEventListener("click", () => {
-    if (!buttonAsc.classList.contains("_active")) {
-      buttonDesc.classList.add("_active");
-    } else {
-      buttonAsc.classList.remove("_active");
-      buttonDesc.classList.add("_active");
-    }
-    sortDesc();
-    buttonDesc.classList.add("_active");
-  });
-
-  filterAcceptButton.addEventListener("click", () => {
-    // Определяем, какой фильтр был выбран пользователем
-    // if()
+    productsCard.forEach((el) => container.appendChild(el));
+    filterRemoveButtons.classList.remove("_active");
+    selectHeader[0].textContent = "Масса";
+    selectHeader[1].textContent = "Вкус";
   });
 }
 
