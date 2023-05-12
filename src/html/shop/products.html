@@ -1,4 +1,4 @@
-<section class="products products-shop">
+<section class="products  hero-shop__products">
   <div class="products__container">
     <div class="products__body">
       <div class="products__filter-body">
@@ -16,10 +16,10 @@
                   </ul>
                 </div>
               </div>
-              <div class="custom-select-mobile">
-                <div class="custom-select">
-                  <div class="select-header">Вкус</div>
-                  <ul class="select-list">
+              <div class="custom-select-mobile custom-select__second">
+                <div class="custom-select custom-select__second">
+                  <div class="select-header select-header__second">Вкус</div>
+                  <ul class="select-list select-list__second">
                     <li><button value="sweet" data-title="sweet" class="filter__button-taste " id="sort-sweet">Сладкий</button></li>
                     <li><button value="salty" data-title="salty" class="filter__button-taste " id="sort-salty">Соленый</button></li>
                   </ul>
@@ -31,8 +31,8 @@
                 Стоимость
               </div>
               <div class="filter__cost-buttons">
-                <button class="filter__cost-button _icon-filter-arrow" id="sort-asc"></button>
-                <button class="filter__cost-button _icon-filter-arrow" id="sort-desc"></button>
+                <button class="filter__cost-button _icon-filter-arrow" data-sort="asc" id="sort-asc"></button>
+                <button class="filter__cost-button _icon-filter-arrow" data-sort="desc" id="sort-desc"></button>
               </div>
             </div>
           </div>
@@ -42,7 +42,7 @@
           </div>
         </div>
       </div>
-      <div class="products__cards">
+      <div class="products__cards hero-shop__products-card">
         <a class="products__card-link" href="#"></a>
         <a class="products__card-link" href="#"></a>
         <a class="products__card-link" href="#"></a>
@@ -53,7 +53,7 @@
         <a class="products__card-link" href="#"></a>
         <a class="products__card-link" href="#"></a>
       </div>
-      <button class="products__button products__show-more">
+      <button class="products__show-more">
         Загрузить еще
       </button>
     </div>

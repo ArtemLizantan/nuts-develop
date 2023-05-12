@@ -26,15 +26,13 @@
   // .products__cards
 
   &__cards {
-    margin-top: rem(62);
+    margin-top: rem(79);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
-    row-gap: 50px;
+    gap: 29px;
+    row-gap: 34px;
   }
-
-
 
   // .products__card
 
@@ -241,7 +239,7 @@
     display: block;
     max-width: 200px;
     padding: rem(17) rem(27);
-    margin-top: rem(72);
+    margin-top: rem(38);
     text-align: center;
     background: none;
   }
@@ -296,6 +294,16 @@
       pointer-events: none;
       overflow: hidden;
     }
+  }
+  &__show-more {
+    @extend %mainButtonWhite;
+    margin: 0 auto;
+    display: block;
+    max-width: 300px;
+    padding: rem(17) rem(44);
+    margin-top: rem(50);
+    text-align: center;
+    background: none;
   }
 }
 

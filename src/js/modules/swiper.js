@@ -20,6 +20,11 @@ function newsSwiper() {
       prevEl: ".news__button-prev",
     },
     breakpoints: {
+      360: {
+        slidesPerView: 1.4,
+        spaceBetween: 10,
+        centeredSlides: true,
+      },
       375: {
         slidesPerView: 1.4,
         spaceBetween: 10,
@@ -52,3 +57,14 @@ function newsSwiper() {
   });
 }
 newsSwiper();
+
+
+function ecology(){
+  let swiper = new Swiper(".ecology__swiper-left", {
+    direction: "vertical",
+    scrollbar: {
+      el: ".swiper-scrollbar",
+    },
+  });
+}
+ecology();

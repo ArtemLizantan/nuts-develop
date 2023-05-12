@@ -78,3 +78,4 @@ import swiperManufacturer from "./modules/swiper.js";4
 import newsSwiper from "./modules/swiper.js";
 import filter from "./modules/filter/filter.js";
 import customSelect from "./modules/customSelect/customSelect.js";
+import ecology from "./modules/swiper.js";

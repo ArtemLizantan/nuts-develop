@@ -1,0 +1,86 @@
+.ecology {
+  background: #fbfbfb;
+  padding-top: 98px;
+  @media (max-width: 1250px) {
+    @include adaptiv-value(padding-top, 98, 40, 3);
+    @include adaptiv-value(padding-bottom, 98, 40, 3);
+  }
+  &__swiper-left {
+    min-width: 0;
+    height: 447px;
+  }
+  &__body {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__wrapper {
+    @media (max-width: 1250px) {
+      width: 70%;
+      margin: 0 auto;
+    }
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+  &__left {
+    @media (max-width: 1250px) {
+      width: 100%;
+    }
+    @media (max-width: $md2+px) {
+      text-align: unset;
+      margin: unset;
+    }
+  }
+  &__subtitle-title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 50px;
+    letter-spacing: 0.01em;
+    color: #1a2f3f;
+    @include adaptiv-font(24, 18, 4);
+  }
+  &__title {
+    margin-bottom: unset;
+  }
+  &__right {
+    position: static;
+    @media (max-width: 1250px) {
+      display: none;
+    }
+  }
+  &__button {
+    @media (max-width: 768px) {
+      margin-bottom: 50px;
+    }
+  }
+  &__subtitle {
+    @media (max-width: $md2+px) {
+      margin: 0;
+      @include adaptiv-value(margin-bottom, 100, 50, 3);
+    }
+    @media (max-width: 768px) {
+      padding-right: 20px;
+      p {
+        &:nth-child(2) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.swiper-scrollbar-drag {
+  height: 35px !important;
+  width: 6px !important;
+  background: #337d5a !important;
+  border-radius: 50px !important;
+  left: -1px !important;
+}
+.swiper-scrollbar {
+  width: 3px !important;
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  right: 67px !important;
+  @media (max-width: 768px) {
+    right: 0 !important;
+  }
+}

@@ -25,7 +25,7 @@ function customSelect() {
         selectHeader.textContent = item.textContent;
         selectList.classList.remove("active");
         customSelect.classList.remove("active");
-        filterRemoveButtons.classList.add("_active")
+      
       });
     });
   });
