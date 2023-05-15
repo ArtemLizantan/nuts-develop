@@ -1,9 +1,10 @@
 .ecology {
   background: #fbfbfb;
   padding-top: 98px;
-  @media (max-width: 1250px) {
-    @include adaptiv-value(padding-top, 98, 40, 3);
-    @include adaptiv-value(padding-bottom, 98, 40, 3);
+  padding-bottom: 0px;
+  @media (max-width: $md2+px) {
+    @include adaptiv-value(padding-top, 98, 50, 3);
+    @include adaptiv-value(padding-bottom, 98, 50, 3);
   }
   &__swiper-left {
     min-width: 0;
@@ -37,7 +38,9 @@
     line-height: 50px;
     letter-spacing: 0.01em;
     color: #1a2f3f;
-    @include adaptiv-font(24, 18, 4);
+    @media (max-width: $md2+px) {
+      @include adaptiv-font(24, 18, 4);
+    }
   }
   &__title {
     margin-bottom: unset;
@@ -56,10 +59,10 @@
   &__subtitle {
     @media (max-width: $md2+px) {
       margin: 0;
+      padding-right: 20px;
       @include adaptiv-value(margin-bottom, 100, 50, 3);
     }
-    @media (max-width: 768px) {
-      padding-right: 20px;
+    @media (max-width: 376px) {
       p {
         &:nth-child(2) {
           display: none;

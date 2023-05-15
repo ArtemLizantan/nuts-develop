@@ -1,22 +1,22 @@
-.corporate__text-box{
-    @media (min-width: 1440px) {
-        margin-top: 240px;
-    }
+.corporate__text-box {
+  @media (min-width: 1440px) {
+    margin-top: 240px;
+  }
 }
 
 .corporate-info {
-    margin-top: 76px;
+  margin-top: 76px;
   // .corporate-info__container
 
   &__container {
     max-width: 1322px;
   }
-  &__center-wrapper{
+  &__center-wrapper {
     display: flex;
     align-items: center;
     gap: 40px;
     @media (max-width: $md3+px) {
-        flex-direction: column;
+      flex-direction: column;
     }
   }
 
@@ -24,11 +24,11 @@
 
   &__body {
     display: flex;
-    align-items: center;
-    @include adaptiv-value(gap,149,50,3);
+    @include adaptiv-value(gap, 149, 50, 3);
     @media (max-width: 1150px) {
-        flex-direction: column;
-        @include adaptiv-value(gap,50,30,3);
+      align-items: center;
+      flex-direction: column;
+      @include adaptiv-value(gap, 50, 30, 3);
     }
   }
 
@@ -41,7 +41,9 @@
 
   &__title {
     @extend %main-title;
-    @include adaptiv-font(45, 25, 4);
+    @media (max-width: $md2+px) {
+      @include adaptiv-font(45, 25, 4);
+    }
   }
 
   // .corporate-info__center

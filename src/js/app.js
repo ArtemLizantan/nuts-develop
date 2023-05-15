@@ -15,7 +15,6 @@ import {
   menuInit,
 } from "./modules";
 
-
 /* Раскомментировать для использования */
 // import { MousePRLX } from './libs/parallaxMouse'
 
@@ -69,13 +68,24 @@ isWebp();
 // togglePopupWindows()
 // =======================================================================================================
 
-
 import burger from "./modules/burger.js";
-import data from "./modules/strapiData/data.js";
+import getData from "./modules/strapiData/data.js";
 import dynamicHtml from "./modules/cart/dynamicHtml.js";
 import addToCart from "./modules/cart/cart";
-import swiperManufacturer from "./modules/swiper.js";4
+import swiperManufacturer from "./modules/swiper.js";
 import newsSwiper from "./modules/swiper.js";
 import filter from "./modules/filter/filter.js";
 import customSelect from "./modules/customSelect/customSelect.js";
 import ecology from "./modules/swiper.js";
+import corporateMix from "./modules/mix/mix.js";
+import registrarion from "./modules/registration/registration.js";
+import prelouder from "./modules/prelouder.js";
+
+async function go() {
+  let d = await registrarion();
+  let a = await getData();
+  let b = await addToCart();
+  let c = await filter();
+  let e = await prelouder();
+}
+go();

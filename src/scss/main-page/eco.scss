@@ -1,17 +1,26 @@
 .eco {
-  margin-top: 90px;
+  // margin-top: 90px;
+  margin-bottom: unset;
   &__icon {
     text-align: center;
-    @include adaptiv-value(margin-bottom, 45, 10, 3);
+    margin-bottom: 45px;
+    @media (max-width: $md2+px) {
+      @include adaptiv-value(margin-bottom, 45, 10, 3);
+    }
   }
   &__text-box {
-    @include adaptiv-value(margin-top, 233, 50, 3);
+    margin-top: 233px;
+    @media (max-width: $md2+px) {
+      @include adaptiv-value(margin-top, 233, 50, 3);
+    }
   }
-  &__title{
+  &__title {
     margin-bottom: 20px;
-    @include adaptiv-value(margin-bottom, 20, 10, 3);
+    @media (max-width: $md2+px) {
+      @include adaptiv-value(margin-bottom, 20, 10, 3);
+    }
   }
-  &__subtitle{
+  &__subtitle {
     max-width: 750px;
     font-size: 22px;
     margin-top: 0;

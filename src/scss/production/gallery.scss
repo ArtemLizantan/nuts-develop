@@ -1,5 +1,10 @@
 .gallery {
-  margin-top: 178px;
+  margin-top: 90px;
+  margin-bottom: 90px;
+  @media (max-width: $md2+px) {
+    @include adaptiv-value(margin-top, 77, 50, 3);
+    @include adaptiv-value(margin-bottom, 90, 50, 3);
+  }
   // .gallery__container
 
   &__container {
@@ -111,4 +116,9 @@
     margin: 0 auto;
     margin-top: 71px;
   }
+}
+
+.manifacturer-prod {
+  padding-top: 0;
+  padding-bottom: 0;
 }

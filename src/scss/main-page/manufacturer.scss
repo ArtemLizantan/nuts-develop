@@ -1,5 +1,10 @@
 .manufacturer {
   // .manufacturer__container
+  padding-bottom: 4px;
+  padding-top: 141px;
+  @media (max-width: $md2+px) {
+    @include adaptiv-value(padding-top, 78, 50, 3);
+  }
 
   &__container {
     max-width: rem(1320);
@@ -11,12 +16,11 @@
     display: flex;
     justify-content: space-between;
     min-width: 0;
-    @include adaptiv-value(margin-top, 216, 100, 3);
     @media (max-width: $md2+px) {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      @include adaptiv-value(gap, 100, 140, 3);
+      gap: 80px;
     }
   }
 
@@ -36,7 +40,10 @@
   &__title {
     @extend %main-title;
     @include adaptiv-value(margin-bottom, 47, 20, 3);
-    @include adaptiv-font(45, 25, 4);
+
+    @media (max-width: $md2+px) {
+      @include adaptiv-font(45, 25, 4);
+    }
   }
 
   // .manufacturer__subtitle

@@ -35,8 +35,10 @@
 
   &__title {
     @extend %main-title;
-    @include adaptiv-font(45, 25, 4);
     margin-bottom: 72px;
+    @media (max-width: $md2+px) {
+      @include adaptiv-font(45, 25, 4);
+    }
     @media (max-width: $md3+px) {
       text-align: center;
     }

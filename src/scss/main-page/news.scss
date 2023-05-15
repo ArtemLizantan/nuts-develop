@@ -1,7 +1,11 @@
 .news {
-  padding-top: rem(93);
-  padding-bottom: rem(100);
   background: rgba(249, 249, 249, 0.7);
+  padding-top: 100px;
+  padding-bottom: 90px;
+  @media (max-width: $md2+px) {
+    @include adaptiv-value(padding-top, 100, 50, 3);
+    @include adaptiv-value(padding-top, 90, 50, 3);
+  }
   // .news__container
 
   &__container {
@@ -38,8 +42,10 @@
   &__title {
     @extend %main-title;
     text-align: left;
-    @include adaptiv-font(45, 25, 4);
     margin-bottom: rem(32);
+    @media (max-width: $md2+px) {
+      @include adaptiv-font(45, 25, 4);
+    }
   }
 
   // .news__subtitle
@@ -52,11 +58,6 @@
     }
   }
 
-  // .news__right
-
-  &__right {
-  }
-
   // .news__bottom
 
   &__bottom {
@@ -66,13 +67,14 @@
   // .news__card
 
   &__card {
-    // width: 408px;
-    @include adaptiv-value(width, 408, 200, 3);
+    width: 408px;
+    @media (max-width: $md2+px) {
+      @include adaptiv-value(width, 408, 200, 3);
+    }
   }
 
   &__swiper-slide {
-    // width: 408px !important;
-    @include adaptiv-value(width, 408, 200, 3);
+   
   }
 
   // .news__card-link
@@ -84,7 +86,10 @@
 
   &__img {
     img {
-      @include adaptiv-value(width, 408, 200, 3);
+      width: 408px;
+      @media (max-width: $md2+px) {
+        @include adaptiv-value(width, 408, 200, 3);
+      }
     }
   }
 
@@ -159,9 +164,9 @@
     @extend %mainButtonWhite;
     margin: 0 auto;
     display: block;
-    max-width: rem(250);
-    padding: rem(17) rem(27);
-    margin-top: rem(72);
+    max-width: rem(223);
+    padding: rem(17) 0;
+    margin-top: rem(80);
     text-align: center;
   }
 }

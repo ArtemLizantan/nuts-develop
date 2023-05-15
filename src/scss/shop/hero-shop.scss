@@ -1,5 +1,9 @@
 .hero-shop {
   height: 300px;
+  margin-bottom: 67px;
+  @media (max-width: $md2+px) {
+    @include adaptiv-value(margin-bottom, 67, 50, 3);
+  }
   // .hero-shop__bg
 
   &__bg {
@@ -8,8 +12,12 @@
     }
   }
   &__products {
-    padding-top: 67px;
     padding-bottom: 100px;
+    padding-bottom: 26px;
+    @media (max-width: $md2+px) {
+      @include adaptiv-value(padding-bottom, 100, 50, 3);
+      @include adaptiv-value(padding-bottom, 26, 20, 3);
+    }
   }
 
   // .hero-shop__body
@@ -23,7 +31,7 @@
   &__text-box {
     margin-top: 57px;
   }
-  &__products-card{
+  &__products-card {
     @media (max-width: 768px) {
       margin-top: 50px;
     }
@@ -76,7 +84,7 @@
     align-items: center;
     gap: 30px;
     @media (max-width: $md2+px) {
-      @include adaptiv-value(gap,30,5,3)
+      @include adaptiv-value(gap, 30, 5, 3);
     }
   }
 

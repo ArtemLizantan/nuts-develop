@@ -1,7 +1,10 @@
 .numbers {
-  margin-top: rem(77);
-  // .numbers__container
-
+  padding-top: 77px;
+  padding-bottom: 85px;
+  @media (max-width: $md2+px) {
+    @include adaptiv-value(padding-bottom,77,50,3);
+    @include adaptiv-value( padding-bottom,85,50,3);
+  }
   &__container {
     max-width: rem(1166);
   }
@@ -25,7 +28,10 @@
     display: flex;
     align-items: center;
     &:nth-child(1) {
-      @include adaptiv-value(gap, 178, 78, 3);
+      gap: 178px;
+      @media (max-width: $md2+px) {
+        @include adaptiv-value(gap, 178, 78, 3);
+      }
     }
     &:nth-child(2) {
       gap: rem(76);
@@ -48,7 +54,7 @@
   // .numbers__title
 
   &__title {
-    @include adaptiv-font(72, 50, 4);
+    font-size: 72px;
     font-family: "Montserrat";
     font-style: normal;
     font-weight: 800;
@@ -67,6 +73,9 @@
       position: absolute;
       top: rem(12);
       right: -26px;
+    }
+    @media (max-width: $md2+px) {
+      @include adaptiv-font(72, 50, 4);
     }
   }
 

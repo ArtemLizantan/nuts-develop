@@ -1,15 +1,26 @@
 .big-picture {
-  //   height: 740px;
-  margin-top: 92px;
-  @include adaptiv-value(height, 740, 400, 3);
+  height: 740px;
+  // margin-top: 92px;
+  margin-bottom: 86px;
+  @media (max-width: $md2+px) {
+    @include adaptiv-value(margin-bottom, 86, 50, 3);
+    @include adaptiv-value(height, 740, 400, 3);
+  }
+
   &__bg {
     img {
-      @include adaptiv-value(height, 740, 400, 3);
+      height: 740px;
+      @media (max-width: $md2+px) {
+        @include adaptiv-value(height, 740, 400, 3);
+      }
     }
   }
 
   &__text-box {
-    @include adaptiv-value(margin-top, 240, 50, 3);
+    margin-top: 240px;
+    @media (max-width: $md2+px) {
+      @include adaptiv-value(margin-top, 240, 50, 3);
+    }
   }
   // .big-picture__title
 
@@ -17,8 +28,10 @@
     @extend %main-title;
     color: #fff;
     text-align: center;
-    @include adaptiv-font(45, 25, 4);
     @include adaptiv-value(margin-bottom, 71, 20, 3);
+    @media (max-width: $md2+px) {
+      @include adaptiv-font(45, 25, 4);
+    }
   }
   // .big-picture__subtitle
 

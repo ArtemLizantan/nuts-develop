@@ -1,4 +1,4 @@
-function addToCart() {
+async function addToCart() {
   const productBtn = document.querySelectorAll(".products__bottom-button");
   const cartProductList = document.querySelector(".cart-open__list");
   const cart = document.querySelector(".cart-open");
@@ -243,6 +243,4 @@ function addToCart() {
   });
 }
 
-setTimeout(() => {
-  addToCart();
-}, 500);
+export default addToCart;

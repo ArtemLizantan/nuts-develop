@@ -1,7 +1,9 @@
 .hero {
   position: relative;
   height: rem(600);
+  margin-bottom: 82px;
   @media (max-width: $md2+px) {
+    @include adaptiv-value(margin-bottom, 82, 50, 3);
     @include adaptiv-value(height, 600, 450, 1);
   }
   // .hero__bg

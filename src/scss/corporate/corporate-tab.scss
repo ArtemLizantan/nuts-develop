@@ -1,4 +1,9 @@
 .corporate-tab {
+  margin-top: 111px;
+  margin-bottom: 84px;
+  @media (max-width: $md2+px) {
+    @include adaptiv-value(margin-top, 111, 50, 3);
+  }
   // .corporate-tab__container
 
   &__container {
@@ -10,7 +15,7 @@
   &__body {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 39px;
   }
 
   // .corporate-tab__top
@@ -18,6 +23,9 @@
   &__top {
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     padding-bottom: 15px;
+    @media (max-width: $md2+px) {
+      border-bottom: unset;
+    }
   }
 
   // .corporate-tab__buttons
@@ -26,6 +34,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media (max-width: $md2+px) {
+      flex-direction: column;
+      align-items: start;
+      gap: 30px;
+    }
   }
 
   // .corporate-tab__button
@@ -35,13 +48,33 @@
     align-items: center;
     gap: 10px;
     background: unset;
-
+    max-width: 222px;
     text-align: left;
     font-weight: 800;
     font-size: 20px;
     line-height: 23px;
     letter-spacing: 0.01em;
     color: #1a2f3f;
+    svg {
+      width: 71px;
+    }
+    &.mixitup-control-active {
+      svg {
+        path {
+          fill: #337d5a;
+        }
+      }
+    }
+    @media (max-width: $md2+px) {
+      width: 100%;
+      max-width: unset;
+      border-bottom: 1px solid #337d5a;
+      padding-bottom: 5px;
+      svg {
+        min-width: 60px;
+      }
+      align-items: center;
+    }
   }
 
   // .corporate-tab__bottom
@@ -55,11 +88,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media (max-width: $md2+px) {
+      flex-direction: column-reverse;
+      gap: 50px;
+    }
   }
 
   // .corporate-tab__left
 
   &__left {
+    padding-right: 20px;
+    position: relative;
+    top: 18px;
   }
 
   // .corporate-tab__right
@@ -72,29 +112,11 @@
     text-align: center;
   }
 }
-.manufacturer {
-  // .manufacturer__title
+.corporate-numbers {
+  background: #fbfbfb;
+}
 
-  &__title {
-  }
-
-  // .manufacturer__subtitle
-
-  &__subtitle {
-  }
-
-  // .manufacturer__text
-
-  &__text {
-  }
-
-  // .manufacturer__button
-
-  &__button {
-  }
-
-  // .manufacturer__slide-image
-
-  &__slide-image {
-  }
+.corporate-eco {
+  margin-top: 9px;  
+  margin-bottom: unset;
 }
