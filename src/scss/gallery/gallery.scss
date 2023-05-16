@@ -1,0 +1,52 @@
+.gallery-page {
+  margin-bottom: 92px;
+  @media (max-width: $md2+px) {
+    @include adaptiv-value(margin-bottom, 92, 50, 3);
+  }
+
+  &__text-box {
+    margin-top: 238px;
+  }
+  &__title {
+    margin-bottom: 14px;
+  }
+}
+
+.images {
+  margin-bottom: 102px;
+  @media (max-width: $md2+px) {
+    @include adaptiv-value(margin-bottom, 102, 50, 3);
+  }
+  // .images__container
+
+  &__container {
+    max-width: rem(1320);
+  }
+
+  // .images__body
+
+  &__body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 27px;
+    @media (max-width: 1330px) {
+      flex-direction: column;
+      flex-wrap: unset;
+    }
+  }
+
+  // .images__big
+
+  &__big {
+    margin-top: unset;
+  }
+  &__button {
+    @extend %mainButtonWhite;
+    width: 200px;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    padding: 18px 20px;
+    margin-top: 70px;
+  }
+}

@@ -86,6 +86,6 @@ async function go() {
   let a = await getData();
   let b = await addToCart();
   let c = await filter();
-  let e = await prelouder();
+  // let e = await prelouder();
 }
 go();

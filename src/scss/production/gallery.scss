@@ -39,10 +39,10 @@
     display: flex;
     flex-wrap: wrap;
     gap: 31px;
-    @media (max-width: 1330px) {
-      flex-direction: column;
-      flex-wrap: unset;
-    }
+    // @media (max-width: 1330px) {
+    //   flex-direction: column;
+    //   flex-wrap: unset;
+    // }
     img {
       &:nth-child(1) {
         width: 739px;
@@ -111,10 +111,12 @@
 
   &__button {
     @extend %mainButtonWhite;
-    padding: 18px 26px;
-    width: 233px;
     margin: 0 auto;
+    width: 232px;
+    display: block;
     margin-top: 71px;
+    text-align: center;
+    padding: 18px 9px;
   }
 }
 

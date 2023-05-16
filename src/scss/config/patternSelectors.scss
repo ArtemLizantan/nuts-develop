@@ -85,7 +85,6 @@
   }
 }
 
-
 %mainButton {
   background: #337d5a;
   font-family: "Raleway";
@@ -113,7 +112,7 @@
   font-size: 15px;
   line-height: 15px;
   letter-spacing: 0.02em;
-  color: #337D5A;
+  color: #337d5a;
   transition: all 0.4s ease;
   border: 1px solid #337d5a;
   cursor: pointer;
@@ -126,16 +125,28 @@
 }
 
 %main-title {
-  font-style: normal;
   font-weight: 800;
   font-size: 45px;
   line-height: 53px;
   letter-spacing: 0.01em;
   color: #1a2f3f;
 }
+%user-title {
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 32px;
+  letter-spacing: 0.01em;
+  color: #1a2f3f;
+}
+%user-subtitle {
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 32px;
+  letter-spacing: 0.01em;
+  color: #1a2f3f;
+}
 %main-subtitle {
-  font-family: "Raleway";
-  font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 28px;
@@ -145,7 +156,6 @@
 }
 
 %hero-title {
-  font-style: normal;
   font-weight: 800;
   font-size: 62px;
   line-height: 73px;
@@ -154,7 +164,6 @@
 }
 
 %hero-subtitle {
-  font-style: normal;
   font-weight: 600;
   font-size: 25px;
   line-height: 29px;
