@@ -80,6 +80,7 @@ import ecology from "./modules/swiper.js";
 import corporateMix from "./modules/mix/mix.js";
 import registrarion from "./modules/registration/registration.js";
 import prelouder from "./modules/prelouder.js";
+import registration from "./modules/mix/mix.js";
 
 async function go() {
   let d = await registrarion();

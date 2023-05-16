@@ -1,15 +1,226 @@
 <section class="registration">
   <div class="registration__container">
     <div class="registration__body">
-      <div class="registration__text">
-        <div class="registration__title">Регистрация</div>
-      </div>
-      <form action="#" class="registration__form">
-        <div class="registration__form-body">
-          <div class="registration__form-item">
-            <div class="registration__subtitle">1. Контактные данные</div>
-            <button class="registration__switch"></button>
-            <button class="registration__switch"></button>
+      <div class="registration__title">Регистрация</div>
+      <form
+        method="post"
+        action="http://localhost:1337/api/auth/local"
+        class="registration__form"
+      >
+        <div class="registration__left">
+          <div class="registration__subtitle">1. Контактные данные</div>
+          <div class="registration__buttons-switch">
+            <button
+              data-filter=".category-individual"
+              class="registration__switch"
+            >
+              Физическое лицо
+            </button>
+            <button data-filter=".category-fop" class="registration__switch">
+              Юридическое лицо
+            </button>
+          </div>
+          <div class="registration__inputs-wrapper">
+            <div class="registration__form-item">
+              <div class="registration__inputs">
+                <input
+                  class="registration__input"
+                  type="text"
+                  placeholder="ФИО*"
+                  name="LastName"
+                />
+                <input
+                  class="registration__input"
+                  type="email"
+                  placeholder="Email*"
+                  name="email"
+                />
+                <input
+                  class="registration__input"
+                  type="tel"
+                  placeholder="Телефон*"
+                  name="phoneNumber"
+                />
+              </div>
+            </div>
+            <div class="registration__form-item">
+              <div class="registration__subtitle">2. Адрес</div>
+              <div class="registration__inputs">
+                <div class="custom-select-mobile">
+                  <div class="custom-select registration__select">
+                    <div class="select-header">Страна</div>
+                    <ul class="select-list registration__list">
+                      <li>
+                        <button class="filter__button-weight">Украина</button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="custom-select-mobile">
+                  <div class="custom-select registration__select">
+                    <div class="select-header">Область</div>
+                    <ul class="select-list registration__list">
+                      <li>
+                        <button class="filter__button-taste">Одесская</button>
+                      </li>
+                      <li>
+                        <button class="filter__button-taste">Киевская</button>
+                      </li>
+                      <li>
+                        <button class="filter__button-taste">
+                          Харьковская
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <input
+                  class="registration__input"
+                  type="tel"
+                  placeholder="Город*"
+                  name="city"
+                />
+                <input
+                  class="registration__input"
+                  type="tel"
+                  placeholder="Адрес*"
+                  name="adress"
+                />
+              </div>
+            </div>
+            <div class="registration__form-item">
+              <div class="registration__subtitle">3. Пароль</div>
+              <div class="registration__inputs">
+                <input
+                  class="registration__input"
+                  type="password"
+                  placeholder="Пароль*"
+                  name="password"
+                />
+                <input
+                  class="registration__input"
+                  type="password"
+                  placeholder="Подтвердите пароль*"
+                  name="confirmPassword"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="registration__submit">
+            <div class="registration__top">
+              <input name="checkbox" type="checkbox" />
+
+              <label class="registration__checkbox__label"
+                >Я согласен с <a href="#">Условиями регистрации</a></label
+              >
+            </div>
+            <div class="registration__bottom">
+              <button class="registration__submit-button">Продолжить</button>
+            </div>
+          </div>
+        </div>
+        <div id="mixitupThird" class="registration__right">
+          <div class="registration__upload">
+            <input
+              type="file"
+              name="file"
+              id="file"
+              class="registration__input-file"
+              name="img"
+            />
+            <label class="registration__upload-label" for="file" class="btn">
+              <span
+                ><img src="./images/registration/overlay.png" alt=""
+              /></span>
+            </label>
+          </div>
+          <div
+            class="registration__top registration__right-item category-individual mix"
+          >
+            <input type="checkbox" />
+            <label class="registration__checkbox__label">Являюсь ФОП</label>
+          </div>
+          <div class="registration__right-inputs">
+            <div class="registration__form-item category-fop mix">
+              <div class="registration__radio-buttons">
+                <div class="registration__radio-item">
+                  <input type="radio" name="individual" />
+                  <h4>Юр. лицо</h4>
+                </div>
+                <div class="registration__radio-item">
+                  <input type="radio" name="fop" />
+                  <h4>ФОП</h4>
+                </div>
+              </div>
+            </div>
+            <div class="registration__inputs-wrapper-fop category-fop mix">
+              <div class="registration__form-item">
+                <div class="registration__subtitle">1. Реквизиты</div>
+                <div class="registration__inputs">
+                  <input
+                    class="registration__input"
+                    type="tel"
+                    placeholder="Реквизиты"
+                    name="requisites"
+                  />
+                </div>
+              </div>
+              <div class="registration__form-item">
+                <div class="registration__subtitle">2. Юридический адрес</div>
+                <div class="registration__inputs">
+                  <div class="custom-select-mobile">
+                    <div class="custom-select registration__select">
+                      <div class="select-header">Страна</div>
+                      <ul class="select-list registration__list">
+                        <li>
+                          <button class="filter__button-weight">Украина</button>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="custom-select-mobile">
+                    <div class="custom-select registration__select">
+                      <div class="select-header">Область</div>
+                      <ul class="select-list registration__list">
+                        <li>
+                          <button class="filter__button-weight">
+                            Одесская
+                          </button>
+                        </li>
+                        <li>
+                          <button class="filter__button-weight">
+                            Киевская
+                          </button>
+                        </li>
+                        <li>
+                          <button class="filter__button-weight">
+                            Харьковская
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <input
+                    class="registration__input"
+                    type="tel"
+                    placeholder="Город*"
+                    name="city"
+                  />
+                  <input
+                    class="registration__input"
+                    type="tel"
+                    placeholder="Адрес*"
+                    name="adress"
+                  />
+                  <input
+                    class="registration__input"
+                    type="tel"
+                    placeholder="Индекс*"
+                    name="index"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </form>

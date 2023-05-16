@@ -2,8 +2,8 @@ import axios from "axios";
 async function registrarion() {
     // axios
     //   .post("http://localhost:1337/api/auth/local/register", {
-    //     username: "Denis1",
-    //     email: "denis23@test.com",
+    //     username: "Igor",
+    //     email: "igor@test.com",
     //     password: "213p123",
     //   })
     //   .then((response) => {
@@ -16,7 +16,7 @@ async function registrarion() {
 
   // try {
   //   const response = await axios.post("http://localhost:1337/api/auth/local", {
-  //     identifier: "Denis",
+  //     identifier: "Igor",
   //     Password: "213p123",
   //   });
   //   console.log(response.data);
@@ -25,6 +25,14 @@ async function registrarion() {
   //   console.log(error.response.data);
   //   // обработка ошибки
   // }
+
+
+  const form = document.querySelector(".registration__form");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    console.log(formData);
+  });
 }
 
 export default registrarion;

@@ -19,3 +19,12 @@ function deliveryMix() {
   }
 }
 deliveryMix();
+
+function registration() {
+  let containerThird = document.getElementById("mixitupThird");
+  if (containerThird) {
+    let mixer = mixitup(containerThird);
+    mixer.filter(".category-individual");
+  }
+}
+registration();
