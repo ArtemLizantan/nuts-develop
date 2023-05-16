@@ -66,14 +66,45 @@
       "configurable": false
     },
     "img": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "phoneNumber": {
+      "type": "integer"
+    },
+    "city": {
+      "type": "string"
+    },
+    "adress": {
+      "type": "string"
+    },
+    "requisites": {
+      "type": "string"
+    },
+    "cityFop": {
+      "type": "string"
+    },
+    "adressFop": {
+      "type": "string"
+    },
+    "indexFop": {
+      "type": "integer"
+    },
+    "fop": {
+      "type": "boolean"
+    },
+    "country": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
     }
   }
 }

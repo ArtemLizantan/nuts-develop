@@ -10,15 +10,15 @@
         <div class="registration__left">
           <div class="registration__subtitle">1. Контактные данные</div>
           <div class="registration__buttons-switch">
-            <button
+            <div id="individual"
               data-filter=".category-individual"
               class="registration__switch"
             >
               Физическое лицо
-            </button>
-            <button data-filter=".category-fop" class="registration__switch">
+            </div>
+            <div id="fop" data-filter=".category-fop" class="registration__switch">
               Юридическое лицо
-            </button>
+            </div>
           </div>
           <div class="registration__inputs-wrapper">
             <div class="registration__form-item">
@@ -27,7 +27,7 @@
                   class="registration__input"
                   type="text"
                   placeholder="ФИО*"
-                  name="LastName"
+                  name="name"
                 />
                 <input
                   class="registration__input"
@@ -204,19 +204,19 @@
                     class="registration__input"
                     type="tel"
                     placeholder="Город*"
-                    name="city"
+                    name="cityFop"
                   />
                   <input
                     class="registration__input"
                     type="tel"
                     placeholder="Адрес*"
-                    name="adress"
+                    name="adressFop"
                   />
                   <input
                     class="registration__input"
                     type="tel"
                     placeholder="Индекс*"
-                    name="index"
+                    name="indexFop"
                   />
                 </div>
               </div>
