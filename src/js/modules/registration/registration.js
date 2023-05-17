@@ -1,9 +1,40 @@
 import axios from "axios";
 async function registrarion() {
   const form = document.querySelector(".registration__form");
+  let country;
+  let region;
+  let countryfop;
+  let regionfop;
+
+  const addEventListeners = () => {
+    document.querySelectorAll(".filter__button-country").forEach((el) => {
+      el.addEventListener("click", (e) => {
+        country = e.target.dataset.country;
+      });
+    });
+    document.querySelectorAll(".filter__button-region").forEach((el) => {
+      el.addEventListener("click", (e) => {
+        region = e.target.dataset.region;
+      });
+    });
+    document.querySelectorAll(".filter__button-country-fop").forEach((el) => {
+      el.addEventListener("click", (e) => {
+        countryfop = e.target.dataset.countryfop;
+      });
+    });
+    document.querySelectorAll(".filter__button-region-fop").forEach((el) => {
+      el.addEventListener("click", (e) => {
+        regionfop = e.target.dataset.regionfop;
+      });
+    });
+  };
+  addEventListeners();
+
+  // let region;
   if (form)
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+      console.log(fopButton);
 
       const formData = new FormData(form);
       const name = formData.get("name");
@@ -28,11 +59,15 @@ async function registrarion() {
             phoneNumber: phoneNumber,
             city: city,
             adress: adress,
-            requisites: requisites,
             cityFop: cityFop,
-            adressFop: adressFop,
             indexFop: indexFop,
-            fop: true,
+            requisites: requisites,
+            adressFop: adressFop,
+            regionfop: regionfop,
+            countryfop: countryfop,
+            country: country,
+            region: region,
+            fop: fopButton,
           })
           .then((response) => {
             console.log("User profile", response.data.user);
@@ -50,6 +85,8 @@ async function registrarion() {
             phoneNumber: phoneNumber,
             city: city,
             adress: adress,
+            country: country,
+            region: region,
             fop: false,
           })
           .then((response) => {

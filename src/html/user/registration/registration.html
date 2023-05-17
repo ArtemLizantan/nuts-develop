@@ -2,21 +2,22 @@
   <div class="registration__container">
     <div class="registration__body">
       <div class="registration__title">Регистрация</div>
-      <form
-        method="post"
-        action="http://localhost:1337/api/auth/local"
-        class="registration__form"
-      >
+      <form class="registration__form">
         <div class="registration__left">
           <div class="registration__subtitle">1. Контактные данные</div>
           <div class="registration__buttons-switch">
-            <div id="individual"
+            <div
+              id="individual"
               data-filter=".category-individual"
               class="registration__switch"
             >
               Физическое лицо
             </div>
-            <div id="fop" data-filter=".category-fop" class="registration__switch">
+            <div
+              id="fop"
+              data-filter=".category-fop"
+              class="registration__switch"
+            >
               Юридическое лицо
             </div>
           </div>
@@ -51,7 +52,12 @@
                     <div class="select-header">Страна</div>
                     <ul class="select-list registration__list">
                       <li>
-                        <button class="filter__button-weight">Украина</button>
+                        <div
+                          data-country="Ukraine"
+                          class="filter__button-country"
+                        >
+                          Украина
+                        </div>
                       </li>
                     </ul>
                   </div>
@@ -61,15 +67,28 @@
                     <div class="select-header">Область</div>
                     <ul class="select-list registration__list">
                       <li>
-                        <button class="filter__button-taste">Одесская</button>
+                        <div
+                          data-region="Odesskaya"
+                          class="filter__button-region"
+                        >
+                          Одесская
+                        </div>
                       </li>
                       <li>
-                        <button class="filter__button-taste">Киевская</button>
+                        <div
+                          data-region="Kievskaya"
+                          class="filter__button-region"
+                        >
+                          Киевская
+                        </div>
                       </li>
                       <li>
-                        <button class="filter__button-taste">
+                        <div
+                          data-region="Kharkovskaya"
+                          class="filter__button-region"
+                        >
                           Харьковская
-                        </button>
+                        </div>
                       </li>
                     </ul>
                   </div>
@@ -173,7 +192,12 @@
                       <div class="select-header">Страна</div>
                       <ul class="select-list registration__list">
                         <li>
-                          <button class="filter__button-weight">Украина</button>
+                          <div
+                            data-countryfop="Ukraine"
+                            class="filter__button-country-fop"
+                          >
+                            Украина
+                          </div>
                         </li>
                       </ul>
                     </div>
@@ -183,19 +207,28 @@
                       <div class="select-header">Область</div>
                       <ul class="select-list registration__list">
                         <li>
-                          <button class="filter__button-weight">
+                          <div
+                            data-regionfop="Odesskaya"
+                            class="filter__button-region-fop"
+                          >
                             Одесская
-                          </button>
+                          </div>
                         </li>
                         <li>
-                          <button class="filter__button-weight">
+                          <div
+                            data-regionfop="Kievskaya"
+                            class="filter__button-region-fop"
+                          >
                             Киевская
-                          </button>
+                          </div>
                         </li>
                         <li>
-                          <button class="filter__button-weight">
+                          <div
+                            data-regionfop="Kharkovskaya"
+                            class="filter__button-region-fop"
+                          >
                             Харьковская
-                          </button>
+                          </div>
                         </li>
                       </ul>
                     </div>

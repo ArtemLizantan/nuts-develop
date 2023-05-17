@@ -230,3 +230,26 @@
     gap: 47px;
   }
 }
+
+.filter__button-region,
+.filter__button-region-fop,
+.filter__button-country-fop,
+.filter__button-country {
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  background: none;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #323232;
+  transition: all 0.4s ease;
+  &:hover {
+    background-color: $greenColor;
+    color: #fff;
+  }
+}

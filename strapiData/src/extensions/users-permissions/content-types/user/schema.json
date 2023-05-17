@@ -105,6 +105,12 @@
     },
     "region": {
       "type": "string"
+    },
+    "countryfop": {
+      "type": "string"
+    },
+    "regionfop": {
+      "type": "string"
     }
   }
 }
