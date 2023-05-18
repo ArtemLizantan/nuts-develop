@@ -24,24 +24,30 @@
           <div class="registration__inputs-wrapper">
             <div class="registration__form-item">
               <div class="registration__inputs">
-                <input
-                  class="registration__input"
-                  type="text"
-                  placeholder="ФИО*"
-                  name="name"
-                />
-                <input
-                  class="registration__input"
-                  type="email"
-                  placeholder="Email*"
-                  name="email"
-                />
-                <input
-                  class="registration__input"
-                  type="tel"
-                  placeholder="Телефон*"
-                  name="phoneNumber"
-                />
+                <div class="registration__input-wrap">
+                  <input
+                    class="registration__input form-name"
+                    type="text"
+                    placeholder="ФИО*"
+                    name="name"
+                  />
+                </div>
+                <div class="registration__input-wrap ">
+                  <input
+                    class="registration__input form-email"
+                    type="email"
+                    placeholder="Email*"
+                    name="email"
+                  />
+                </div>
+                <div class="registration__input-wrap ">
+                  <input
+                    class="registration__input form-tel"
+                    type="tel"
+                    placeholder="Телефон*"
+                    name="phoneNumber"
+                  />
+                </div>
               </div>
             </div>
             <div class="registration__form-item">
@@ -93,35 +99,43 @@
                     </ul>
                   </div>
                 </div>
-                <input
-                  class="registration__input"
-                  type="tel"
-                  placeholder="Город*"
-                  name="city"
-                />
-                <input
-                  class="registration__input"
-                  type="tel"
-                  placeholder="Адрес*"
-                  name="adress"
-                />
+                <div class="registration__input-wrap">
+                  <input
+                    class="registration__input form-city"
+                    type="tel"
+                    placeholder="Город*"
+                    name="city"
+                  />
+                </div>
+                <div class="registration__input-wrap ">
+                  <input
+                    class="registration__input form-adress"
+                    type="tel"
+                    placeholder="Адрес*"
+                    name="adress"
+                  />
+                </div>
               </div>
             </div>
             <div class="registration__form-item">
               <div class="registration__subtitle">3. Пароль</div>
               <div class="registration__inputs">
-                <input
-                  class="registration__input"
-                  type="password"
-                  placeholder="Пароль*"
-                  name="password"
-                />
-                <input
-                  class="registration__input"
-                  type="password"
-                  placeholder="Подтвердите пароль*"
-                  name="confirmPassword"
-                />
+                <div class="registration__input-wrap">
+                  <input
+                    class="registration__input  form-password"
+                    type="password"
+                    placeholder="Пароль*"
+                    name="password"
+                  />
+                </div>
+                <div class="registration__input-wrap ">
+                  <input
+                    class="registration__input form-confirm-password"
+                    type="password"
+                    placeholder="Подтвердите пароль*"
+                    name="confirmPassword"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -134,7 +148,7 @@
               >
             </div>
             <div class="registration__bottom">
-              <button class="registration__submit-button">Продолжить</button>
+              <button type="submit" class="registration__submit-button" >Продолжить</button>
             </div>
           </div>
         </div>
@@ -149,7 +163,10 @@
             />
             <label class="registration__upload-label" for="file" class="btn">
               <span
-                ><img src="./images/registration/overlay.png" alt=""
+                ><img
+                  class="registration__upload-switch"
+                  src="./images/registration/overlay.png"
+                  alt=""
               /></span>
             </label>
           </div>
@@ -176,12 +193,14 @@
               <div class="registration__form-item">
                 <div class="registration__subtitle">1. Реквизиты</div>
                 <div class="registration__inputs">
-                  <input
-                    class="registration__input"
-                    type="tel"
-                    placeholder="Реквизиты"
-                    name="requisites"
-                  />
+                  <div class="registration__input-wrap ">
+                    <input
+                      class="registration__input form-requisites"
+                      type="tel"
+                      placeholder="Реквизиты"
+                      name="requisites"
+                    />
+                  </div>
                 </div>
               </div>
               <div class="registration__form-item">
@@ -233,29 +252,36 @@
                       </ul>
                     </div>
                   </div>
-                  <input
-                    class="registration__input"
-                    type="tel"
-                    placeholder="Город*"
-                    name="cityFop"
-                  />
-                  <input
-                    class="registration__input"
-                    type="tel"
-                    placeholder="Адрес*"
-                    name="adressFop"
-                  />
-                  <input
-                    class="registration__input"
-                    type="tel"
-                    placeholder="Индекс*"
-                    name="indexFop"
-                  />
+                  <div class="registration__input-wrap ">
+                    <input
+                      class="registration__input form-city-fop"
+                      type="text"
+                      placeholder="Город*"
+                      name="cityFop"
+                    />
+                  </div>
+                  <div class="registration__input-wrap">
+                    <input
+                      class="registration__input  form-adress-fop"
+                      type="text"
+                      placeholder="Адрес*"
+                      name="adressFop"
+                    />
+                  </div>
+                  <div class="registration__input-wrap">
+                    <input
+                      class="registration__input form-index-fop"
+                      type="text"
+                      placeholder="Индекс*"
+                      name="indexFop"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <div class="registration__mobile-submit"></div>
       </form>
     </div>
   </div>

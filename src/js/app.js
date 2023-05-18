@@ -70,7 +70,8 @@ isWebp();
 
 import burger from "./modules/burger.js";
 import getData from "./modules/strapiData/data.js";
-import dynamicHtml from "./modules/cart/dynamicHtml.js";
+import dynamicHtml from "./modules/dynamicHtml/dynamicHtml.js";
+import moveSubmitBlock from "./modules/dynamicHtml/dynamicHtml.js";
 import addToCart from "./modules/cart/cart";
 import swiperManufacturer from "./modules/swiper.js";
 import newsSwiper from "./modules/swiper.js";
@@ -80,10 +81,13 @@ import ecology from "./modules/swiper.js";
 import corporateMix from "./modules/mix/mix.js";
 import registrarion from "./modules/registration/registration.js";
 import prelouder from "./modules/prelouder.js";
-import registration from "./modules/mix/mix.js";
+import switchImg from "./modules/registration/switchImg.js";
+import validate from "./modules/registration/validation";
+import closePopup from "./modules/registration/closePopup.js";
 
 async function go() {
   let a = await getData();
+  let g = await registrarion();
   let b = await addToCart();
   let c = await filter();
 }

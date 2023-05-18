@@ -1,6 +1,12 @@
 import axios from "axios";
+
 async function registrarion() {
   const form = document.querySelector(".registration__form");
+  const popupSuccess = document.querySelector(".popup__thank");
+  const fopButton = document.getElementById("fop");
+  const body = document.querySelector("body");
+  const registerButton = document.querySelector(".registration__submit-button");
+  const inputs = document.querySelectorAll(".registration__input");
   let country;
   let region;
   let countryfop;
@@ -28,13 +34,34 @@ async function registrarion() {
       });
     });
   };
+
   addEventListeners();
 
-  // let region;
+  //checkFormValidity
+
+  function checkFormValidity(input) {
+    if (input.classList.contains("just-validate-error-field")) {
+      registerButton.classList.add("disabled");
+    } else if (input.classList.contains("valid")) {
+      registerButton.classList.remove("disabled");
+    }
+  }
+
+  inputs.forEach((el) => {
+    el.addEventListener("change", () => {
+      checkFormValidity(el);
+    });
+  });
+
+  //checkFormValidity end
+
   if (form)
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      console.log(fopButton);
+
+      inputs.forEach((el) => {
+        checkFormValidity(el);
+      });
 
       const formData = new FormData(form);
       const name = formData.get("name");
@@ -42,20 +69,22 @@ async function registrarion() {
       const phoneNumber = formData.get("phoneNumber");
       const city = formData.get("city");
       const adress = formData.get("adress");
-      const password = formData.get("password");
       const confirmPassword = formData.get("confirmPassword");
       const requisites = formData.get("requisites");
       const cityFop = formData.get("cityFop");
       const adressFop = formData.get("adressFop");
       const indexFop = formData.get("indexFop");
+      const img = formData.get("file");
 
-      const fopButton = document.getElementById("fop");
       if (fopButton.classList.contains("mixitup-control-active")) {
         axios
           .post("http://localhost:1337/api/auth/local/register", {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
             username: name,
             email: email,
-            password: password,
+            password: confirmPassword,
             phoneNumber: phoneNumber,
             city: city,
             adress: adress,
@@ -63,15 +92,18 @@ async function registrarion() {
             indexFop: indexFop,
             requisites: requisites,
             adressFop: adressFop,
+            img: img,
             regionfop: regionfop,
             countryfop: countryfop,
             country: country,
             region: region,
-            fop: fopButton,
+            fop: true,
           })
           .then((response) => {
             console.log("User profile", response.data.user);
             console.log("User token", response.data.jwt);
+            popupSuccess.classList.add("_active");
+            body.classList.add("_lock");
           })
           .catch((error) => {
             console.log("An error occurred:", error.response);
@@ -81,9 +113,10 @@ async function registrarion() {
           .post("http://localhost:1337/api/auth/local/register", {
             username: name,
             email: email,
-            password: password,
+            password: confirmPassword,
             phoneNumber: phoneNumber,
             city: city,
+            img: img,
             adress: adress,
             country: country,
             region: region,
@@ -92,6 +125,9 @@ async function registrarion() {
           .then((response) => {
             console.log("User profile", response.data.user);
             console.log("User token", response.data.jwt);
+            console.log(response);
+            popupSuccess.classList.add("_active");
+            body.classList.add("_lock");
           })
           .catch((error) => {
             console.log("An error occurred:", error.response);
@@ -100,12 +136,12 @@ async function registrarion() {
     });
 }
 
-registrarion();
+export default registrarion;
 
 // try {
 //   const response = await axios.post("http://localhost:1337/api/auth/local", {
-//     identifier: "Igor",
-//     Password: "213p123",
+//     identifier: "Artem",
+//     password: "1234512345Pp",
 //   });
 //   console.log(response.data);
 //   // обработка успешного ответа сервера
