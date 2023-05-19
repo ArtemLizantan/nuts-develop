@@ -104,6 +104,7 @@ async function registrarion() {
             console.log("User token", response.data.jwt);
             popupSuccess.classList.add("_active");
             body.classList.add("_lock");
+            document.cookie = `jwt=${response.data.jwt}; expires=Fri, 01 Jan 2024 00:00:00; path=/`;
           })
           .catch((error) => {
             console.log("An error occurred:", error.response);
@@ -125,9 +126,9 @@ async function registrarion() {
           .then((response) => {
             console.log("User profile", response.data.user);
             console.log("User token", response.data.jwt);
-            console.log(response);
             popupSuccess.classList.add("_active");
             body.classList.add("_lock");
+            document.cookie = `jwt=${response.data.jwt}; expires=Fri, 01 Jan 2024 00:00:00; path=/`;
           })
           .catch((error) => {
             console.log("An error occurred:", error.response);

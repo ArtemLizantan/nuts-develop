@@ -1,7 +1,7 @@
 // =====================================================================================================================
 .header {
   min-height: rem(179);
-  &:nth-child(2){
+  &:nth-child(2) {
     margin-top: 400px;
   }
   @media (max-width: $md2+px) {
@@ -239,23 +239,21 @@
     }
   }
 
-  // .header__option
+  //cabinet
 
-  &__option {
-  }
-
-  // .header__option
-
-  &__option {
-  }
-
-  // .header__logo
-
-  &__logo {
-  }
-
-  // .header__menu
-
-  &__menu {
+  &__cabinet-text {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.02em; 
+    color: #323232;
+    &::before {
+      color: #337d5a;
+    }
   }
 }

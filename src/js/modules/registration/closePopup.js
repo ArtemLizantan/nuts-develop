@@ -8,6 +8,7 @@ function closePopup() {
     function closePopupThank() {
       popupThank.classList.remove("_active");
       body.classList.remove("_lock");
+      location.href = "index.html";
     }
     // Обработчик клика по крестику для закрытия попапа
     popupThankClose.addEventListener("click", closePopupThank);

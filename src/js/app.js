@@ -84,6 +84,7 @@ import prelouder from "./modules/prelouder.js";
 import switchImg from "./modules/registration/switchImg.js";
 import validate from "./modules/registration/validation";
 import closePopup from "./modules/registration/closePopup.js";
+import locationHeader from "./modules/registration/location.js";
 
 async function go() {
   let a = await getData();
