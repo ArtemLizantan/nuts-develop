@@ -138,15 +138,3 @@ async function registrarion() {
 }
 
 export default registrarion;
-
-// try {
-//   const response = await axios.post("http://localhost:1337/api/auth/local", {
-//     identifier: "Artem",
-//     password: "1234512345Pp",
-//   });
-//   console.log(response.data);
-//   // обработка успешного ответа сервера
-// } catch (error) {
-//   console.log(error.response.data);
-//   // обработка ошибки
-// }

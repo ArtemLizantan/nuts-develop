@@ -62,7 +62,8 @@
     height: 100%;
     justify-content: center;
   }
-  &__title {
+  &__title,
+  &__login-title {
     font-family: "Raleway";
     font-style: normal;
     font-weight: 800;

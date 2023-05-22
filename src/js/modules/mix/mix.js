@@ -28,3 +28,13 @@ function registration() {
   }
 }
 registration();
+
+
+async function productsPage() {
+  let containerFourth = document.getElementById("mixitupFourth");
+  if (containerFourth) {
+    let mixer = mixitup(containerFourth);
+    mixer.filter(".category-description");
+  }
+}
+export default productsPage;

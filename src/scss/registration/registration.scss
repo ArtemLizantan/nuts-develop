@@ -36,6 +36,7 @@
     margin-bottom: 19px;
     @media (max-width: $md2+px) {
       text-align: center;
+      @include adaptiv-font(45, 25, 4);
     }
   }
 
@@ -222,7 +223,7 @@
     @extend %mainButton;
     width: 100%;
     padding: 17px 18px;
-    &.disabled{
+    &.disabled {
       background-color: #8a8a8a;
       pointer-events: none;
     }
@@ -242,7 +243,7 @@
     display: none;
   }
 
-  &__input-wrap{
+  &__input-wrap {
     display: flex;
     flex-direction: column;
     gap: 5px;

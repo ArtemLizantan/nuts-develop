@@ -1,0 +1,123 @@
+.login {
+  height: 429px;
+  margin-bottom: 89px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // .login__container
+
+  &__container {
+    max-width: 1317px;
+  }
+
+  // .login__body
+
+  &__body {
+    margin-top: 108px;
+  }
+
+  // .login__title
+
+  &__title {
+    @extend %user-title;
+    text-align: center;
+    margin-bottom: 43px;
+    @media (max-width: $md2+px) {
+      text-align: center;
+      @include adaptiv-font(45, 25, 4);
+    }
+  }
+
+  // .login__form
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 410px;
+    margin: 0 auto;
+    @media (max-width: $md3+px) {
+      width: 100%;
+    }
+  }
+
+  // .login__input-wrapper
+
+  &__input-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+
+  // .login__input-container
+
+  &__input-container {
+    width: 100%;
+  }
+
+  // .login__input
+
+  &__input {
+    width: 100%;
+    border: 0.5px solid rgba(0, 0, 0, 0.15);
+    padding: 13px 12px;
+
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #1a2f3f;
+  }
+
+  // .login__links
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  // .login__forgot
+
+  &__forgot {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 32px;
+    letter-spacing: 0.01em;
+    color: #337d5a;
+    text-align: center;
+    display: block;
+  }
+
+  // .login__submit
+
+  &__submit {
+  }
+
+  // .login__submit-button
+
+  &__submit-button {
+    @extend %mainButton;
+    width: 100%;
+    padding: 14px 18px;
+    &.disabled {
+      background-color: #8a8a8a;
+      pointer-events: none;
+    }
+  }
+  &__error-field {
+    text-align: center;
+    color: red;
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.01em;
+  }
+}

@@ -15,6 +15,9 @@ async function addToCart() {
   const header = document.querySelector("header");
   const mobileCloseCart = document.querySelector(".header__mobile-close-cart");
   const preScrin = document.querySelector(".menu__pre-scrin");
+  const productPageButton = document.querySelectorAll(".page-product__button");
+  4;
+  const pageProductBody = document.querySelector(".page-product__body");
 
   buttonCart.addEventListener("click", () => {
     cart.classList.toggle("_active");
@@ -40,8 +43,6 @@ async function addToCart() {
     mobileCloseCart.classList.remove("_cart-active");
     preScrin.classList.remove("_active");
   });
-
- 
 
   const generateCartProduct = (title, price, id, weight, articul) => {
     return `<li class="cart-open__li">
@@ -155,6 +156,7 @@ async function addToCart() {
         .querySelector(`.products__card[data-art="${articul}"]`)
         .querySelector(".products__bottom-button").disabled = false;
     }
+
     productParent.remove();
     printQuantity();
     printFullPrice();
@@ -228,9 +230,42 @@ async function addToCart() {
     });
   });
 
+  productPageButton.forEach((el) => {
+    el.addEventListener("click", (e) => {
+      console.log(e.target);
+      e.preventDefault();
+      let articul = e.target.dataset.art;
+      let self = e.currentTarget;
+      let parent = self.closest(".page-product__body");
+      let id = parent.dataset.art;
+      let title = parent.querySelector(".page-product__title").textContent;
+      let priceNumber = parseInt(
+        priceWithoutSpaces(
+          parent.querySelector(".page-product__price-item").textContent
+        )
+      );
+
+      let weight = parent.querySelector(
+        ".box-info-product__right-weight"
+      ).textContent;
+
+      //diabled btn
+      cartProductList.insertAdjacentHTML(
+        "afterbegin",
+        generateCartProduct(title, priceNumber, id, weight, articul)
+      );
+      //count and print quntity + localStorage
+      printQuantity();
+      printFullPrice();
+      updateStorage();
+
+    });
+  });
+
   // delete products
 
   cart.addEventListener("click", (e) => {
+    console.log(e.target);
     if (e.target.classList.contains("cart-open__close")) {
       deleteProducts(e.target.closest(".cart-open__li"));
     }

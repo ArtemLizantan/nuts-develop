@@ -1,28 +1,32 @@
 <section class="login">
   <div class="login__container">
     <div class="login__body">
-      <div class="login__title"></div>
+      <div class="login__title">Войти в личный кабинет</div>
       <form class="login__form">
         <div class="login__input-wrapper">
           <div class="login__input-container">
             <input
               type="email"
               name="useremail"
-              class="login__input"
-              placeholder="email"
+              class="login__input form-email"
+              placeholder="Email"
             />
           </div>
           <div class="login__input-container">
             <input
               type="password"
               name="userpassword"
-              class="login__input"
-              placeholder="password"
+              class="login__input form-password"
+              placeholder="Пароль"
             />
           </div>
         </div>
         <div class="login__links">
           <a class="login__forgot" href="#"> Забыли пароль?</a>
+          <div class="login__submit">
+            <button type="submit" class="login__submit-button">Войти</button>
+          </div>
+          <a class="login__forgot" href="registration.html">Регистрация</a>
         </div>
       </form>
     </div>

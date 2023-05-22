@@ -79,16 +79,25 @@ import filter from "./modules/filter/filter.js";
 import customSelect from "./modules/customSelect/customSelect.js";
 import ecology from "./modules/swiper.js";
 import corporateMix from "./modules/mix/mix.js";
+import productsPage from "./modules/mix/mix.js";
 import registrarion from "./modules/registration/registration.js";
+import pageProduct from "./modules/page-product/page-product.js";
+import dataProductPage from "./modules/page-product/page-product-data.js";
 import prelouder from "./modules/prelouder.js";
 import switchImg from "./modules/registration/switchImg.js";
-import validate from "./modules/registration/validation";
+import validate from "./modules/registration/validation.js";
+import validateLogin from "./modules/login/validateLogin.js";
 import closePopup from "./modules/registration/closePopup.js";
 import locationHeader from "./modules/registration/location.js";
+import login from "./modules/login/login.js";
 
 async function go() {
   let a = await getData();
+  let q = await pageProduct();
+  let r = await dataProductPage();
+  let s = await productsPage();
   let g = await registrarion();
+  let p = await login();
   let b = await addToCart();
   let c = await filter();
 }

@@ -50,6 +50,15 @@
     },
     "idTitle": {
       "type": "string"
+    },
+    "compound": {
+      "type": "text"
+    },
+    "EnergyValue": {
+      "type": "string"
+    },
+    "BestBeforeDate": {
+      "type": "text"
     }
   }
 }

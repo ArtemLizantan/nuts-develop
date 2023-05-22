@@ -58,8 +58,7 @@ function newsSwiper() {
 }
 newsSwiper();
 
-
-function ecology(){
+function ecology() {
   let swiper = new Swiper(".ecology__swiper-left", {
     direction: "vertical",
     scrollbar: {
@@ -68,3 +67,4 @@ function ecology(){
   });
 }
 ecology();
+

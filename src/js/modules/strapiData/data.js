@@ -11,7 +11,6 @@ async function getData() {
         "http://localhost:1337/api/products?populate=deep"
       );
       const { data } = response.data;
-      console.log(data);
       data.forEach(
         (
           {
