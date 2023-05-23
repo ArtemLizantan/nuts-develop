@@ -1,8 +1,11 @@
 function locationHeader() {
   const headerLog = document.querySelector(".header__login");
+  const headerMobileLogin = document.querySelector(".open-menu__block");
   const jwtCookie = document.cookie
     .split("; ")
     .find((cookie) => cookie.startsWith("jwt="));
+
+  const breakpoint = 991;
 
   if (jwtCookie) {
     // Пользователь уже зарегистрирован, отобразить кабинет
@@ -24,6 +27,26 @@ function locationHeader() {
         >
       </div>`;
     headerLog.insertAdjacentHTML("afterbegin", markupTwo);
+  }
+
+  if (window.innerWidth < breakpoint) {
+    if (jwtCookie) {
+      const markup = `
+      <div class="header__user-cabinet">
+       <a href="user-cabinet.html" class="header__cabinet">
+       <div class="_icon-user header__cabinet-text">Личный кабинет</div></a>
+         </div>
+    `;
+      headerMobileLogin.insertAdjacentHTML("afterbegin", markup);
+    } else {
+      const markupTwo = ` <a class="header__mobile-log" href="#"
+      ><div class="_icon-user open-menu__reg">Вход</div></a
+    >
+    <a class="header__mobile-log" href="registration.html"
+      ><div class="open-menu__reg">Регистрация</div></a
+    >`;
+      headerMobileLogin.insertAdjacentHTML("afterbegin", markupTwo);
+    }
   }
 }
 locationHeader();

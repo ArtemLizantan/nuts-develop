@@ -124,9 +124,9 @@ async function registrarion() {
             fop: false,
           })
           .then((response) => {
+            popupSuccess.classList.add("_active");
             console.log("User profile", response.data.user);
             console.log("User token", response.data.jwt);
-            popupSuccess.classList.add("_active");
             body.classList.add("_lock");
             document.cookie = `jwt=${response.data.jwt}; expires=Fri, 01 Jan 2024 00:00:00; path=/`;
           })

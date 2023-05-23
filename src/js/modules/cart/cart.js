@@ -236,7 +236,54 @@ async function addToCart() {
   productPageButton.forEach((el) => {
     el.addEventListener("click", (e) => {
       e.preventDefault();
-      location.href = "index.html";
+
+      let articul = el.dataset.art;
+
+      let self = e.currentTarget;
+
+      let parent = self.closest(".page-product__body");
+
+      let id = parent.dataset.art;
+
+      let title = parent.querySelector(".page-product__title").textContent;
+
+      let priceNumber = parseInt(
+        priceWithoutSpaces(
+          parent.querySelector(".products__bottom-price-item").textContent
+        )
+      );
+
+      let weight = parent.querySelector(
+        ".box-info-product__right-weight"
+      ).textContent;
+
+      if (cartProductList.querySelector(".cart-open__li")) {
+        if (
+          cartProductList.querySelector(".cart-open__item").dataset.art === id
+        ) {
+          location.href = "index.html";
+        } else {
+          cartProductList.insertAdjacentHTML(
+            "afterbegin",
+            generateCartProduct(title, priceNumber, id, weight, articul)
+          );
+          //count and print quntity + localStorage
+          printQuantity();
+          printFullPrice();
+          updateStorage();
+          location.href = "index.html";
+        }
+      } else {
+        cartProductList.insertAdjacentHTML(
+          "afterbegin",
+          generateCartProduct(title, priceNumber, id, weight, articul)
+        );
+        //count and print quntity + localStorage
+        printQuantity();
+        printFullPrice();
+        updateStorage();
+        location.href = "index.html";
+      }
     });
   });
 

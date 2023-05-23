@@ -4,7 +4,7 @@ function validateLogin() {
   const formLogin = document.querySelector(".login__form");
 
   if (formLogin) {
-    const validate = new JustValidate(formLogin, {
+    const validate = new JustValidate(formLogin ,{
       validateBeforeSubmitting: true,
       lockForm: true,
       successFieldCssClass: ["valid"],
