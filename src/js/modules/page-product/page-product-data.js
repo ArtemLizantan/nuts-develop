@@ -76,7 +76,7 @@ async function dataProductPage() {
                       </div>
                     </div>
                     <div class="page-product__right-top-right">
-                      <div class="page-product__artic">${Articul}</div>
+                      <div class="page-product__artic">Арт: ${Articul}</div>
                     </div>
                   </div>
         

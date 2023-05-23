@@ -22,7 +22,6 @@ async function filter() {
           .weight;
         const taste = el.querySelector(".products__text-subtitle").dataset
           .title;
-
         if (
           (!weightValue ||
             (weightValue === "more" && weight > 45) ||
@@ -45,7 +44,7 @@ async function filter() {
         } else {
           return priceB - priceA;
         }
-      });
+      }); 
 
       if (filterProducts.length === 0) {
         container.innerHTML =
