@@ -145,6 +145,7 @@
   }
 }
 
+
 //Адаптивный шрифт
 @mixin adaptiv-font($pcSize, $mobSize, $maxSize) {
   $addSize: $pcSize - $mobSize;

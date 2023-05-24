@@ -1,6 +1,6 @@
 <section class="cabinet">
-  <div class="cabinet__container">
-    <div class="cabinet__body">
+  <div class="cabinet__body">
+    <div class="cabinet__container">
       <div class="cabinet__top">
         <div class="cabinet__title">Учетная запись</div>
         <div class="cabinet__manager">Ваш личный менеджер Олег</div>
@@ -12,10 +12,17 @@
               <div class="cabinet__bottom-title">Мои заказы</div>
               <div class="cabinet__bottom-column">
                 <div class="cabinet__bottom-link">
-                  <button class="cabinet__button">История заказов</button>
+                  <button data-filter=".category-order" class="cabinet__button">
+                    История заказов
+                  </button>
                 </div>
                 <div class="cabinet__bottom-link">
-                  <button class="cabinet__button">История транзакций</button>
+                  <button
+                    data-filter=".category-transactions"
+                    class="cabinet__button"
+                  >
+                    История транзакций
+                  </button>
                 </div>
               </div>
             </div>
@@ -23,20 +30,139 @@
               <div class="cabinet__bottom-title">Моя учетная запись</div>
               <div class="cabinet__bottom-column">
                 <div class="cabinet__bottom-link">
-                  <button class="cabinet__button">Контактная информация</button>
+                  <button
+                    data-filter=".category-contact"
+                    class="cabinet__button"
+                  >
+                    Контактная информация
+                  </button>
                 </div>
                 <div class="cabinet__bottom-link">
-                  <button class="cabinet__button">Пароль</button>
+                  <button
+                    data-filter=".category-password"
+                    class="cabinet__button"
+                  >
+                    Пароль
+                  </button>
                 </div>
                 <div class="cabinet__bottom-link">
-                  <button class="cabinet__button">Адрес</button>
+                  <button
+                    data-filter=".category-adress"
+                    class="cabinet__button"
+                  >
+                    Адрес реквизиты
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="cabinet__right">
-          <div class="cabinet__contact-info"></div>
+        <div id="mixitupFive" class="cabinet__right">
+          <div class="cabinet__order mix category-order">
+            <table class="cabinet__table">
+              <tr class="cabinet__tr cabinet__tr-first">
+                <td>№ Заказа</td>
+                <td>Дата</td>
+                <td>Кол - во товаров</td>
+                <td>Статус</td>
+                <td>Стоимость</td>
+                <td>Функции</td>
+              </tr>
+              <tr class="cabinet__tr">
+                <td>23</td>
+                <td>3.05.2019</td>
+                <td>13</td>
+                <td>Отправлено</td>
+                <td>2500 грн.</td>
+                <td class="cabinet__fn-svg">
+                  <button>
+                    <img
+                      src="../images/cabinet/order/view.svg"
+                      alt=""
+                    /></button
+                  ><button>
+                    <img src="../images/cabinet/order/copy.svg" alt="" />
+                  </button>
+                </td>
+              </tr>
+              <tr class="cabinet__tr cabinet__tr-third">
+                <td>24</td>
+                <td>3.05.2019</td>
+                <td>13</td>
+                <td>Отправлено</td>
+                <td>2500 грн.</td>
+                <td class="cabinet__fn-svg">
+                  <button>
+                    <img
+                      src="../images/cabinet/order/view.svg"
+                      alt=""
+                    /></button
+                  ><button>
+                    <img src="../images/cabinet/order/copy.svg" alt="" />
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="cabinet__order mix category-transactions">
+            <table class="cabinet__table">
+              <tr class="cabinet__tr cabinet__tr-first">
+                <td>Добавлено</td>
+                <td>Статус</td>
+                <td>Сумма</td>
+              </tr>
+              <tr class="cabinet__tr">
+                <td>3.05.2019</td>
+                <td>Платеж принят</td>
+                <td class="cabinet__fn-svg">
+                  2500 грн<button>
+                    <img src="../images/cabinet/order/view.svg" alt="" />
+                  </button>
+                </td>
+              </tr>
+              <tr class="cabinet__tr cabinet__tr-third">
+                <td>3.05.2019</td>
+                <td>Платеж принят</td>
+                <td class="cabinet__fn-svg">
+                  2500 грн<button>
+                    <img src="../images/cabinet/order/view.svg" alt="" />
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="cabinet__contact-info mix category-contact"></div>
+          <div class="cabinet__password mix category-password">
+            <form action="" class="cabinet__form-password">
+              <div class="cabinet__form-title">Смена пароля</div>
+              <div class="registration__input-wrap">
+                <input
+                  class="registration__input old-password"
+                  type="password"
+                  placeholder="Текущий пароль*"
+                  name="password"
+                />
+              </div>
+              <div class="registration__input-wrap">
+                <input
+                  class="registration__input form-password"
+                  type="password"
+                  placeholder="Новый пароль*"
+                  name="password"
+                />
+              </div>
+              <div class="registration__input-wrap">
+                <input
+                  class="registration__input form-confirm-password"
+                  type="password"
+                  placeholder="Подтвердить пароль*"
+                  name="password"
+                />
+              </div>
+              <button class="cabinet__password-submit">Сохранить</button>
+            </form>
+          </div>
+          <div class="cabinet__adress mix category-adress"></div>
         </div>
       </div>
     </div>

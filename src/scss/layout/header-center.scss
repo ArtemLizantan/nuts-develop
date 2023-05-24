@@ -48,7 +48,10 @@
   &__center-right {
     display: flex;
     align-items: center;
-    @include adaptiv-value(gap, 93, -20, 3);
+    gap: 93px;
+    @media (max-width: 1920px) {
+      @include adaptiv-value(gap, 93, -20, 3);
+    }
     flex: 1 1 auto;
     justify-content: end;
     margin-top: rem(-6);

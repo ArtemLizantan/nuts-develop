@@ -86,11 +86,13 @@ import dataProductPage from "./modules/page-product/page-product-data.js";
 import prelouder from "./modules/prelouder.js";
 import switchImg from "./modules/registration/switchImg.js";
 import validate from "./modules/registration/validation.js";
-import contactInfo from "./modules/user-cabinet/user-info.js"
+import contactInfo from "./modules/user-cabinet/user-info.js";
 import validateLogin from "./modules/login/validateLogin.js";
 import closePopup from "./modules/registration/closePopup.js";
 import locationHeader from "./modules/registration/location.js";
 import login from "./modules/login/login.js";
+import userCabinetInfo from "./modules/user-cabinet/cabinetMix.js";
+import adressInfo from "./modules/user-cabinet/user-adress.js"
 
 async function go() {
   let a = await getData();
@@ -99,8 +101,11 @@ async function go() {
   let s = await productsPage();
   let g = await registrarion();
   let x = await contactInfo();
+  let w = await userCabinetInfo();
+  let v = await adressInfo();
   let p = await login();
   let b = await addToCart();
   let c = await filter();
+  let d = await customSelect();
 }
 go();

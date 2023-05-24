@@ -8,7 +8,9 @@
   // .cabinet__body
 
   &__body {
-    margin-top: 110px;
+    padding-top: 110px;
+    padding-bottom: 110px;
+    background: #fbfbfb;
   }
 
   // .cabinet__top
@@ -121,12 +123,125 @@
     letter-spacing: 0.01em;
     color: #1a2f3f;
     background-color: unset;
+    padding: 5px 0;
+    &.mixitup-control-active {
+      color: #337d5a;
+      padding-bottom: 2px;
+      border-bottom: 2px solid #337d5a;
+    }
   }
 
+  //table
 
+  &__tr {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 16px 50px;
+  }
+  &__table {
+    width: 100%;
+    tbody {
+      gap: 10px;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    td {
+      flex-basis: 150px;
+      text-align: center;
+      font-family: "Montserrat";
+      font-size: 14px;
+      line-height: 20px;
+      color: #1a2f3f;
+    }
+  }
+  &__tr-first {
+    background: #fbfbfb;
+    td {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 32px;
+      color: #1a2f3f;
+    }
+  }
+  &__tr-third {
+    background: rgba(51, 125, 90, 0.1);
+  }
 
-  // .cabinet__contact-form
+  &__fn-svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    button {
+      background: none;
+    }
+  }
 
-  &__contact-form {
+  //adress
+
+  &__form-adress {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__form-wrapper {
+    width: 474px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  &__form-img {
+    width: 440px;
+    position: relative;
+    img {
+      width: 440px;
+    }
+  }
+  &__img-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &__img-text-title {
+    @extend %main-title;
+    text-align: center;
+    color: #ffffff;
+    font-size: 42px;
+    line-height: 44px;
+    margin-bottom: 20px;
+  }
+  &__img-text-subtitle {
+    @extend %main-subtitle;
+    text-align: center;
+    font-size: 20px;
+    line-height: 23px;
+    color: #ffffff;
+  }
+  &__adress-submit {
+    @extend %mainButton;
+    width: 230px;
+    padding: 16px 0;
+    margin-top: 15px;
+  }
+
+  //password
+
+  &__form-password {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  &__password-submit {
+    @extend %mainButton;
+    width: 230px;
+    padding: 16px 0;
+    margin-top: 15px;
+  }
+  &__form-title{
+    @extend %user-title;
+    font-size: 20px;
+    margin-bottom: 15px;
   }
 }

@@ -17,13 +17,6 @@ async function contactInfo() {
         },
       });
       const data = response.data;
-      console.log(data);
-      const adress = data.adress;
-      const adressFop = data.adressFop;
-      const city = data.city;
-      const cityFop = data.cityFop;
-      const country = data.country;
-      const countryFop = data.countryFop;
       const email = data.email;
       const phoneNumber = data.phoneNumber;
       const username = data.username;
@@ -174,6 +167,7 @@ export default contactInfo;
 
 function contactValidation() {
   const formCabinet = document.querySelector(".cabinet__contact-form");
+  const formRequisites = document.querySelector(".form-requisites");
 
   if (formCabinet) {
     const validate = new JustValidate(formCabinet, {
@@ -206,11 +200,13 @@ function contactValidation() {
         rule: "number",
       },
     ]);
-    validate.addField(".form-requisites", [
-      {
-        rule: "required",
-        errorMessage: "Пожалуйста,введите Ваши реквезиты",
-      },
-    ]);
+    if (formRequisites) {
+      validate.addField(".form-requisites", [
+        {
+          rule: "required",
+          errorMessage: "Пожалуйста,введите Ваши реквезиты",
+        },
+      ]);
+    }
   }
 }

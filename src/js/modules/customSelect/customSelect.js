@@ -1,7 +1,8 @@
-function customSelect() {
+async function customSelect() {
   const selectHeaders = document.querySelectorAll(".select-header");
   const customSelects = document.querySelectorAll(".custom-select");
   const filterRemoveButtons = document.querySelector(".filter__remove-filter");
+
 
   customSelects.forEach((customSelect) => {
     const selectList = customSelect.querySelector(".select-list");
@@ -29,4 +30,4 @@ function customSelect() {
     });
   });
 }
-customSelect();
+export default customSelect;
