@@ -1,7 +1,7 @@
 import axios from "axios";
 
-async function userInfoUpdate() {
-  const form = document.getElementById("cabinetFopEdit");
+async function userInfoFopUpdate() {
+  const form = document.getElementById("cabinetEdit");
   let jwt = document.cookie;
   jwt = jwt.split("").splice(4).join("");
 
@@ -18,7 +18,6 @@ async function userInfoUpdate() {
       const name = formData.get("name");
       const email = formData.get("email");
       const phoneNumber = formData.get("phoneNumber");
-      const requisites = formData.get("requisites");
 
       try {
         const response = await axios.get("http://localhost:1337/api/users/me", {
@@ -28,20 +27,18 @@ async function userInfoUpdate() {
         });
 
         const userId = response.data.id;
-
-        const updatedUserDataFop = {
+        const updatedUserData = {
           username: name,
           email: email,
-          requisites: requisites,
           phoneNumber: phoneNumber,
         };
 
         await axios.put(
           `http://localhost:1337/api/users/${userId}`,
-          updatedUserDataFop
+          updatedUserData
         );
 
-        form.insertAdjacentElement("afterend", sucsess);
+        form.insertAdjacentElement("beforeend", sucsess);
         setTimeout(() => {
           location.href = "user-cabinet.html";
         }, 1000);
@@ -52,4 +49,4 @@ async function userInfoUpdate() {
   }
 }
 
-export default userInfoUpdate;
+export default userInfoFopUpdate;

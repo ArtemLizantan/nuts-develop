@@ -92,8 +92,11 @@ import closePopup from "./modules/registration/closePopup.js";
 import locationHeader from "./modules/registration/location.js";
 import login from "./modules/login/login.js";
 import userCabinetInfo from "./modules/user-cabinet/cabinetMix.js";
-import adressInfo from "./modules/user-cabinet/user-adress.js"
-
+import adressInfo from "./modules/user-cabinet/user-adress.js";
+import userInfoUpdate from "./modules/user-cabinet/user-info-update.js";
+import userInfoFopUpdate from "./modules/user-cabinet/user-info-fop-update.js";
+import userAdressUpdate from "./modules/user-cabinet/user-adress-update.js";
+import userAdressFopUpdate from "./modules/user-cabinet/user-adress-fop-update.js";
 
 async function go() {
   let a = await getData();
@@ -104,6 +107,10 @@ async function go() {
   let x = await contactInfo();
   let w = await userCabinetInfo();
   let v = await adressInfo();
+  let t = await userInfoUpdate();
+  let u = await userInfoFopUpdate();
+  let y = await userAdressUpdate();
+  let z = await userAdressFopUpdate();
   let p = await login();
   let b = await addToCart();
   let c = await filter();

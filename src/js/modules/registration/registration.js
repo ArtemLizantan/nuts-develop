@@ -2,60 +2,62 @@ import axios from "axios";
 
 async function registrarion() {
   const form = document.querySelector(".registration__form");
-  const popupSuccess = document.querySelector(".popup__thank");
-  const fopButton = document.getElementById("fop");
-  const body = document.querySelector("body");
-  const registerButton = document.querySelector(".registration__submit-button");
-  const inputs = document.querySelectorAll(".registration__input");
-  let country;
-  let region;
-  let countryfop;
-  let regionfop;
+  if (form) {
+    const popupSuccess = document.querySelector(".popup__thank");
+    const fopButton = document.getElementById("fop");
+    const body = document.querySelector("body");
+    const registerButton = document.querySelector(
+      ".registration__submit-button"
+    );
+    const inputs = document.querySelectorAll(".registration__input");
+    let country;
+    let region;
+    let countryfop;
+    let regionfop;
 
-  const addEventListeners = () => {
-    document.querySelectorAll(".filter__button-country").forEach((el) => {
-      el.addEventListener("click", (e) => {
-        country = e.target.dataset.country;
+    const addEventListeners = () => {
+      document.querySelectorAll(".filter__button-country").forEach((el) => {
+        el.addEventListener("click", (e) => {
+          country = e.target.dataset.country;
+        });
       });
-    });
-    document.querySelectorAll(".filter__button-region").forEach((el) => {
-      el.addEventListener("click", (e) => {
-        region = e.target.dataset.region;
+      document.querySelectorAll(".filter__button-region").forEach((el) => {
+        el.addEventListener("click", (e) => {
+          region = e.target.dataset.region;
+        });
       });
-    });
-    document.querySelectorAll(".filter__button-country-fop").forEach((el) => {
-      el.addEventListener("click", (e) => {
-        countryfop = e.target.dataset.countryfop;
+      document.querySelectorAll(".filter__button-country-fop").forEach((el) => {
+        el.addEventListener("click", (e) => {
+          countryfop = e.target.dataset.countryfop;
+        });
       });
-    });
-    document.querySelectorAll(".filter__button-region-fop").forEach((el) => {
-      el.addEventListener("click", (e) => {
-        regionfop = e.target.dataset.regionfop;
+      document.querySelectorAll(".filter__button-region-fop").forEach((el) => {
+        el.addEventListener("click", (e) => {
+          regionfop = e.target.dataset.regionfop;
+        });
       });
-    });
-  };
+    };
 
-  addEventListeners();
+    addEventListeners();
 
-  //checkFormValidity
+    //checkFormValidity
 
-  function checkFormValidity(input) {
-    if (input.classList.contains("just-validate-error-field")) {
-      registerButton.classList.add("disabled");
-    } else if (input.classList.contains("valid")) {
-      registerButton.classList.remove("disabled");
+    function checkFormValidity(input) {
+      if (input.classList.contains("just-validate-error-field")) {
+        registerButton.classList.add("disabled");
+      } else if (input.classList.contains("valid")) {
+        registerButton.classList.remove("disabled");
+      }
     }
-  }
 
-  inputs.forEach((el) => {
-    el.addEventListener("change", () => {
-      checkFormValidity(el);
+    inputs.forEach((el) => {
+      el.addEventListener("change", () => {
+        checkFormValidity(el);
+      });
     });
-  });
 
-  //checkFormValidity end
+    //checkFormValidity end
 
-  if (form)
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
@@ -135,6 +137,7 @@ async function registrarion() {
           });
       }
     });
+  }
 }
 
 export default registrarion;

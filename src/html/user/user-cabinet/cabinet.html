@@ -170,8 +170,7 @@
                       class="user-fop-input registration__input form-company"
                       type="text"
                       placeholder="Компания*"
-                      name="company"
-                      value=""
+                      name="requisites"
                     />
                   </div>
                   <div class="registration__input-wrap">
@@ -180,7 +179,6 @@
                       type="text"
                       placeholder="Контактное лицо*"
                       name="name"
-                      value=""
                     />
                   </div>
                   <div class="registration__input-wrap">
@@ -189,7 +187,6 @@
                       type="email"
                       placeholder="Email*"
                       name="email"
-                      value=""
                     />
                   </div>
                   <div class="registration__input-wrap">
@@ -198,7 +195,6 @@
                       type="tel"
                       placeholder="Телефон*"
                       name="phoneNumber"
-                      value=""
                     />
                   </div>
                 </div>
@@ -354,7 +350,401 @@
               <button class="cabinet__password-submit">Сохранить</button>
             </form>
           </div>
-          <div class="cabinet__adress mix category-adress"></div>
+          <div class="cabinet__adress mix category-adress">
+            <div id="userAdress" class="cabinet__contact-wrapper">
+              <button id="userAdressEditButton" class="cabinet__adress-edit">
+                <img src="./images/cabinet/contact/edit.svg" alt="" />
+              </button>
+
+              <div class="cabinet__contact-item">
+                <h1 class="cabinet__contact-title">Адрес</h1>
+                <ul class="cabinet__contact-list">
+                  <li class="cabinet__contact-list-item">Страна</li>
+                  <li
+                    class="cabinet__contact-list-item user-ussual-adress-data"
+                  ></li>
+                </ul>
+              </div>
+              <div class="cabinet__contact-item">
+                <ul class="cabinet__contact-list">
+                  <li class="cabinet__contact-list-item">Область</li>
+                  <li
+                    class="cabinet__contact-list-item user-ussual-adress-data"
+                  ></li>
+                </ul>
+              </div>
+              <div class="cabinet__contact-item">
+                <ul class="cabinet__contact-list">
+                  <li class="cabinet__contact-list-item">Город</li>
+                  <li
+                    class="cabinet__contact-list-item user-ussual-adress-data"
+                  ></li>
+                </ul>
+              </div>
+              <div class="cabinet__contact-item">
+                <ul class="cabinet__contact-list">
+                  <li class="cabinet__contact-list-item">Адрес</li>
+                  <li
+                    class="cabinet__contact-list-item user-ussual-adress-data"
+                  ></li>
+                </ul>
+              </div>
+            </div>
+
+            <form id="userAdressEdit" action="#" class="cabinet__form-adress">
+              <div class="cabinet__form-wrapper">
+                <div class="registration__form-item">
+                  <div class="registration__subtitle">Адрес</div>
+                  <div class="registration__inputs">
+                    <div class="custom-select-mobile">
+                      <div class="custom-select registration__select">
+                        <div class="select-header">${country}</div>
+                        <ul class="select-list registration__list">
+                          <li>
+                            <div
+                              data-country="Украина"
+                              class="filter__button-country"
+                            >
+                              Украина
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="custom-select-mobile">
+                      <div class="custom-select registration__select">
+                        <div class="select-header">${region}</div>
+                        <ul class="select-list registration__list">
+                          <li>
+                            <div
+                              data-region="Одесская"
+                              class="filter__button-region"
+                            >
+                              Одесская
+                            </div>
+                          </li>
+                          <li>
+                            <div
+                              data-region="Киевская"
+                              class="filter__button-region"
+                            >
+                              Киевская
+                            </div>
+                          </li>
+                          <li>
+                            <div
+                              data-region="Харьковская"
+                              class="filter__button-region"
+                            >
+                              Харьковская
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="registration__input-wrap">
+                      <input
+                        class="user-ussual-adress-input registration__input form-city"
+                        type="text"
+                        placeholder="Город*"
+                        name="city"
+                      />
+                    </div>
+                    <div class="registration__input-wrap">
+                      <input
+                        class="user-ussual-adress-input registration__input form-adress"
+                        type="text"
+                        placeholder="Адрес*"
+                        name="adress"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="registration__bottom">
+                  <div class="cabinet__info-buttons">
+                    <button
+                      id="adressEditButtonSumbit"
+                      type="submit"
+                      class="cabinet__button-submit not-valid"
+                    >
+                      Сохранить
+                    </button>
+                    <button type="button" class="cabinet__adress-cancel">
+                      Отменить
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+            <div id="userAdressFop" class="cabinet__contact-wrapper">
+              <button id="userFopAdressEditButton" class="cabinet__adress-edit">
+                <img src="./images/cabinet/contact/edit.svg" alt="" />
+              </button>
+              <div class="cabinet__contact-item">
+                <h1 class="cabinet__contact-title">Реквезиты</h1>
+                <ul class="cabinet__contact-list">
+                  <li class="cabinet__contact-list-item">Реквезиты</li>
+                  <li class="cabinet__contact-list-item user-adress-data"></li>
+                </ul>
+              </div>
+              <div class="cabinet__contact-item">
+                <h1 class="cabinet__contact-title">Адрес</h1>
+                <ul class="cabinet__contact-list">
+                  <li class="cabinet__contact-list-item">Страна</li>
+                  <li class="cabinet__contact-list-item user-adress-data"></li>
+                </ul>
+              </div>
+              <div class="cabinet__contact-item">
+                <ul class="cabinet__contact-list">
+                  <li class="cabinet__contact-list-item">Область</li>
+                  <li class="cabinet__contact-list-item user-adress-data"></li>
+                </ul>
+              </div>
+              <div class="cabinet__contact-item">
+                <ul class="cabinet__contact-list">
+                  <li class="cabinet__contact-list-item">Город</li>
+                  <li class="cabinet__contact-list-item user-adress-data"></li>
+                </ul>
+              </div>
+              <div class="cabinet__contact-item">
+                <ul class="cabinet__contact-list">
+                  <li class="cabinet__contact-list-item">Адрес</li>
+                  <li class="cabinet__contact-list-item user-adress-data"></li>
+                </ul>
+              </div>
+              <div class="cabinet__contact-item">
+                <h1 class="cabinet__contact-title">Юридический адрес</h1>
+                <ul class="cabinet__contact-list">
+                  <li class="cabinet__contact-list-item">Страна</li>
+                  <li
+                    class="cabinet__contact-list-item user-adress-data-fop"
+                  ></li>
+                </ul>
+              </div>
+              <div class="cabinet__contact-item">
+                <ul class="cabinet__contact-list">
+                  <li class="cabinet__contact-list-item">Область</li>
+                  <li
+                    class="cabinet__contact-list-item user-adress-data-fop"
+                  ></li>
+                </ul>
+              </div>
+              <div class="cabinet__contact-item">
+                <ul class="cabinet__contact-list">
+                  <li class="cabinet__contact-list-item">Город</li>
+                  <li
+                    class="cabinet__contact-list-item user-adress-data-fop"
+                  ></li>
+                </ul>
+              </div>
+              <div class="cabinet__contact-item">
+                <ul class="cabinet__contact-list">
+                  <li class="cabinet__contact-list-item">Адрес</li>
+                  <li
+                    class="cabinet__contact-list-item user-adress-data-fop"
+                  ></li>
+                </ul>
+              </div>
+              <div class="cabinet__contact-item">
+                <ul class="cabinet__contact-list">
+                  <li class="cabinet__contact-list-item">Индекс</li>
+                  <li
+                    class="cabinet__contact-list-item user-adress-data-fop"
+                  ></li>
+                </ul>
+              </div>
+            </div>
+
+            <form
+              id="userAdressFopEdit"
+              action="#"
+              class="cabinet__form-adress"
+            >
+              <div class="cabinet__form-wrapper">
+                <div class="registration__form-item">
+                  <div class="registration__subtitle">1. Реквизиты</div>
+                  <div class="registration__inputs">
+                    <div class="registration__input-wrap">
+                      <input
+                        class="adressFopInput registration__input form-requisites"
+                        type="text"
+                        placeholder="Реквизиты"
+                        name="requisites"
+                        value="${requisites}"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="registration__form-item">
+                  <div class="registration__subtitle">2. Адрес</div>
+                  <div class="registration__inputs">
+                    <div class="custom-select-mobile">
+                      <div class="custom-select registration__select">
+                        <div class="select-header">${country}</div>
+                        <ul class="select-list registration__list">
+                          <li>
+                            <div
+                              data-country="Украина"
+                              class="filter__button-country"
+                            >
+                              Украина
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="custom-select-mobile">
+                      <div class="custom-select registration__select">
+                        <div class="select-header">${region}</div>
+                        <ul class="select-list registration__list">
+                          <li>
+                            <div
+                              data-region="Одесская"
+                              class="filter__button-region"
+                            >
+                              Одесская
+                            </div>
+                          </li>
+                          <li>
+                            <div
+                              data-region="Киевская"
+                              class="filter__button-region"
+                            >
+                              Киевская
+                            </div>
+                          </li>
+                          <li>
+                            <div
+                              data-region="Харьковская"
+                              class="filter__button-region"
+                            >
+                              Харьковская
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="registration__input-wrap">
+                      <input
+                        class="adressFopInput registration__input form-city"
+                        type="text"
+                        placeholder="Город*"
+                        name="city"
+                      />
+                    </div>
+                    <div class="registration__input-wrap">
+                      <input
+                        class="adressFopInput registration__input form-adress"
+                        type="text"
+                        placeholder="Адрес*"
+                        name="adress"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="registration__form-item">
+                  <div class="registration__subtitle">3. Юридический адрес</div>
+                  <div class="registration__inputs">
+                    <div class="custom-select-mobile">
+                      <div class="custom-select registration__select">
+                        <div class="select-header">${countryFop}</div>
+                        <ul class="select-list registration__list">
+                          <li>
+                            <div
+                              data-countryfop="Украина"
+                              class="filter__button-country-fop"
+                            >
+                              Украина
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="custom-select-mobile">
+                      <div class="custom-select registration__select">
+                        <div class="select-header">${regionFop}</div>
+                        <ul class="select-list registration__list">
+                          <li>
+                            <div
+                              data-regionfop="Odesskaya"
+                              class="filter__button-region-fop"
+                            >
+                              Одесская
+                            </div>
+                          </li>
+                          <li>
+                            <div
+                              data-regionfop="Kievskaya"
+                              class="filter__button-region-fop"
+                            >
+                              Киевская
+                            </div>
+                          </li>
+                          <li>
+                            <div
+                              data-regionfop="Kharkovskaya"
+                              class="filter__button-region-fop"
+                            >
+                              Харьковская
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="registration__input-wrap">
+                      <input
+                        class="adressFopInput registration__input form-city-fop"
+                        type="text"
+                        placeholder="Город*"
+                        name="cityFop"
+                      />
+                    </div>
+                    <div class="registration__input-wrap">
+                      <input
+                        class="adressFopInput registration__input form-adress-fop"
+                        type="text"
+                        placeholder="Адрес*"
+                        name="adressFop"
+                      />
+                    </div>
+                    <div class="registration__input-wrap">
+                      <input
+                        class="adressFopInput registration__input form-index-fop"
+                        type="text"
+                        placeholder="Индекс*"
+                        name="indexFop"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="registration__bottom">
+                  <div class="cabinet__info-buttons">
+                    <button
+                      id="adressEditFopButtonSubmit"
+                      type="submit"
+                      class="cabinet__button-submit"
+                    >
+                      Сохранить
+                    </button>
+                    <button type="button" class="cabinet__adress-cancel">
+                      Отменить
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="cabinet__form-img">
+                <img src="./images/cabinet/adress/bg.png" alt="" />
+                <div class="cabinet__img-text">
+                  <div class="cabinet__img-text-title">Орех Причерноморья</div>
+                  <div class="cabinet__img-text-subtitle">
+                    Единственный в Украине сад совместного выращивания фундука и
+                    грецкого ореха
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

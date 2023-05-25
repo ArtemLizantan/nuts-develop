@@ -28,7 +28,7 @@ async function contactInfo() {
       ".cabinet__info-cancel"
     );
 
-    if (contactWrapper) {
+
       try {
         const response = await axios.get("http://localhost:1337/api/users/me", {
           headers: {
@@ -102,6 +102,6 @@ async function contactInfo() {
       }
     }
   }
-}
+
 
 export default contactInfo;

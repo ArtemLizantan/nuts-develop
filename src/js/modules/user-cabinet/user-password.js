@@ -33,8 +33,8 @@ async function adressInfo() {
         return `
           `;
 
-        adressWrapper.innerHTML = contactMarkup();
-        // adressValidation();
+        // adressWrapper.innerHTML = contactMarkup();
+        // // adressValidation();
       };
     } catch (error) {
       console.error(error);
