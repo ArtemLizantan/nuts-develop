@@ -179,6 +179,83 @@
     }
   }
 
+  &__contact-edit,
+  &__adress-edit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: unset;
+    img {
+      width: 30px;
+    }
+  }
+
+  &__info-buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__adress-cancel,
+  &__info-cancel {
+    @extend %mainButtonWhite;
+    width: 230px;
+    padding: 16px 0;
+    margin-top: 15px;
+    background-color: unset;
+    text-align: center;
+    &:hover{
+      background-color: red;
+    }
+  }
+
+  //contact
+
+  // .cabinet__contact-wrapper
+
+  &__contact-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    padding: 40px;
+    background: rgba(51, 125, 90, 0.1);
+    position: relative;
+  }
+
+  // .cabinet__contact-item
+
+  &__contact-wrap {
+    display: flex;
+    gap: 20px;
+  }
+
+  // .cabinet__contact-list
+
+  &__contact-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    min-height: 50px;
+  }
+
+  // .cabinet__contact-list-item
+
+  &__contact-list-item {
+    display: flex;
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 17px;
+    color: #1a2f3f;
+  }
+  &__contact-title {
+    @extend %user-subtitle;
+    text-align: center;
+    font-size: 20px;
+  }
+
   //adress
 
   &__form-adress {
@@ -239,7 +316,7 @@
     padding: 16px 0;
     margin-top: 15px;
   }
-  &__form-title{
+  &__form-title {
     @extend %user-title;
     font-size: 20px;
     margin-bottom: 15px;

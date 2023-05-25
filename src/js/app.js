@@ -94,6 +94,7 @@ import login from "./modules/login/login.js";
 import userCabinetInfo from "./modules/user-cabinet/cabinetMix.js";
 import adressInfo from "./modules/user-cabinet/user-adress.js"
 
+
 async function go() {
   let a = await getData();
   let q = await pageProduct();
