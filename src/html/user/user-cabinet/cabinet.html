@@ -131,7 +131,199 @@
               </tr>
             </table>
           </div>
-          <div class="cabinet__contact-info mix category-contact"></div>
+          <div class="cabinet__contact-info mix category-contact">
+            <div id="cabinetFop" class="cabinet__contact-wrapper">
+              <button id="cabinetFopButtonEdit" class="cabinet__contact-edit">
+                <img src="./images/cabinet/contact/edit.svg" alt="" />
+              </button>
+              <div class="cabinet__contact-item">
+                <ul class="cabinet__contact-list">
+                  <li class="cabinet__contact-list-item">Компания*</li>
+                  <li class="cabinet__contact-list-item cabinet__fop-info"></li>
+                </ul>
+              </div>
+              <div class="cabinet__contact-item">
+                <ul class="cabinet__contact-list">
+                  <li class="cabinet__contact-list-item">Контактное лицо*</li>
+                  <li class="cabinet__contact-list-item cabinet__fop-info"></li>
+                </ul>
+              </div>
+              <div class="cabinet__contact-item">
+                <ul class="cabinet__contact-list">
+                  <li class="cabinet__contact-list-item">Email</li>
+                  <li class="cabinet__contact-list-item cabinet__fop-info"></li>
+                </ul>
+              </div>
+              <div class="cabinet__contact-item">
+                <ul class="cabinet__contact-list">
+                  <li class="cabinet__contact-list-item">Телефон</li>
+                  <li class="cabinet__contact-list-item cabinet__fop-info"></li>
+                </ul>
+              </div>
+            </div>
+
+            <form id="cabinetFopEdit" action="#" class="cabinet__contact-form">
+              <div class="cabinet__contact-wrap">
+                <div class="cabinet__inputs-wrapper">
+                  <div class="registration__input-wrap">
+                    <input
+                      class="user-fop-input registration__input form-company"
+                      type="text"
+                      placeholder="Компания*"
+                      name="company"
+                      value=""
+                    />
+                  </div>
+                  <div class="registration__input-wrap">
+                    <input
+                      class="user-fop-input registration__input form-name"
+                      type="text"
+                      placeholder="Контактное лицо*"
+                      name="name"
+                      value=""
+                    />
+                  </div>
+                  <div class="registration__input-wrap">
+                    <input
+                      class="user-fop-input registration__input form-email"
+                      type="email"
+                      placeholder="Email*"
+                      name="email"
+                      value=""
+                    />
+                  </div>
+                  <div class="registration__input-wrap">
+                    <input
+                      class="user-fop-input registration__input form-tel"
+                      type="tel"
+                      placeholder="Телефон*"
+                      name="phoneNumber"
+                      value=""
+                    />
+                  </div>
+                </div>
+                <div class="registration__upload">
+                  <input
+                    type="file"
+                    name="file"
+                    id="file"
+                    class="registration__input-file"
+                    name="img"
+                  />
+                  <label
+                    class="registration__upload-label"
+                    for="file"
+                    class="btn"
+                  >
+                    <span
+                      ><img
+                        class="registration__upload-switch"
+                        src="./images/registration/overlay.png"
+                        alt=""
+                    /></span>
+                  </label>
+                </div>
+              </div>
+              <div class="cabinet__info-buttons">
+                <button type="submit" class="cabinet__button-submit">
+                  Сохранить
+                </button>
+                <button type="button" class="cabinet__info-cancel">
+                  Отменить
+                </button>
+              </div>
+            </form>
+
+            <div id="cabinet" class="cabinet__contact-wrapper">
+              <button id="cabinetButtonEdit" class="cabinet__contact-edit">
+                <img src="./images/cabinet/contact/edit.svg" alt="" />
+              </button>
+              <div class="cabinet__contact-item">
+                <ul class="cabinet__contact-list">
+                  <li class="cabinet__contact-list-item">Фио</li>
+                  <li
+                    class="cabinet__contact-list-item cabinet__user-info"
+                  ></li>
+                </ul>
+              </div>
+              <div class="cabinet__contact-item">
+                <ul class="cabinet__contact-list">
+                  <li class="cabinet__contact-list-item">Email</li>
+                  <li
+                    class="cabinet__contact-list-item cabinet__user-info"
+                  ></li>
+                </ul>
+              </div>
+              <div class="cabinet__contact-item">
+                <ul class="cabinet__contact-list">
+                  <li class="cabinet__contact-list-item">Телефон</li>
+                  <li
+                    class="cabinet__contact-list-item cabinet__user-info"
+                  ></li>
+                </ul>
+              </div>
+            </div>
+
+            <form id="cabinetEdit" action="#" class="cabinet__contact-form">
+              <div class="cabinet__contact-wrap">
+                <div class="cabinet__inputs-wrapper">
+                  <div class="registration__input-wrap">
+                    <input
+                      class="user-input registration__input form-name"
+                      type="text"
+                      placeholder="ФИО*"
+                      name="name"
+                    />
+                  </div>
+                  <div class="registration__input-wrap">
+                    <input
+                      class="user-input registration__input form-email"
+                      type="email"
+                      placeholder="Email*"
+                      name="email"
+                    />
+                  </div>
+                  <div class="registration__input-wrap">
+                    <input
+                      class="user-input registration__input form-tel"
+                      type="tel"
+                      placeholder="Телефон*"
+                      name="phoneNumber"
+                    />
+                  </div>
+                </div>
+                <div class="registration__upload">
+                  <input
+                    type="file"
+                    name="file"
+                    id="file"
+                    class="registration__input-file"
+                    name="img"
+                  />
+                  <label
+                    class="registration__upload-label"
+                    for="file"
+                    class="btn"
+                  >
+                    <span
+                      ><img
+                        class="registration__upload-switch"
+                        src="./images/registration/overlay.png"
+                        alt=""
+                    /></span>
+                  </label>
+                </div>
+              </div>
+              <div class="cabinet__info-buttons">
+                <button type="submit" class="cabinet__button-submit">
+                  Сохранить
+                </button>
+                <button type="button" class="cabinet__info-cancel">
+                  Отменить
+                </button>
+              </div>
+            </form>
+          </div>
           <div class="cabinet__password mix category-password">
             <form action="" class="cabinet__form-password">
               <div class="cabinet__form-title">Смена пароля</div>

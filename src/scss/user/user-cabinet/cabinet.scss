@@ -204,7 +204,7 @@
     margin-top: 15px;
     background-color: unset;
     text-align: center;
-    &:hover{
+    &:hover {
       background-color: red;
     }
   }
@@ -320,5 +320,35 @@
     @extend %user-title;
     font-size: 20px;
     margin-bottom: 15px;
+  }
+}
+
+#cabinetFop ,
+#cabinet{
+  opacity: 1;
+  overflow: visible;
+  pointer-events: unset;
+  height: 100%;
+  &._hide {
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    height: 0;
+    padding: 0;
+  }
+}
+
+
+#cabinetFopEdit,
+#cabinetEdit {
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  height: 0;
+  &._active {
+    opacity: 1;
+    overflow: visible;
+    pointer-events: unset;
+    height: 100%;
   }
 }
