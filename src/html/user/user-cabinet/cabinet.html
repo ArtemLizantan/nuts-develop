@@ -221,7 +221,7 @@
                 </div>
               </div>
               <div class="cabinet__info-buttons">
-                <button type="submit" class="cabinet__button-submit">
+                <button id="userContactFopSubmitButton" type="submit" class="cabinet__button-submit">
                   Сохранить
                 </button>
                 <button type="button" class="cabinet__info-cancel">
@@ -311,10 +311,10 @@
                 </div>
               </div>
               <div class="cabinet__info-buttons">
-                <button type="submit" class="cabinet__button-submit">
+                <button id="userContactSubmitButton" type="submit" class="cabinet__button-submit">
                   Сохранить
                 </button>
-                <button type="button" class="cabinet__info-cancel">
+                <button id="userContactEditButton" type="button" class="cabinet__info-cancel">
                   Отменить
                 </button>
               </div>
@@ -328,7 +328,7 @@
                   class="registration__input old-password"
                   type="password"
                   placeholder="Текущий пароль*"
-                  name="password"
+                  name="passwordOld"
                 />
               </div>
               <div class="registration__input-wrap">
@@ -336,7 +336,7 @@
                   class="registration__input form-password"
                   type="password"
                   placeholder="Новый пароль*"
-                  name="password"
+                  name="passwordNew"
                 />
               </div>
               <div class="registration__input-wrap">
@@ -344,10 +344,10 @@
                   class="registration__input form-confirm-password"
                   type="password"
                   placeholder="Подтвердить пароль*"
-                  name="password"
+                  name="passwordConfirm"
                 />
               </div>
-              <button class="cabinet__password-submit">Сохранить</button>
+              <button class="cabinet__password-submit not-valid">Сохранить</button>
             </form>
           </div>
           <div class="cabinet__adress mix category-adress">
@@ -398,7 +398,7 @@
                   <div class="registration__inputs">
                     <div class="custom-select-mobile">
                       <div class="custom-select registration__select">
-                        <div class="select-header">${country}</div>
+                        <div class="select-header"></div>
                         <ul class="select-list registration__list">
                           <li>
                             <div
@@ -413,7 +413,7 @@
                     </div>
                     <div class="custom-select-mobile">
                       <div class="custom-select registration__select">
-                        <div class="select-header">${region}</div>
+                        <div class="select-header"></div>
                         <ul class="select-list registration__list">
                           <li>
                             <div
@@ -478,7 +478,7 @@
             </form>
 
             <div id="userAdressFop" class="cabinet__contact-wrapper">
-              <button id="userFopAdressEditButton" class="cabinet__adress-edit">
+              <button id="userFopAdressEditButton" class="cabinet__adress-edit ">
                 <img src="./images/cabinet/contact/edit.svg" alt="" />
               </button>
               <div class="cabinet__contact-item">
@@ -723,7 +723,7 @@
                     <button
                       id="adressEditFopButtonSubmit"
                       type="submit"
-                      class="cabinet__button-submit"
+                      class="cabinet__button-submit not-valid"
                     >
                       Сохранить
                     </button>

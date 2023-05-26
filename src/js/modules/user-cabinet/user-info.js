@@ -28,80 +28,78 @@ async function contactInfo() {
       ".cabinet__info-cancel"
     );
 
+    try {
+      const response = await axios.get("http://localhost:1337/api/users/me", {
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+        },
+      });
+      const data = response.data;
 
-      try {
-        const response = await axios.get("http://localhost:1337/api/users/me", {
-          headers: {
-            Authorization: `Bearer ${jwt}`,
-          },
+      const email = data.email;
+      const phoneNumber = data.phoneNumber;
+      const username = data.username;
+      const fop = data.fop;
+      const requisites = data.requisites;
+
+      if (fop) {
+        cabinet.style.display = "none";
+        cabinetEdit.style.display = "none";
+        cabinetFopButtonEdit.addEventListener("click", () => {
+          cabinetFopEdit.classList.add("_active");
+          cabinetFop.classList.add("_hide");
         });
-        const data = response.data;
 
-        const email = data.email;
-        const phoneNumber = data.phoneNumber;
-        const username = data.username;
-        const fop = data.fop;
-        const requisites = data.requisites;
+        infoUserFop[0].innerHTML = requisites;
+        infoUserFop[1].innerHTML = username;
+        infoUserFop[2].innerHTML = email;
+        infoUserFop[3].innerHTML = phoneNumber;
 
-        if (fop) {
-          cabinet.style.display = "none";
-          cabinetEdit.style.display = "none";
-          cabinetFopButtonEdit.addEventListener("click", () => {
-            cabinetFopEdit.classList.add("_active");
-            cabinetFop.classList.add("_hide");
+        userFopInput[0].value = requisites;
+        userFopInput[1].value = username;
+        userFopInput[2].value = email;
+        userFopInput[3].value = phoneNumber;
+
+        cabinetInfoCancel.forEach((buttonCancel) => {
+          buttonCancel.addEventListener("click", () => {
+            cabinetFopEdit.classList.remove("_active");
+            cabinetFop.classList.remove("_hide");
+            userFopInput[0].value = requisites;
+            userFopInput[1].value = username;
+            userFopInput[2].value = email;
+            userFopInput[3].value = phoneNumber;
           });
+        });
+      } else {
+        cabinetFop.style.display = "none";
+        cabinetFopEdit.style.display = "none";
+        cabinetButtonEdit.addEventListener("click", () => {
+          cabinetEdit.classList.add("_active");
+          cabinet.classList.add("_hide");
+        });
 
-          infoUserFop[0].innerHTML = requisites;
-          infoUserFop[1].innerHTML = username;
-          infoUserFop[2].innerHTML = email;
-          infoUserFop[3].innerHTML = phoneNumber;
+        infoUser[0].innerHTML = username;
+        infoUser[1].innerHTML = email;
+        infoUser[2].innerHTML = phoneNumber;
 
-          userFopInput[0].value = requisites;
-          userFopInput[1].value = username;
-          userFopInput[2].value = email;
-          userFopInput[3].value = phoneNumber;
+        userInput[0].value = username;
+        userInput[1].value = email;
+        userInput[2].value = phoneNumber;
 
-          cabinetInfoCancel.forEach((buttonCancel) => {
-            buttonCancel.addEventListener("click", () => {
-              cabinetFopEdit.classList.remove("_active");
-              cabinetFop.classList.remove("_hide");
-              userFopInput[0].value = requisites;
-              userFopInput[1].value = username;
-              userFopInput[2].value = email;
-              userFopInput[3].value = phoneNumber;
-            });
+        cabinetInfoCancel.forEach((buttonCancel) => {
+          buttonCancel.addEventListener("click", () => {
+            cabinetEdit.classList.remove("_active");
+            cabinet.classList.remove("_hide");
+            userInput[0].value = username;
+            userInput[1].value = email;
+            userInput[2].value = phoneNumber;
           });
-        } else {
-          cabinetFop.style.display = "none";
-          cabinetFopEdit.style.display = "none";
-          cabinetButtonEdit.addEventListener("click", () => {
-            cabinetEdit.classList.add("_active");
-            cabinet.classList.add("_hide");
-          });
-
-          infoUser[0].innerHTML = username;
-          infoUser[1].innerHTML = email;
-          infoUser[2].innerHTML = phoneNumber;
-
-          userInput[0].value = username;
-          userInput[1].value = email;
-          userInput[2].value = phoneNumber;
-
-          cabinetInfoCancel.forEach((buttonCancel) => {
-            buttonCancel.addEventListener("click", () => {
-              cabinetEdit.classList.remove("_active");
-              cabinet.classList.remove("_hide");
-              userInput[0].value = username;
-              userInput[1].value = email;
-              userInput[2].value = phoneNumber;
-            });
-          });
-        }
-      } catch (error) {
-        console.error(error);
+        });
       }
+    } catch (error) {
+      console.error(error);
     }
   }
-
+}
 
 export default contactInfo;

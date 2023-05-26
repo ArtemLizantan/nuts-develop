@@ -85,7 +85,6 @@ import pageProduct from "./modules/page-product/page-product.js";
 import dataProductPage from "./modules/page-product/page-product-data.js";
 import prelouder from "./modules/prelouder.js";
 import switchImg from "./modules/registration/switchImg.js";
-import validate from "./modules/registration/validation.js";
 import contactInfo from "./modules/user-cabinet/user-info.js";
 import validateLogin from "./modules/login/validateLogin.js";
 import closePopup from "./modules/registration/closePopup.js";
@@ -97,6 +96,7 @@ import userInfoUpdate from "./modules/user-cabinet/user-info-update.js";
 import userInfoFopUpdate from "./modules/user-cabinet/user-info-fop-update.js";
 import userAdressUpdate from "./modules/user-cabinet/user-adress-update.js";
 import userAdressFopUpdate from "./modules/user-cabinet/user-adress-fop-update.js";
+import updatePassword from "./modules/user-cabinet/user-password-update.js";
 
 async function go() {
   let a = await getData();
@@ -111,6 +111,7 @@ async function go() {
   let u = await userInfoFopUpdate();
   let y = await userAdressUpdate();
   let z = await userAdressFopUpdate();
+  let h = await updatePassword();
   let p = await login();
   let b = await addToCart();
   let c = await filter();

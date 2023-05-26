@@ -3,9 +3,12 @@ import JustValidate from "just-validate";
 
 async function userAdressUpdate() {
   const form = document.getElementById("userAdressEdit");
-
   if (form) {
     const submitButton = document.getElementById("adressEditButtonSumbit");
+    const editButton = document.getElementById("userAdressEditButton");
+    const cabinetAdressCancelButton = form.querySelector(
+      ".cabinet__adress-cancel"
+    );
     let jwt = document.cookie;
     jwt = jwt.split("").splice(4).join("");
 
@@ -16,28 +19,35 @@ async function userAdressUpdate() {
 
     const regex = /[^\wа-яА-Я]+/g;
 
-    function adressValidation() {
+    function validateAdress() {
       const validate = new JustValidate(form, {
         validateBeforeSubmitting: true,
         lockForm: true,
         successFieldCssClass: ["valid"],
       });
-      validate.addField(".form-city", [
-        {
-          rule: "required",
-          errorMessage: "Пожалуйста,введите Ваш город",
-        },
-      ]);
-      validate.addField(".form-adress", [
-        {
-          rule: "required",
-          errorMessage: "Пожалуйста,введите Ваш адресс",
-        },
-      ]);
+      editButton.addEventListener("click", () => {
+        submitButton.classList.add("not-valid");
+        validate.addField(".form-city", [
+          {
+            rule: "required",
+            errorMessage: "Пожалуйста,введите Ваш город",
+          },
+        ]);
+        validate.addField(".form-adress", [
+          {
+            rule: "required",
+            errorMessage: "Пожалуйста,введите Ваш адресс",
+          },
+        ]);
+      });
+      cabinetAdressCancelButton.addEventListener("click", () => {
+        validate.removeField(".form-city");
+        validate.removeField(".form-adress");
+      });
+
       validate.onValidate(function (isValid) {
         if (isValid.isValid == false) {
           submitButton.classList.add("not-valid");
-          console.log(isValid);
         } else {
           if (form) {
             submitButton.classList.remove("not-valid");
@@ -84,7 +94,7 @@ async function userAdressUpdate() {
         }
       });
     }
-    adressValidation();
+    validateAdress();
   }
 }
 

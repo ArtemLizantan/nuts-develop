@@ -62,10 +62,6 @@
     width: 230px;
     padding: 16px 0;
     margin-top: 15px;
-    &.not-valid {
-      background-color: gray;
-      pointer-events: none;
-    }
   }
 
   &__contact-wrapper {
@@ -196,8 +192,10 @@
 
   &__info-buttons {
     display: flex;
-    align-items: center;
     gap: 20px;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: start;
   }
 
   &__adress-cancel,

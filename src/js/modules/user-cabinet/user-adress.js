@@ -1,7 +1,6 @@
 import JustValidate from "just-validate";
 import axios from "axios";
 
-
 async function adressInfo() {
   let jwt = document.cookie;
   jwt = jwt.split("").splice(4).join("");

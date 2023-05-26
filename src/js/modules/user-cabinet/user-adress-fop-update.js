@@ -3,128 +3,147 @@ import JustValidate from "just-validate";
 
 async function userAdressFopUpdate() {
   const form = document.getElementById("userAdressFopEdit");
-  const submitButton = document.getElementById("adressEditFopButtonSubmit");
-  let jwt = document.cookie;
-  jwt = jwt.split("").splice(4).join("");
+  if (form) {
+    const cabinetAdressCancelButton = form.querySelector(
+      ".cabinet__adress-cancel"
+    );
+    const submitButton = document.getElementById("adressEditFopButtonSubmit");
+    const editButton = document.getElementById("userFopAdressEditButton");
+    let jwt = document.cookie;
+    jwt = jwt.split("").splice(4).join("");
 
-  const sucsess = document.createElement("div");
-  sucsess.innerHTML = "Данные успешно сохранены!";
-  sucsess.style.color = "green";
-  sucsess.style.marginTop = "15px";
+    const sucsess = document.createElement("div");
+    sucsess.innerHTML = "Данные успешно сохранены!";
+    sucsess.style.color = "green";
+    sucsess.style.marginTop = "15px";
 
-  const regex = /[^\wа-яА-Я]+/g;
+    const regex = /[^\wа-яА-Я]+/g;
 
-  function adressValidation() {
-    const validate = new JustValidate(form, {
-      validateBeforeSubmitting: true,
-      lockForm: true,
-      successFieldCssClass: ["valid"],
-    });
-    validate.addField(".form-requisites", [
-      {
-        rule: "required",
-        errorMessage: "Пожалуйста,введите Ваши реквезиты",
-      },
-    ]);
-
-    validate.addField(".form-city", [
-      {
-        rule: "required",
-        errorMessage: "Пожалуйста,введите Ваш город",
-      },
-    ]);
-    validate.addField(".form-adress", [
-      {
-        rule: "required",
-        errorMessage: "Пожалуйста,введите Ваш адресс",
-      },
-    ]);
-    validate.addField(".form-city-fop", [
-      {
-        rule: "required",
-        errorMessage: "Пожалуйста,введите Ваш город ФОП",
-      },
-    ]);
-    validate.addField(".form-adress-fop", [
-      {
-        rule: "required",
-        errorMessage: "Пожалуйста,введите Ваш адресс ФОП",
-      },
-    ]);
-    validate.addField(".form-index-fop", [
-      {
-        rule: "required",
-        errorMessage: "Пожалуйста,введите Ваш индекс ФОП",
-      },
-    ]);
-    validate.onValidate(function (isValid) {
-      if (isValid.isValid == false) {
+    function validateAdressFop() {
+      const validate = new JustValidate(form, {
+        validateBeforeSubmitting: true,
+        lockForm: true,
+        successFieldCssClass: ["valid"],
+      });
+      editButton.addEventListener("click", () => {
         submitButton.classList.add("not-valid");
-      } else {
-        submitButton.classList.remove("not-valid");
-        form.addEventListener("submit", async (e) => {
-          e.preventDefault();
-          const selectHeaderUssually = form.querySelectorAll(".select-header");
+        validate.addField(".form-requisites", [
+          {
+            rule: "required",
+            errorMessage: "Пожалуйста,введите Ваши реквезиты",
+          },
+        ]);
 
-          const formData = new FormData(form);
-          const requisites = formData.get("requisites");
-          const city = formData.get("city");
-          const adress = formData.get("adress");
-          const adressFop = formData.get("adressFop");
-          const cityFop = formData.get("cityFop");
-          const indexFop = formData.get("indexFop");
-          let country;
-          let region;
-          let countryFop;
-          let regionFop;
+        validate.addField(".form-city", [
+          {
+            rule: "required",
+            errorMessage: "Пожалуйста,введите Ваш город",
+          },
+        ]);
+        validate.addField(".form-adress", [
+          {
+            rule: "required",
+            errorMessage: "Пожалуйста,введите Ваш адресс",
+          },
+        ]);
+        validate.addField(".form-city-fop", [
+          {
+            rule: "required",
+            errorMessage: "Пожалуйста,введите Ваш город ФОП",
+          },
+        ]);
+        validate.addField(".form-adress-fop", [
+          {
+            rule: "required",
+            errorMessage: "Пожалуйста,введите Ваш адресс ФОП",
+          },
+        ]);
+        validate.addField(".form-index-fop", [
+          {
+            rule: "required",
+            errorMessage: "Пожалуйста,введите Ваш индекс ФОП",
+          },
+        ]);
+      });
+      cabinetAdressCancelButton.addEventListener("click", () => {
+        validate.removeField(".form-requisites");
+        validate.removeField(".form-city");
+        validate.removeField(".form-adress");
+        validate.removeField(".form-city-fop");
+        validate.removeField(".form-adress-fop");
+        validate.removeField(".form-index-fop");
+      });
 
-          country = selectHeaderUssually[0].textContent.replace(regex, "");
-          region = selectHeaderUssually[1].textContent.replace(regex, "");
-          countryFop = selectHeaderUssually[2].textContent.replace(regex, "");
-          regionFop = selectHeaderUssually[3].textContent.replace(regex, "");
+      validate.onValidate(function (isValid) {
+        if (isValid.isValid == false) {
+          submitButton.classList.add("not-valid");
+        } else {
+          submitButton.classList.remove("not-valid");
+          form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const selectHeaderUssually =
+              form.querySelectorAll(".select-header");
 
-          try {
-            const response = await axios.get(
-              "http://localhost:1337/api/users/me",
-              {
-                headers: {
-                  Authorization: `Bearer ${jwt}`,
-                },
-              }
-            );
+            const formData = new FormData(form);
+            const requisites = formData.get("requisites");
+            const city = formData.get("city");
+            const adress = formData.get("adress");
+            const adressFop = formData.get("adressFop");
+            const cityFop = formData.get("cityFop");
+            const indexFop = formData.get("indexFop");
+            let country;
+            let region;
+            let countryFop;
+            let regionFop;
 
-            const userId = response.data.id;
+            country = selectHeaderUssually[0].textContent.replace(regex, "");
+            region = selectHeaderUssually[1].textContent.replace(regex, "");
+            countryFop = selectHeaderUssually[2].textContent.replace(regex, "");
+            regionFop = selectHeaderUssually[3].textContent.replace(regex, "");
 
-            const updateAdressFop = {
-              city: city,
-              adress: adress,
-              country: country,
-              region: region,
-              requisites: requisites,
-              adressFop: adressFop,
-              cityFop: cityFop,
-              indexFop: indexFop,
-              countryFop: countryFop,
-              regionfop: regionFop,
-            };
+            try {
+              const response = await axios.get(
+                "http://localhost:1337/api/users/me",
+                {
+                  headers: {
+                    Authorization: `Bearer ${jwt}`,
+                  },
+                }
+              );
 
-            await axios.put(
-              `http://localhost:1337/api/users/${userId}`,
-              updateAdressFop
-            );
+              const userId = response.data.id;
 
-            form.insertAdjacentElement("afterend", sucsess);
-            setTimeout(() => {
-              location.href = "user-cabinet.html";
-            }, 1000);
-          } catch (error) {
-            console.log(error);
-          }
-        });
-      }
-    });
+              const updateAdressFop = {
+                city: city,
+                adress: adress,
+                country: country,
+                region: region,
+                requisites: requisites,
+                adressFop: adressFop,
+                cityFop: cityFop,
+                indexFop: indexFop,
+                countryFop: countryFop,
+                regionfop: regionFop,
+              };
+
+              await axios.put(
+                `http://localhost:1337/api/users/${userId}`,
+                updateAdressFop
+              );
+
+              form.insertAdjacentElement("afterend", sucsess);
+              setTimeout(() => {
+                location.href = "user-cabinet.html";
+              }, 1000);
+            } catch (error) {
+              console.log(error);
+            }
+          });
+        }
+      });
+    }
+    validateAdressFop();
   }
-  adressValidation();
 }
 
 export default userAdressFopUpdate;
