@@ -78,6 +78,8 @@ async function registrarion() {
       const indexFop = formData.get("indexFop");
       const img = formData.get("file");
 
+      console.log(img);
+
       if (fopButton.classList.contains("mixitup-control-active")) {
         axios
           .post("http://localhost:1337/api/auth/local/register", {
