@@ -1,5 +1,8 @@
 .footer {
   padding-top: 100px;
+  @media (max-width: $md2+px) {
+    @include adaptiv-value(padding-top, 100, 50, 3);
+  }
   // .footer__container
 
   &__container {
@@ -279,8 +282,8 @@
   // .footer__copyright
 
   &__copyright {
-    @include adaptiv-value(margin-top,55,20,1);
-    @include adaptiv-value(margin-bottom,55,20,1);
+    @include adaptiv-value(margin-top, 55, 20, 1);
+    @include adaptiv-value(margin-bottom, 55, 20, 1);
     padding: 0 5px;
   }
 

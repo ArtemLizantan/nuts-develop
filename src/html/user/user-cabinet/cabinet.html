@@ -3,7 +3,12 @@
     <div class="cabinet__container">
       <div class="cabinet__top">
         <div class="cabinet__title">Учетная запись</div>
-        <div class="cabinet__manager">Ваш личный менеджер Олег</div>
+        <div class="cabinet__manager">
+          <div class="cabinet__manager-title">Ваш личный менеджер Олег</div>
+          <div class="cabinet__manager-subtitle _icon-phone">
+            <a href="tel:0506187978">+38 067 777 14 12</a>
+          </div>
+        </div>
       </div>
       <div class="cabinet__bottom-wrapper">
         <div class="cabinet__left">
@@ -103,6 +108,68 @@
                 </td>
               </tr>
             </table>
+            <table class="cabinet__table-mobile">
+              <tr class="cabinet__table-mobile-static">
+                <td class="cabinet__mobile-td">№ Заказа</td>
+              </tr>
+              <tr>
+                <td class="cabinet__mobile-td-info">23</td>
+                <td class="cabinet__mobile-td-info">25</td>
+              </tr>
+              <tr class="cabinet__table-mobile-static">
+                <td class="cabinet__mobile-td">Дата</td>
+              </tr>
+              <tr>
+                <td class="cabinet__mobile-td-info">3.05.2019</td>
+                <td class="cabinet__mobile-td-info">3.05.2012</td>
+              </tr>
+              <tr class="cabinet__table-mobile-static">
+                <td class="cabinet__mobile-td">Кол - во товаров</td>
+              </tr>
+              <tr>
+                <td class="cabinet__mobile-td-info">13</td>
+                <td class="cabinet__mobile-td-info">15</td>
+              </tr>
+              <tr class="cabinet__table-mobile-static">
+                <td class="cabinet__mobile-td">Статус</td>
+              </tr>
+              <tr>
+                <td class="cabinet__mobile-td-info">Отправлено</td>
+                <td class="cabinet__mobile-td-info">Отправлено</td>
+              </tr>
+              <tr class="cabinet__table-mobile-static">
+                <td class="cabinet__mobile-td">Стоимость</td>
+              </tr>
+              <tr>
+                <td class="cabinet__mobile-td-info">2500 грн.</td>
+                <td class="cabinet__mobile-td-info">3500 грн.</td>
+              </tr>
+              <tr class="cabinet__table-mobile-static">
+                <td class="cabinet__mobile-td">Функции</td>
+              </tr>
+              <tr>
+                <td class="cabinet__fn-svg cabinet__mobile-svg">
+                  <button>
+                    <img
+                      src="../images/cabinet/order/view.svg"
+                      alt=""
+                    /></button
+                  ><button>
+                    <img src="../images/cabinet/order/copy.svg" alt="" />
+                  </button>
+                </td>
+                <td class="cabinet__fn-svg cabinet__mobile-svg">
+                  <button>
+                    <img
+                      src="../images/cabinet/order/view.svg"
+                      alt=""
+                    /></button
+                  ><button>
+                    <img src="../images/cabinet/order/copy.svg" alt="" />
+                  </button>
+                </td>
+              </tr>
+            </table>
           </div>
           <div class="cabinet__order mix category-transactions">
             <table class="cabinet__table">
@@ -128,6 +195,29 @@
                     <img src="../images/cabinet/order/view.svg" alt="" />
                   </button>
                 </td>
+              </tr>
+            </table>
+            <table class="cabinet__table-mobile">
+              <tr class="cabinet__table-mobile-static">
+                <td class="cabinet__mobile-td">Добавлено</td>
+              </tr>
+              <tr>
+                <td class="cabinet__mobile-td-info">3.05.2019</td>
+                <td class="cabinet__mobile-td-info">3.05.2020</td>
+              </tr>
+              <tr class="cabinet__table-mobile-static">
+                <td class="cabinet__mobile-td">Статус</td>
+              </tr>
+              <tr>
+                <td class="cabinet__mobile-td-info">Платеж принят</td>
+                <td class="cabinet__mobile-td-info">В обработке</td>
+              </tr>
+              <tr class="cabinet__table-mobile-static">
+                <td class="cabinet__mobile-td">Сумма</td>
+              </tr>
+              <tr>
+                <td class="cabinet__mobile-td-info">4000</td>
+                <td class="cabinet__mobile-td-info">2500</td>
               </tr>
             </table>
           </div>
@@ -221,7 +311,11 @@
                 </div>
               </div>
               <div class="cabinet__info-buttons">
-                <button id="userContactFopSubmitButton" type="submit" class="cabinet__button-submit">
+                <button
+                  id="userContactFopSubmitButton"
+                  type="submit"
+                  class="cabinet__button-submit"
+                >
                   Сохранить
                 </button>
                 <button type="button" class="cabinet__info-cancel">
@@ -311,10 +405,18 @@
                 </div>
               </div>
               <div class="cabinet__info-buttons">
-                <button id="userContactSubmitButton" type="submit" class="cabinet__button-submit">
+                <button
+                  id="userContactSubmitButton"
+                  type="submit"
+                  class="cabinet__button-submit"
+                >
                   Сохранить
                 </button>
-                <button id="userContactEditButton" type="button" class="cabinet__info-cancel">
+                <button
+                  id="userContactEditButton"
+                  type="button"
+                  class="cabinet__info-cancel"
+                >
                   Отменить
                 </button>
               </div>
@@ -347,7 +449,9 @@
                   name="passwordConfirm"
                 />
               </div>
-              <button class="cabinet__password-submit not-valid">Сохранить</button>
+              <button class="cabinet__password-submit not-valid">
+                Сохранить
+              </button>
             </form>
           </div>
           <div class="cabinet__adress mix category-adress">
@@ -478,7 +582,7 @@
             </form>
 
             <div id="userAdressFop" class="cabinet__contact-wrapper">
-              <button id="userFopAdressEditButton" class="cabinet__adress-edit ">
+              <button id="userFopAdressEditButton" class="cabinet__adress-edit">
                 <img src="./images/cabinet/contact/edit.svg" alt="" />
               </button>
               <div class="cabinet__contact-item">

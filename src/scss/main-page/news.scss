@@ -68,13 +68,13 @@
 
   &__card {
     width: 408px;
+    cursor: pointer;
     @media (max-width: $md2+px) {
       @include adaptiv-value(width, 408, 200, 3);
     }
   }
 
   &__swiper-slide {
-   
   }
 
   // .news__card-link
@@ -158,6 +158,10 @@
   }
   &__button-prev {
     transform: rotateY(-180deg);
+    cursor: pointer;
+  }
+  &__button-next {
+    cursor: pointer;
   }
 
   &__button {

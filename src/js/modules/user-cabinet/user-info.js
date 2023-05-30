@@ -97,7 +97,7 @@ async function contactInfo() {
         });
       }
     } catch (error) {
-      console.error(error);
+     
     }
   }
 }

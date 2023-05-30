@@ -1,0 +1,71 @@
+.cart {
+  &__container {
+    max-width: 1320px;
+  }
+  &__table {
+    width: 100%;
+    padding: 20px 11px;
+    td {
+      flex-basis: 200px;
+      text-align: center;
+      font-family: "Montserrat";
+      font-size: 14px;
+      line-height: 32px;
+      color: #1a2f3f;
+    }
+    tr {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      transition: all 0.5s;
+      &:hover {
+        background: rgba(51, 125, 90, 0.1);
+      }
+    }
+  }
+  &__buttons {
+    justify-content: center;
+  }
+  &__table-left {
+    text-align: left !important;
+    justify-content: start !important;
+  }
+
+  &__table-main-info {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+    &::before {
+      color: #8a8a8a;
+      font-size: 10px;
+      position: relative;
+      top: 2px;
+    }
+  }
+  &__body {
+    margin-top: 108px;
+  }
+  &__top {
+    margin-bottom: 14px;
+    gap: 187px;
+  }
+  &__bottom-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__return {
+    @extend %mainButtonWhite;
+    background-color: unset;
+    padding: 15px 28px;
+    display: flex;
+    gap: 15px;
+    &::before {
+      transform: rotate(180deg);
+    }
+  }
+}

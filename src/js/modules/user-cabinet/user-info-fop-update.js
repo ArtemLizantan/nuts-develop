@@ -106,7 +106,7 @@ async function userInfoUpdate() {
                 location.href = "user-cabinet.html";
               }, 1000);
             } catch (error) {
-              console.log(error);
+             
             }
           });
         }

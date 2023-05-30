@@ -51,7 +51,7 @@
     min-height: rem(227);
     max-height: rem(230);
     width: rem(468);
-    border: 1px solid grey;
+    border: 1.5px solid #337d5a;
     background-color: #fff;
     overflow-y: scroll;
 
@@ -100,10 +100,7 @@
     font-size: 14px;
     line-height: 19px;
     color: #1a2f3f;
-    min-width: 160px;
-    @media (max-width: $md3+px) {
-      min-width: 140px;
-    }
+    flex-basis: 160px;
   }
 
   &__list {
@@ -118,10 +115,8 @@
     display: flex;
     align-items: center;
     gap: rem(10);
-    button {
-      font-size: rem(25);
-      padding: rem(5);
-    }
+    background-color: unset;
+    flex-basis: 81px;
     span {
       font-family: "Montserrat";
       font-style: normal;
@@ -129,14 +124,35 @@
       font-size: 14px;
       line-height: 32px;
       color: #1a2f3f;
+      padding: 0px 17px;
+      border: 1px solid rgba(0, 0, 0, 0.15);
     }
+  }
+  &__price-product {
+    flex-basis: 60px;
+    text-align: center;
+  }
+  &__plus {
+    background: url(../images/cart/arrow-right.svg);
+    width: 10px;
+    height: 11px;
+    background-repeat: no-repeat;
+  }
+
+  &__minus {
+    background: url(../images/cart/arrow.svg);
+    width: 10px;
+    height: 11px;
+    background-repeat: no-repeat;
   }
 
   // .cart-open__close
 
   &__close {
-    font-size: rem(25);
+    font-size: rem(20);
     background: none;
+    flex-basis: 20px;
+    color: #c4c4c4;
   }
   // .card-open__price
 

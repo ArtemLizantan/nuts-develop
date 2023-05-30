@@ -1,7 +1,7 @@
 function dynamicHtml() {
   //перенос при адаптиве
 
-  const breakpoint = 991;
+  const breakpoint = 992;
   const source = document.querySelector(".header__desctop-cart");
   const destination = document.querySelector(".header__mobile-cart-box");
 

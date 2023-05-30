@@ -5,7 +5,7 @@ function locationHeader() {
     .split("; ")
     .find((cookie) => cookie.startsWith("jwt="));
 
-  const breakpoint = 991;
+  const breakpoint = 992;
 
   if (jwtCookie) {
     // Пользователь уже зарегистрирован, отобразить кабинет

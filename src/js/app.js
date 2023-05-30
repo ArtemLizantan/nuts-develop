@@ -80,7 +80,7 @@ import customSelect from "./modules/customSelect/customSelect.js";
 import ecology from "./modules/swiper.js";
 import corporateMix from "./modules/mix/mix.js";
 import productsPage from "./modules/mix/mix.js";
-import registrarion from "./modules/registration/registration.js";
+import registration from "./modules/registration/registration.js";
 import pageProduct from "./modules/page-product/page-product.js";
 import dataProductPage from "./modules/page-product/page-product-data.js";
 import prelouder from "./modules/prelouder.js";
@@ -103,8 +103,9 @@ async function go() {
   let q = await pageProduct();
   let r = await dataProductPage();
   let s = await productsPage();
-  let g = await registrarion();
+  let g = await registration();
   let x = await contactInfo();
+  let b = await addToCart();
   let w = await userCabinetInfo();
   let v = await adressInfo();
   let t = await userInfoUpdate();
@@ -113,7 +114,6 @@ async function go() {
   let z = await userAdressFopUpdate();
   let h = await updatePassword();
   let p = await login();
-  let b = await addToCart();
   let c = await filter();
   let d = await customSelect();
 }

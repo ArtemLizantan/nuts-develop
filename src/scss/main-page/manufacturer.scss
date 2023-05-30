@@ -112,6 +112,7 @@
   // .manufacturer__button-next
 
   &__button-next {
+    cursor: pointer;
   }
 
   // .manufacturer__button-img
@@ -136,6 +137,7 @@
 
   &__button-prev {
     transform: rotateY(-180deg);
+    cursor: pointer;
   }
 }
 

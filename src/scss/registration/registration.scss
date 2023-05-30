@@ -1,4 +1,9 @@
 .registration {
+  padding-bottom: 90px;
+  @media (max-width: $md2+px) {
+    @include adaptiv-value(padding-bottom, 90, 50, 3);
+  }
+
   // .registration__container
 
   &__container {

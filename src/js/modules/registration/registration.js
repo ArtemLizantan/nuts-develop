@@ -1,7 +1,7 @@
 import axios from "axios";
 import JustValidate from "just-validate";
 
-async function registrarion() {
+async function registration() {
   const form = document.querySelector(".registration__form");
   if (form) {
     const popupSuccess = document.querySelector(".popup__thank");
@@ -15,7 +15,6 @@ async function registrarion() {
     let region;
     let countryfop;
     let regionfop;
-    let validFop = false;
 
     const addEventListeners = () => {
       document.querySelectorAll(".filter__button-country").forEach((el) => {
@@ -43,7 +42,6 @@ async function registrarion() {
     addEventListeners();
 
     function validate() {
-      const fopButton = document.getElementById("fop");
       if (form) {
         const validate = new JustValidate(form, {
           validateBeforeSubmitting: true,
@@ -117,7 +115,6 @@ async function registrarion() {
         ]);
         fopButton.addEventListener("click", () => {
           registerButton.classList.add("not-valid");
-          validFop = true;
 
           // Добавить валидацию для полей, связанных с FOP
           validate.addField(".form-requisites", [
@@ -150,8 +147,6 @@ async function registrarion() {
         });
 
         usuallyButton.addEventListener("click", () => {
-          validFop = false;
-
           // Убрать валидацию для полей, связанных с FOP
           validate.removeField(".form-requisites");
           validate.removeField(".form-city-fop");
@@ -184,8 +179,6 @@ async function registrarion() {
               const adressFop = formData.get("adressFop");
               const indexFop = formData.get("indexFop");
               const img = formData.get("file");
-
-              console.log(img.name);
 
               if (fopButton.classList.contains("mixitup-control-active")) {
                 axios
@@ -239,7 +232,7 @@ async function registrarion() {
                     document.cookie = `jwt=${response.data.jwt}; expires=Fri, 01 Jan 2024 00:00:00; path=/`;
                   })
                   .catch((error) => {
-                    console.log("An error occurred:", error.response);
+
                   });
               }
             });
@@ -251,4 +244,4 @@ async function registrarion() {
   }
 }
 
-export default registrarion;
+export default registration;

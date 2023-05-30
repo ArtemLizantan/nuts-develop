@@ -16,7 +16,7 @@ async function addToCart() {
   const mobileCloseCart = document.querySelector(".header__mobile-close-cart");
   const preScrin = document.querySelector(".menu__pre-scrin");
   const productPageButton = document.querySelectorAll(".page-product__button");
-  const pageProductBody = document.querySelector(".page-product__body");
+  const pageCartTable = document.querySelector(".cart__table");
 
   buttonCart.addEventListener("click", () => {
     cart.classList.toggle("_active");
@@ -49,15 +49,38 @@ async function addToCart() {
           <div data-art="${articul}" class="cart-open__item">
             <div class="cart-open__title">${title} <span>${weight}г.</span></div>
             <div class="cart-open__buttons">
-              <button data-art="${articul}" class="cart-open__plus">+</button>
+              <button data-art="${articul}" class="cart-open__minus"></button>
               <span>1</span>
-              <button data-art="${articul}" class="cart-open__minus">-</button>
+              <button data-art="${articul}" class="cart-open__plus"></button>
             </div>
             <div data-price="${price}" class="cart-open__price-product">${price}грн.</div>
             <button class="cart-open__close">X</button>
           </div>
         </div>
       </li>`;
+  };
+
+  const generateCartPage = (title, price, id, weight, articul) => {
+    return `
+    <tr>
+            <td class="cart__table-left">
+              <div class="cart-open__title">${title} <span>${weight}.</span></div>
+            </td>
+            <td>
+              <div class="cart-open__buttons cart__buttons">
+                <button data-art="${articul}" class="cart-open__minus"></button>
+                <span>1</span>
+                <button data-art="${articul}" class="cart-open__plus"></button>
+              </div>
+            </td>
+            <td>
+              <div data-price="${price}" class="cart-open__price-product">${price}.</div>
+            </td>
+            <td>
+              <div data-price="${price}" class="cart-open__price-product">${price}.</div>
+            </td>
+          </tr>
+    `;
   };
 
   //priceWithoutSpaces
@@ -154,10 +177,6 @@ async function addToCart() {
       document
         .querySelector(`.products__card[data-art="${articul}"]`)
         .querySelector(".products__bottom-button").disabled = false;
-
-      // document
-      //   .querySelector(`.page-product__body[data-art="${articul}"]`)
-      //   .querySelector(".page-product__button").disabled = false;
     }
 
     productParent.remove();
