@@ -87,7 +87,7 @@ import prelouder from "./modules/prelouder.js";
 import switchImg from "./modules/registration/switchImg.js";
 import contactInfo from "./modules/user-cabinet/user-info.js";
 import validateLogin from "./modules/login/validateLogin.js";
-import closePopup from "./modules/registration/closePopup.js";
+import closePopup from "./modules/registration/closePopup.js"
 import locationHeader from "./modules/registration/location.js";
 import login from "./modules/login/login.js";
 import userCabinetInfo from "./modules/user-cabinet/cabinetMix.js";

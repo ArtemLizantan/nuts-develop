@@ -3,7 +3,7 @@ async function addToCart() {
   const cartProductList = document.querySelector(".cart-open__list");
   const cart = document.querySelector(".cart-open");
   const cartQuantity = document.querySelector(".header__cart-quantity");
-  const fullPrice = document.querySelector(".cart-open__price");
+  const fullPrice = document.querySelectorAll(".cart-open__price");
   const buttonCart = document.querySelector(".header__cart");
   const textNothing = document.querySelector(".cart-open__nothing");
   const cartOpenFullPrice = document.querySelector(".cart-open__fullprice");
@@ -16,7 +16,19 @@ async function addToCart() {
   const mobileCloseCart = document.querySelector(".header__mobile-close-cart");
   const preScrin = document.querySelector(".menu__pre-scrin");
   const productPageButton = document.querySelectorAll(".page-product__button");
-  const pageCartTable = document.querySelector(".cart__table");
+  const cartCenterPage = document.querySelector(".cart__center");
+  const cartInfo = document.querySelector(".cart__info");
+
+  let jwt = document.cookie;
+  jwt = jwt.split("").splice(4).join("");
+
+  if (cartInfo) {
+    if (jwt) {
+      cartInfo.style.display = "none";
+    } else {
+      cartInfo.style.display = "flex";
+    }
+  }
 
   buttonCart.addEventListener("click", () => {
     cart.classList.toggle("_active");
@@ -60,27 +72,67 @@ async function addToCart() {
       </li>`;
   };
 
-  const generateCartPage = (title, price, id, weight, articul) => {
+  const getLocalCart = (title, articul, price) => {
     return `
-    <tr>
-            <td class="cart__table-left">
-              <div class="cart-open__title">${title} <span>${weight}.</span></div>
-            </td>
-            <td>
-              <div class="cart-open__buttons cart__buttons">
-                <button data-art="${articul}" class="cart-open__minus"></button>
-                <span>1</span>
-                <button data-art="${articul}" class="cart-open__plus"></button>
-              </div>
-            </td>
-            <td>
-              <div data-price="${price}" class="cart-open__price-product">${price}.</div>
-            </td>
-            <td>
-              <div data-price="${price}" class="cart-open__price-product">${price}.</div>
-            </td>
-          </tr>
-    `;
+      <tr class="cart__table-tr" data-art=${articul}>
+      <td class="cart__table-left">
+        <div class="cart-open__title">${title}</div>
+      </td>
+      <td>
+        <div class="cart-open__buttons cart__buttons">
+          <button data-art="${articul}" class="cart-open__minus"></button>
+          <span>1</span>
+          <button data-art="${articul}" class="cart-open__plus"></button>
+        </div>
+      </td>
+      <td>
+      <div data-price="${price}" class="cart__table-price-item">
+       ${price} грн.
+    </div>
+      </td>
+      <td>
+        <div data-price="${price}" class="cart-open__price-product">${price} грн.</div>
+      </td>
+    </tr>
+      `;
+  };
+
+  const getLocalCartAdaptive = (title, articul, price, number) => {
+    return `
+    <h2 class="cart__adaptive-title">Продукт №${number}</h2>
+    <table data-art=${articul} class="cabinet__table-mobile cart__table-mobile">
+      <tr class="cabinet__table-mobile-static">
+        <td class="cabinet__mobile-td">Товар</td>
+      </tr>
+      <tr>
+        <td class="cabinet__mobile-td-info">${title}</td>
+      </tr>
+      <tr class="cabinet__table-mobile-static">
+        <td class="cabinet__mobile-td">Кол-во</td>
+      </tr>
+      <tr>
+        <td class="cabinet__mobile-td-info">
+        <div class="cart-open__buttons cart__buttons">
+          <button data-art="${articul}" class="cart-open__minus"></button>
+          <span>1</span>
+          <button data-art="${articul}" class="cart-open__plus"></button>
+        </div></td>
+      </tr>
+      <tr class="cabinet__table-mobile-static">
+        <td class="cabinet__mobile-td">Цена за товар</td>
+      </tr>
+      <tr>
+        <td class="cabinet__mobile-td-info"><div data-price="${price}" class="cart__table-price-item">
+        ${price} грн.
+     </div></td>
+      </tr>
+      <tr class="cabinet__table-mobile-static">
+        <td class="cabinet__mobile-td">Итоговая стоимость</td>
+      </tr>
+      <tr>
+        <td class="cabinet__mobile-td-info"><div data-price="${price}" class="cart-open__price-product cart__price-product">${price} грн.</div></td>
+      </tr>
+    </table>`;
   };
 
   //priceWithoutSpaces
@@ -93,16 +145,20 @@ async function addToCart() {
 
   const printFullPrice = (sumAllPrices) => {
     const allPrices = document.querySelectorAll(".cart-open__price-product");
+    const allItems = document.querySelectorAll(".cart-open__li");
     sumAllPrices = 0;
-    for (let i = 0; i < allPrices.length; i++) {
+    for (let i = 0; i < allPrices.length / 2; i++) {
       sumAllPrices += parseInt(priceWithoutSpaces(allPrices[i].textContent));
     }
-    if (allPrices.length === 0) {
+
+    if (allItems.length === 0) {
       cartOpenFullPrice.classList.remove("_active");
     } else {
       cartOpenFullPrice.classList.add("_active");
     }
-    return (fullPrice.innerHTML = sumAllPrices);
+    fullPrice.forEach((price) => {
+      price.innerHTML = sumAllPrices;
+    });
   };
 
   //print Quantity
@@ -120,15 +176,18 @@ async function addToCart() {
   //updateProductPrice
 
   const updateProductPrice = (articul, quantity) => {
-    const productItem = document.querySelector(`[data-art="${articul}"]`);
-    const productPrice = parseInt(
-      productItem.querySelector(".cart-open__price-product").dataset.price
-    );
-
-    const totalPrice = productPrice * quantity;
-    productItem.querySelector(".cart-open__price-product").textContent =
-      totalPrice.toLocaleString() + "грн";
-
+    const productItem = document.querySelectorAll(`[data-art="${articul}"]`);
+    productItem.forEach((item) => {
+      const productPrice = item.querySelectorAll(".cart-open__price-product");
+      if (productPrice != 0) {
+        productPrice.forEach((price) => {
+          const contentPrice = parseInt(price.dataset.price);
+          const totalPrice = contentPrice * quantity;
+          item.querySelector(".cart-open__price-product").textContent =
+            totalPrice.toLocaleString() + "грн";
+        });
+      }
+    });
     printFullPrice();
   };
 
@@ -137,16 +196,17 @@ async function addToCart() {
   const productPlus = (plus) => {
     if (plus) {
       const articul = plus.dataset.art;
-      const value = document.querySelector(`[data-art="${articul}"] + span`);
-      let result = parseInt(value.textContent);
-      result++;
-      if (result <= 20) {
-        updateProductPrice(articul, result);
-      } else {
-        return;
-      }
-      //..............................................................................................
-      return (value.innerHTML = result);
+      const value = document.querySelectorAll(`[data-art="${articul}"] + span`);
+      value.forEach((value) => {
+        let result = parseInt(value.textContent);
+        result++;
+        if (result <= 20) {
+          updateProductPrice(articul, result);
+        } else {
+          return;
+        }
+        value.innerHTML = result;
+      });
     }
   };
 
@@ -155,17 +215,18 @@ async function addToCart() {
   const productMinus = (minus) => {
     if (minus) {
       const articul = minus.dataset.art;
-      const value = document.querySelector(`[data-art="${articul}"] + span`);
-      let result = parseInt(value.textContent);
-      result--;
+      const value = document.querySelectorAll(`[data-art="${articul}"] + span`);
+      value.forEach((value) => {
+        let result = parseInt(value.textContent);
+        result--;
 
-      if (result <= 0) {
-        return;
-      } else {
-        updateProductPrice(articul, result);
-      }
-      //.................................................................................................
-      return (value.innerHTML = result);
+        if (result <= 0) {
+          return;
+        } else {
+          updateProductPrice(articul, result);
+        }
+        value.innerHTML = result;
+      });
     }
   };
 
@@ -178,7 +239,6 @@ async function addToCart() {
         .querySelector(`.products__card[data-art="${articul}"]`)
         .querySelector(".products__bottom-button").disabled = false;
     }
-
     productParent.remove();
     printQuantity();
     printFullPrice();
@@ -306,6 +366,42 @@ async function addToCart() {
     });
   });
 
+  const pageCartTable = document.querySelector(".cart__table");
+  const cartOpenItems = document.querySelectorAll(".cart-open__li");
+  const pageCartTableMobile = document.querySelector(".cart__table-mobile");
+
+  if (pageCartTable) {
+    const printPageCart = () => {
+      for (let i = 0; i < cartOpenItems.length; i++) {
+        let title =
+          cartOpenItems[i].querySelector(".cart-open__title").textContent;
+        let articul =
+          cartOpenItems[i].querySelector(".cart-open__item").dataset.art;
+        let price = cartOpenItems[i].querySelector(".cart-open__price-product")
+          .dataset.price;
+        let weight = cartOpenItems[i].querySelector(
+          ".cart-open__title span"
+        ).textContent;
+
+        const breakpoint = 992;
+        if (window.innerWidth < breakpoint) {
+          cartCenterPage.insertAdjacentHTML(
+            "beforeend",
+            getLocalCartAdaptive(title, articul, price, i + 1)
+          );
+          printFullPrice();
+        } else {
+          pageCartTable.insertAdjacentHTML(
+            "beforeend",
+            getLocalCart(title, articul, price, weight)
+          );
+          printFullPrice();
+        }
+      }
+    };
+    printPageCart();
+  }
+
   // delete products
 
   cart.addEventListener("click", (e) => {
@@ -319,6 +415,26 @@ async function addToCart() {
       productMinus(e.target);
     }
   });
+  if (pageCartTable) {
+    pageCartTable.addEventListener("click", (e) => {
+      if (e.target.classList.contains("cart-open__plus")) {
+        productPlus(e.target);
+      }
+      if (e.target.classList.contains("cart-open__minus")) {
+        productMinus(e.target);
+      }
+    });
+  }
+  if (cartCenterPage) {
+    cartCenterPage.addEventListener("click", (e) => {
+      if (e.target.classList.contains("cart-open__plus")) {
+        productPlus(e.target);
+      }
+      if (e.target.classList.contains("cart-open__minus")) {
+        productMinus(e.target);
+      }
+    });
+  }
 }
 
 export default addToCart;
