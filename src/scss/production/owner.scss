@@ -1,8 +1,11 @@
 .owner {
   padding-top: 107px;
   padding-bottom: 84px;
-
   background: #fbfbfb;
+  @media (max-width: $md2+px) {
+    @include adaptiv-value(padding-top, 107, 50, 3);
+    @include adaptiv-value(padding-bottom, 84, 50, 3);
+  }
 
   // .owner__container
 
@@ -157,4 +160,7 @@
 
 .manufacturer-prod__body {
   margin-top: 128px;
+  @media (max-width: $md2+px) {
+    margin-top: 0;
+  }
 }

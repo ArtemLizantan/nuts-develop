@@ -29,7 +29,7 @@
   // .hero-shop__text-box
 
   &__text-box {
-    margin-top: 57px;
+    margin-top: 57px !important;
   }
   &__products-card {
     @media (max-width: 768px) {
@@ -215,8 +215,7 @@
     width: 171px;
   }
   @media (max-width: $md2+px) {
-    @include adaptiv-value(width, 283, 150, 3);
-    margin: 0 auto;
+   width: 100%;
   }
 }
 

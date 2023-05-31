@@ -70,7 +70,7 @@
     width: 408px;
     cursor: pointer;
     @media (max-width: $md2+px) {
-      @include adaptiv-value(width, 408, 200, 3);
+      width: 100%;
     }
   }
 
@@ -88,7 +88,7 @@
     img {
       width: 408px;
       @media (max-width: $md2+px) {
-        @include adaptiv-value(width, 408, 200, 3);
+        width: 100%;
       }
     }
   }

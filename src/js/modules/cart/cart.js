@@ -19,7 +19,6 @@ async function addToCart() {
   const cartCenterPage = document.querySelector(".cart__center");
   const cartInfo = document.querySelector(".cart__info");
   const cartContButton = document.querySelector(".cart__cont-button");
-  4;
 
   let jwt = document.cookie;
   jwt = jwt.split("").splice(4).join("");
@@ -155,7 +154,7 @@ async function addToCart() {
     const allPrices = document.querySelectorAll(".cart-open__price-product");
     const allItems = document.querySelectorAll(".cart-open__li");
     sumAllPrices = 0;
-    for (let i = 0; i < allPrices.length / 2; i++) {
+    for (let i = 0; i < allPrices.length; i++) {
       sumAllPrices += parseInt(priceWithoutSpaces(allPrices[i].textContent));
     }
 
@@ -163,6 +162,9 @@ async function addToCart() {
       cartOpenFullPrice.classList.remove("_active");
     } else {
       cartOpenFullPrice.classList.add("_active");
+    }
+    if (cartCenterPage) {
+      sumAllPrices = sumAllPrices / 2;
     }
     fullPrice.forEach((price) => {
       price.innerHTML = sumAllPrices;
