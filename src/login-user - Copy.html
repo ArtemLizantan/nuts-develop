@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+  @@include('html/head.html', { 'title': 'Главная' })
+  <body>
+    @@include('html/user/login/popupLogin.html', {})
+    <div class="wrapper">
+      @@include('html/header.html', {})
+      <main class="page">
+        <div data-observ></div>
+        @@include('html/user/login/login.html', {})
+      </main>
+      @@include('html/footer.html', {})
+    </div>
+    @@include('html/script.html', {})
+  </body>
+</html>

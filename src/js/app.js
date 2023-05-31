@@ -87,7 +87,7 @@ import prelouder from "./modules/prelouder.js";
 import switchImg from "./modules/registration/switchImg.js";
 import contactInfo from "./modules/user-cabinet/user-info.js";
 import validateLogin from "./modules/login/validateLogin.js";
-import closePopup from "./modules/registration/closePopup.js"
+import closePopup from "./modules/registration/closePopup.js";
 import locationHeader from "./modules/registration/location.js";
 import login from "./modules/login/login.js";
 import userCabinetInfo from "./modules/user-cabinet/cabinetMix.js";
@@ -97,6 +97,8 @@ import userInfoFopUpdate from "./modules/user-cabinet/user-info-fop-update.js";
 import userAdressUpdate from "./modules/user-cabinet/user-adress-update.js";
 import userAdressFopUpdate from "./modules/user-cabinet/user-adress-fop-update.js";
 import updatePassword from "./modules/user-cabinet/user-password-update.js";
+import customRadio from "./modules/customSelect/customRadio.js";
+import radioInputs from "./modules/mix/mix.js";
 
 async function go() {
   let a = await getData();

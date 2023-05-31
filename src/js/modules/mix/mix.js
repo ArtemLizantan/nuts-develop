@@ -9,8 +9,6 @@ function corporateMix() {
 }
 corporateMix();
 
-
-
 function deliveryMix() {
   let containerTwo = document.getElementById("mixitupTwo");
   if (containerTwo) {
@@ -29,7 +27,6 @@ function registration() {
 }
 registration();
 
-
 async function productsPage() {
   let containerFourth = document.getElementById("mixitupFourth");
   if (containerFourth) {
@@ -39,3 +36,21 @@ async function productsPage() {
 }
 export default productsPage;
 
+function radioInputs() {
+  let containerFive = document.getElementById("mixitupFive");
+  if (containerFive) {
+    let mixer = mixitup(containerFive);
+    mixer.filter(".category-description");
+  }
+  let containerSix = document.getElementById("mixitupSix");
+  if (containerSix) {
+    let mixer = mixitup(containerSix);
+    mixer.filter(".category-description");
+  }
+  let containerSeven = document.getElementById("mixitupSeven");
+  if (containerSeven) {
+    let mixer = mixitup(containerSeven);
+    mixer.filter(".category-description");
+  }
+}
+radioInputs();

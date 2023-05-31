@@ -1,1 +1,203 @@
-hello
+<section class="checkout">
+  <div class="cart__container">
+    <div class="checkout__body">
+      <div class="cabinet__top cart__top">
+        <div class="cabinet__title">Оформление заказа</div>
+        <div class="cabinet__manager">
+          <div class="cabinet__manager-title">Ваш личный менеджер Олег</div>
+          <div class="cabinet__manager-subtitle _icon-phone">
+            <a href="tel:0506187978">+38 067 777 14 12</a>
+          </div>
+        </div>
+      </div>
+      <div class="cart__center">
+        <table class="cart__table">
+          <tr class="cabinet__tr-first">
+            <td class="cart__table-main-info cart__table-left _icon-arrow-down">
+              Товар
+            </td>
+            <td class="cart__table-main-info _icon-arrow-down">Кол - во</td>
+            <td class="cart__table-main-info _icon-arrow-down">
+              Цена за товар
+            </td>
+            <td class="cart__table-main-info _icon-arrow-down">
+              Итоговая стоимость
+            </td>
+          </tr>
+        </table>
+        <div class="cart-open__price-item checkout__price-item">
+          <span class="cart-open__price-all">Всего </span>
+          <span class="cart-open__price">21</span
+          ><span class="cart-open__price-currency">грн</span>
+        </div>
+      </div>
+      <div class="checkout__bottom">
+        <form class="checkout__form">
+          <div class="checkout__form-item">
+            <div class="registration__subtitle">1. Контактные данные</div>
+            <div class="checkout__inputs">
+              <div class="checkout__form-wrap">
+                <input
+                  class="registration__input form-name"
+                  type="text"
+                  placeholder="ФИО*"
+                  name="name"
+                />
+              </div>
+              <div class="registration__input-wrap">
+                <input
+                  class="registration__input form-email"
+                  type="email"
+                  placeholder="Email*"
+                  name="email"
+                />
+              </div>
+              <div class="registration__input-wrap">
+                <input
+                  class="registration__input form-tel"
+                  type="tel"
+                  placeholder="Телефон*"
+                  name="phoneNumber"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="checkout__form-item">
+            <div class="registration__subtitle">2. Способ доставки</div>
+            <div class="checkout__inputs">
+              <div id="mixitupFive" class="checkout__input-post">
+                <div class="checkout__input-radio">
+                  <div class="radio-button">
+                    <input
+                      type="radio"
+                      name="custom-radio"
+                      id="radio1"
+                      value="1"
+                      data-filter=".category-post"
+                    />
+                    <label for="radio1"></label>
+                  </div>
+                  <h4>Новая почта (по Украине, оплата за счет Клиента)</h4>
+                </div>
+                <div class="checkout__post-selects mix category-post">
+                  <div class="custom-select-mobile">
+                    <div class="custom-select registration__select">
+                      <div class="select-header">Страна</div>
+                      <ul class="select-list registration__list">
+                        <li>
+                          <div
+                            data-country="Украина"
+                            class="filter__button-country"
+                          >
+                            Украина
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="custom-select-mobile">
+                    <div class="custom-select registration__select">
+                      <div class="select-header">Область</div>
+                      <ul class="select-list registration__list">
+                        <li>
+                          <div
+                            data-region="Одесская"
+                            class="filter__button-region"
+                          >
+                            Одесская
+                          </div>
+                        </li>
+                        <li>
+                          <div
+                            data-region="Киевская"
+                            class="filter__button-region"
+                          >
+                            Киевская
+                          </div>
+                        </li>
+                        <li>
+                          <div
+                            data-region="Харьковская"
+                            class="filter__button-region"
+                          >
+                            Харьковская
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="mixitupSix" class="checkout__input-post">
+                <div class="checkout__input-radio">
+                  <div class="radio-button">
+                    <input
+                      type="radio"
+                      name="custom-radio"
+                      id="radio2"
+                      value="2"
+                      data-filter=".category-adress"
+                    />
+                    <label for="radio2"></label>
+                  </div>
+                  <h4>Курьер по Одессе</h4>
+                </div>
+                <div  class="registration__input-wrap mix category-adress">
+                  <input
+                    class="registration__input form-adress"
+                    type="tel"
+                    placeholder="Адрес*"
+                    name="adress"
+                  />
+                </div>
+              </div>
+              <div id="mixitupSeven" class="checkout__input-post">
+                <div class="checkout__input-radio">
+                  <div class="radio-button">
+                    <input
+                      type="radio"
+                      name="custom-radio"
+                      id="radio3"
+                      value="3"
+                      data-filter=".category-pickup"
+                    />
+                    <label for="radio3"></label>
+                  </div>
+                  <h4>Самовывоз со склада</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="checkout__form-item">
+            <div class="registration__subtitle">3. Способ оплаты</div>
+
+            <div class="checkout__inputs">
+              <div class="checkout__input-radio">
+                <div class="radio-button">
+                    <input type="radio" name="custom-radio" id="radio4" value="4">
+                    <label for="radio4"></label>
+                  </div>
+                <h4>Безналичный расчет</h4>
+              </div>
+              <div class="checkout__input-radio">
+                <div class="radio-button">
+                    <input type="radio" name="custom-radio" id="radio5" value="5">
+                    <label for="radio5"></label>
+                  </div>
+                <h4>LiqPay / Приват24</h4>
+              </div>
+              <div class="checkout__input-radio">
+                <div class="radio-button">
+                    <input type="radio" name="custom-radio" id="radio6" value="6">
+                    <label for="radio6"></label>
+                  </div>
+                <h4>Наличными при получении (Наложенным платежом)</h4>
+              </div>
+            </div>
+          </div>
+          <a href="success-order.html" class="checkout__button">Продолжить</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
