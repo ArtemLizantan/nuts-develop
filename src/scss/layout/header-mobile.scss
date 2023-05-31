@@ -1,5 +1,4 @@
 .header {
-
   //.header__container-open-mobile
 
   &__container-open-mobile {
@@ -51,11 +50,6 @@
     text-align: center;
     font-size: 11px;
     line-height: 13px;
-  }
-
-  // .header__cart
-
-  &__cart {
   }
 
   //.header__cart-mobile
@@ -196,21 +190,6 @@
     align-items: center;
   }
 
-  // .open-menu__social-link
-
-  &__social-link {
-  }
-
-  // .open-menu__bottom
-
-  &__bottom {
-  }
-
-  // .open-menu__menu
-
-  &__menu {
-  }
-
   // .open-menu__menu-list
 
   &__menu-list {
@@ -222,8 +201,7 @@
   // .open-menu__menu-link
 
   &__menu-link {
-    min-height: 48px;
-    padding: 0 12px;
+   width: 100%;
   }
 
   // .open-menu__menu-item
@@ -236,7 +214,8 @@
     line-height: 18px;
     letter-spacing: 0.02em;
     color: #1a2f3f;
-
+    min-height: 48px;
+    padding: 0 12px;
     display: flex;
     align-items: center;
     min-height: 48px;
