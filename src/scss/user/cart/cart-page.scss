@@ -111,6 +111,13 @@
   }
   &__cont-button {
     padding: 15px 61px;
+    &._hide{
+      pointer-events: none;
+      background-color: gray;
+    }
+    &._active{
+      pointer-events: unset;
+    }
   }
   &__adaptive-title {
     font-family: "Raleway";

@@ -1,6 +1,11 @@
-async function prelouder() {
-  const productBtn = document.querySelectorAll(".products__bottom-button");
-  console.log(productBtn);
+function prelouder() {
+  window.onload = function () {
+    document.body.classList.add("loaded_hiding");
+    window.setTimeout(function () {
+      document.body.classList.add("loaded");
+      document.body.classList.remove("loaded_hiding");
+    }, 500);
+  };
 }
 
-export default prelouder;
+prelouder();

@@ -171,6 +171,7 @@
     line-height: rem(17);
     letter-spacing: 0.01em;
     color: #8a8a8a;
+    font-weight: 500;
   }
 
   // .products__info-subtitle
@@ -248,7 +249,7 @@
     @extend %mainButtonWhite;
     margin: 0 auto;
     display: block;
-    max-width: 200px;
+    width: fit-content;
     padding: rem(17) rem(27);
     margin-top: rem(38);
     text-align: center;
@@ -288,7 +289,6 @@
     cursor: pointer;
     opacity: 0;
     transition: all 0.4s ease;
-    background-color: #337d5a;
   }
 
   // .products__img-button-next
@@ -335,4 +335,20 @@
       opacity: 0.3;
     }
   }
+}
+
+.card__img-button-next{
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  cursor: pointer;
+  z-index: 10;
+}
+.card__img-button-prev{
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: rotate(180deg);
+  cursor: pointer;
+  z-index: 10;
 }

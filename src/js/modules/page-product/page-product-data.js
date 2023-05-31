@@ -62,9 +62,20 @@ async function dataProductPage() {
                         </div>
                       </div>
                     </div>
-                    <!-- If we need navigation buttons -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                    <div class="card__img-button-next">
+                      <img
+                       class="products__swiper-button-next"
+                        src="./images/swiper-cards/products-button.svg"
+                        alt="button-next"
+                                     />
+                           </div>
+                      <div class="card__img-button-prev">
+                       <img
+                       class="products__swiper-button-prev"
+                         src="./images/swiper-cards/products-button.svg"
+                         alt="button-prev"
+                           />
+                          </div>
                   </div>
                 </div>
                 <div class="page-product__right">
@@ -409,6 +420,10 @@ async function dataProductPage() {
           const swiperImgs = pageProduct.querySelector(".page-product__swiper");
           new Swiper(swiperImgs, {
             slidesPerView: 1,
+            navigation: {
+              nextEl: ".card__img-button-next",
+              prevEl: ".card__img-button-prev",
+            },
           });
         }
       }

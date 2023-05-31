@@ -8,7 +8,12 @@ async function pageProduct() {
 
   productsCard.forEach((card) => {
     card.addEventListener("click", (event) => {
-      if (!event.target.classList.contains("products__bottom-button")) {
+      event.preventDefault();
+      if (
+        !event.target.closest(".products__bottom-button") &&
+        !event.target.closest(".products__swiper-button-next") &&
+        !event.target.closest(".products__swiper-button-prev")
+      ) {
         handleClick(event);
       }
     });
