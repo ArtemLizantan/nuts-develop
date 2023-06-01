@@ -39,70 +39,9 @@
     display: flex;
     flex-wrap: wrap;
     gap: 31px;
-    // @media (max-width: 1330px) {
-    //   flex-direction: column;
-    //   flex-wrap: unset;
-    // }
-    img {
-      &:nth-child(1) {
-        width: 739px;
-        height: 556px;
-        @media (max-width: 1330px) {
-          max-width: 100%;
-          margin: 0 auto;
-          width: 100%;
-          object-fit: cover;
-        }
-      }
-      &:nth-child(2) {
-        width: 520px;
-        height: 556px;
-        @media (max-width: 1330px) {
-          max-width: 100%;
-          margin: 0 auto;
-          width: 100%;
-          object-fit: cover;
-        }
-      }
-      &:nth-child(3) {
-        width: 1290px;
-        height: 556px;
-        @media (max-width: 1330px) {
-          max-width: 100%;
-          margin: 0 auto;
-          width: 100%;
-          object-fit: cover;
-        }
-      }
-      &:nth-child(4) {
-        width: 409px;
-        height: 404px;
-        @media (max-width: 1330px) {
-          max-width: 100%;
-          margin: 0 auto;
-          width: 100%;
-          object-fit: cover;
-        }
-      }
-      &:nth-child(5) {
-        width: 409px;
-        height: 404px;
-        @media (max-width: 1330px) {
-          max-width: 100%;
-          margin: 0 auto;
-          width: 100%;
-          object-fit: cover;
-        }
-      }
-      &:nth-child(6) {
-        width: 409px;
-        height: 404px;
-        @media (max-width: 1330px) {
-          max-width: 100%;
-          margin: 0 auto;
-          width: 100%;
-          object-fit: cover;
-        }
+    @media (max-width: 1350px) {
+      img {
+        width: 100%;
       }
     }
   }

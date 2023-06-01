@@ -39,7 +39,7 @@ function locationHeader() {
     `;
       headerMobileLogin.insertAdjacentHTML("afterbegin", markup);
     } else {
-      const markupTwo = ` <a class="header__mobile-log" href="#"
+      const markupTwo = ` <a class="header__mobile-log" href="login-user.html"
       ><div class="_icon-user open-menu__reg">Вход</div></a
     >
     <a class="header__mobile-log" href="registration.html"
