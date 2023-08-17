@@ -78,7 +78,6 @@
     "axios": "^1.4.0",
     "just-validate": "^4.2.0",
     "mixitup": "^3.3.1",
-    "strapi-plugin-users-permissions": "^3.6.11",
     "swiper": "^8.4.5"
   }
 }

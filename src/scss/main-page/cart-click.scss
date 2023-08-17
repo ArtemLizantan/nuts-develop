@@ -100,6 +100,9 @@
     line-height: 19px;
     color: #1a2f3f;
     flex-basis: 160px;
+    @media (max-width: $md2+px) {
+      flex-basis: 125px;
+    }
   }
 
   &__list {
@@ -116,6 +119,9 @@
     gap: rem(10);
     background-color: unset;
     flex-basis: 81px;
+    @media (max-width: $md2+px) {
+      gap: 5px;
+    }
     span {
       font-family: "Montserrat";
       font-style: normal;
@@ -136,6 +142,13 @@
     width: 10px;
     height: 11px;
     background-repeat: no-repeat;
+    @media (max-width: $md2+px) {
+      background-size: 10px;
+      width: 20px;
+      height: 20px;
+      position: relative;
+      left: 10px;
+    }
   }
 
   &__minus {
@@ -143,6 +156,11 @@
     width: 10px;
     height: 11px;
     background-repeat: no-repeat;
+    @media (max-width: $md2+px) {
+      background-size: 10px;
+      width: 20px;
+      height: 20px;
+    }
   }
 
   // .cart-open__close

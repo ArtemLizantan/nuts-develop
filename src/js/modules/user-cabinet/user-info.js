@@ -1,5 +1,5 @@
-import JustValidate from "just-validate";
 import axios from "axios";
+import { API } from "../globals";
 
 async function contactInfo() {
   let jwt = document.cookie;
@@ -29,7 +29,7 @@ async function contactInfo() {
     );
 
     try {
-      const response = await axios.get("http://localhost:1337/api/users/me", {
+      const response = await axios.get(`${API}/api/users/me`, {
         headers: {
           Authorization: `Bearer ${jwt}`,
         },
@@ -96,9 +96,7 @@ async function contactInfo() {
           });
         });
       }
-    } catch (error) {
-     
-    }
+    } catch (error) {}
   }
 }
 

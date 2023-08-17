@@ -1,5 +1,6 @@
 import axios from "axios";
 import JustValidate from "just-validate";
+import { API } from "../globals";
 
 async function registration() {
   const form = document.querySelector(".registration__form");
@@ -15,6 +16,7 @@ async function registration() {
     let region;
     let countryfop;
     let regionfop;
+    let fop = false;
 
     const addEventListeners = () => {
       document.querySelectorAll(".filter__button-country").forEach((el) => {
@@ -44,9 +46,9 @@ async function registration() {
     function validate() {
       if (form) {
         const validate = new JustValidate(form, {
-          validateBeforeSubmitting: true,
           lockForm: true,
           successFieldCssClass: ["valid"],
+          validateBeforeSubmitting: true,
         });
         validate.addField(".form-name", [
           {
@@ -113,37 +115,40 @@ async function registration() {
             errorMessage: "Пароли не совпадают!",
           },
         ]);
-        fopButton.addEventListener("click", () => {
-          registerButton.classList.add("not-valid");
 
-          // Добавить валидацию для полей, связанных с FOP
-          validate.addField(".form-requisites", [
-            {
-              rule: "required",
-              errorMessage: "Пожалуйста, введите Ваши реквезиты",
-            },
-          ]);
-          validate.addField(".form-city-fop", [
-            {
-              rule: "required",
-              errorMessage: "Пожалуйста, введите город ФОП",
-            },
-          ]);
-          validate.addField(".form-adress-fop", [
-            {
-              rule: "required",
-              errorMessage: "Пожалуйста, введите адрес ФОП",
-            },
-          ]);
-          validate.addField(".form-index-fop", [
-            {
-              rule: "required",
-              errorMessage: "Пожалуйста, введите индекс ФОП",
-            },
-            {
-              rule: "number",
-            },
-          ]);
+        fopButton.addEventListener("click", (e) => {
+          if (e.target) {
+            registerButton.classList.add("not-valid");
+
+            // Добавить валидацию для полей, связанных с FOP
+            validate.addField(".form-requisites", [
+              {
+                rule: "required",
+                errorMessage: "Пожалуйста, введите Ваши реквезиты",
+              },
+            ]);
+            validate.addField(".form-city-fop", [
+              {
+                rule: "required",
+                errorMessage: "Пожалуйста, введите город ФОП",
+              },
+            ]);
+            validate.addField(".form-adress-fop", [
+              {
+                rule: "required",
+                errorMessage: "Пожалуйста, введите адрес ФОП",
+              },
+            ]);
+            validate.addField(".form-index-fop", [
+              {
+                rule: "required",
+                errorMessage: "Пожалуйста, введите индекс ФОП",
+              },
+              {
+                rule: "number",
+              },
+            ]);
+          }
         });
 
         usuallyButton.addEventListener("click", () => {
@@ -160,87 +165,87 @@ async function registration() {
         });
 
         validate.onValidate(function (isValid) {
-          if (isValid.isValid == false) {
+          if (isValid.isValid === false) {
             registerButton.classList.add("not-valid");
           } else {
             registerButton.classList.remove("not-valid");
-            form.addEventListener("submit", async (e) => {
-              e.preventDefault();
-
-              const formData = new FormData(form);
-              const name = formData.get("name");
-              const email = formData.get("email");
-              const phoneNumber = formData.get("phoneNumber");
-              const city = formData.get("city");
-              const adress = formData.get("adress");
-              const confirmPassword = formData.get("confirmPassword");
-              const requisites = formData.get("requisites");
-              const cityFop = formData.get("cityFop");
-              const adressFop = formData.get("adressFop");
-              const indexFop = formData.get("indexFop");
-              const img = formData.get("file");
-
-              if (fopButton.classList.contains("mixitup-control-active")) {
-                axios
-                  .post("http://localhost:1337/api/auth/local/register", {
-                    username: name,
-                    email: email,
-                    password: confirmPassword,
-                    phoneNumber: phoneNumber,
-                    city: city,
-                    adress: adress,
-                    cityFop: cityFop,
-                    indexFop: indexFop,
-                    requisites: requisites,
-                    adressFop: adressFop,
-                    img: img,
-                    regionfop: regionfop,
-                    countryfop: countryfop,
-                    country: country,
-                    region: region,
-                    fop: true,
-                  })
-                  .then((response) => {
-                    console.log("User profile", response.data.user);
-                    console.log("User token", response.data.jwt);
-                    popupSuccess.classList.add("_active");
-                    body.classList.add("_lock");
-                    document.cookie = `jwt=${response.data.jwt}; expires=Fri, 01 Jan 2024 00:00:00; path=/`;
-                  })
-                  .catch((error) => {
-                    console.log("An error occurred:", error.response);
-                  });
-              } else {
-                axios
-                  .post("http://localhost:1337/api/auth/local/register", {
-                    username: name,
-                    email: email,
-                    password: confirmPassword,
-                    phoneNumber: phoneNumber,
-                    city: city,
-                    img: img,
-                    adress: adress,
-                    country: country,
-                    region: region,
-                    fop: false,
-                  })
-                  .then((response) => {
-                    popupSuccess.classList.add("_active");
-                    console.log("User profile", response.data.user);
-                    console.log("User token", response.data.jwt);
-                    body.classList.add("_lock");
-                    document.cookie = `jwt=${response.data.jwt}; expires=Fri, 01 Jan 2024 00:00:00; path=/`;
-                  })
-                  .catch((error) => {
-
-                  });
-              }
-            });
+            console.log(isValid);
           }
         });
       }
     }
     validate();
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const name = formData.get("name");
+      const email = formData.get("email");
+      const phoneNumber = formData.get("phoneNumber").toString();
+      const city = formData.get("city");
+      const adress = formData.get("adress");
+      const confirmPassword = formData.get("confirmPassword");
+      const requisites = formData.get("requisites");
+      const cityFop = formData.get("cityFop");
+      const adressFop = formData.get("adressFop");
+      const indexFop = formData.get("indexFop");
+      const img = formData.get("file");
+      const password = formData.get("password");
+
+      if (password === confirmPassword) {
+        if (fopButton.classList.contains("mixitup-control-active")) {
+          axios
+            .post(`${API}/api/auth/local/register`, {
+              username: name,
+              email: email,
+              password: confirmPassword,
+              phoneNumber: phoneNumber,
+              city: city,
+              adress: adress,
+              cityFop: cityFop,
+              indexFop: indexFop,
+              requisites: requisites,
+              adressFop: adressFop,
+              img: img,
+              regionfop: regionfop,
+              countryfop: countryfop,
+              country: country,
+              region: region,
+              fop: true,
+            })
+            .then((response) => {
+              console.log("User profile", response.data.user);
+              popupSuccess.classList.add("_active");
+              body.classList.add("_lock");
+              document.cookie = `jwt=${response.data.jwt}; expires=Fri, 01 Jan 2024 00:00:00; path=/`;
+            })
+            .catch((error) => {
+              console.log("An error occurred:", error.response);
+            });
+        } else {
+          axios
+            .post(`${API}/api/auth/local/register`, {
+              username: name,
+              email: email,
+              password: confirmPassword,
+              phoneNumber: phoneNumber,
+              city: city,
+              img: img,
+              adress: adress,
+              country: country,
+              region: region,
+              fop: false,
+            })
+            .then((response) => {
+              popupSuccess.classList.add("_active");
+              console.log("User profile", response.data.user);
+              body.classList.add("_lock");
+              document.cookie = `jwt=${response.data.jwt}; expires=Fri, 01 Jan 2024 00:00:00; path=/`;
+            })
+            .catch((error) => {});
+        }
+      }
+    });
   }
 }
 

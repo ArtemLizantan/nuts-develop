@@ -1,5 +1,6 @@
 import axios from "axios";
 import JustValidate from "just-validate";
+import { API } from "../globals";
 
 async function updatePassword() {
   let jwt = document.cookie;
@@ -81,7 +82,7 @@ async function updatePassword() {
 
             axios
               .post(
-                "http://localhost:1337/api/auth/change-password",
+                `${API}/api/auth/change-password`,
                 {
                   currentPassword: oldPassword,
                   password: newPassword,
@@ -95,7 +96,6 @@ async function updatePassword() {
               )
               .then((response) => {
                 cabinetPasswordForm.insertAdjacentElement("afterend", sucsess);
-                console.log(response);
                 setTimeout(() => {
                   location.href = "user-cabinet.html";
                 }, 1000);

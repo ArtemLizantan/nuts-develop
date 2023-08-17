@@ -76,9 +76,6 @@
         "audios"
       ]
     },
-    "phoneNumber": {
-      "type": "integer"
-    },
     "city": {
       "type": "string"
     },
@@ -111,6 +108,9 @@
     },
     "regionfop": {
       "type": "string"
+    },
+    "phoneNumber": {
+      "type": "text"
     }
   }
 }

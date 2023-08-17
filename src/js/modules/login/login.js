@@ -1,4 +1,5 @@
 import axios from "axios";
+import { API } from "../globals.js";
 
 async function login() {
   const formLogin = document.querySelector(".login__form");
@@ -19,18 +20,15 @@ async function login() {
       const email = formLoginData.get("useremail");
       const password = formLoginData.get("userpassword");
       axios
-        .post("http://localhost:1337/api/auth/local", {
+        .post(`${API}/api/auth/local`, {
           identifier: email,
           password: password,
         })
         .then((response) => {
-          console.log("User profile", response.data.user);
-          console.log("User token", response.data.jwt);
           popupSuccess.classList.add("_active");
           document.cookie = `jwt=${response.data.jwt}; expires=Fri, 01 Jan 2024 00:00:00; path=/`;
         })
         .catch((error) => {
-          console.log("An error occurred:", error.response);
           formLogin.insertAdjacentElement("beforeend", errorElement);
         });
     });

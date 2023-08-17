@@ -1,8 +1,10 @@
 import axios from "axios";
 import JustValidate from "just-validate";
+import { API } from "../globals";
 
 async function userInfoUpdate() {
   const form = document.getElementById("cabinetFopEdit");
+
   if (form) {
     let jwt = document.cookie;
     jwt = jwt.split("").splice(4).join("");
@@ -78,14 +80,11 @@ async function userInfoUpdate() {
             const requisites = formData.get("requisites");
 
             try {
-              const response = await axios.get(
-                "http://localhost:1337/api/users/me",
-                {
-                  headers: {
-                    Authorization: `Bearer ${jwt}`,
-                  },
-                }
-              );
+              const response = await axios.get(`${API}/api/users/me`, {
+                headers: {
+                  Authorization: `Bearer ${jwt}`,
+                },
+              });
 
               const userId = response.data.id;
 
@@ -97,7 +96,7 @@ async function userInfoUpdate() {
               };
 
               await axios.put(
-                `http://localhost:1337/api/users/${userId}`,
+                `${API}/api/users/${userId}`,
                 updatedUserDataFop
               );
 
@@ -105,9 +104,7 @@ async function userInfoUpdate() {
               setTimeout(() => {
                 location.href = "user-cabinet.html";
               }, 1000);
-            } catch (error) {
-             
-            }
+            } catch (error) {}
           });
         }
       });

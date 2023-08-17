@@ -1,5 +1,6 @@
 import axios from "axios";
 import JustValidate from "just-validate";
+import { API } from "../globals";
 
 async function userAdressFopUpdate() {
   const form = document.getElementById("userAdressFopEdit");
@@ -102,14 +103,11 @@ async function userAdressFopUpdate() {
             regionFop = selectHeaderUssually[3].textContent.replace(regex, "");
 
             try {
-              const response = await axios.get(
-                "http://localhost:1337/api/users/me",
-                {
-                  headers: {
-                    Authorization: `Bearer ${jwt}`,
-                  },
-                }
-              );
+              const response = await axios.get(`${API}/api/users/me`, {
+                headers: {
+                  Authorization: `Bearer ${jwt}`,
+                },
+              });
 
               const userId = response.data.id;
 
@@ -126,18 +124,13 @@ async function userAdressFopUpdate() {
                 regionfop: regionFop,
               };
 
-              await axios.put(
-                `http://localhost:1337/api/users/${userId}`,
-                updateAdressFop
-              );
+              await axios.put(`${API}/api/users/${userId}`, updateAdressFop);
 
               form.insertAdjacentElement("afterend", sucsess);
               setTimeout(() => {
                 location.href = "user-cabinet.html";
               }, 1000);
-            } catch (error) {
-         
-            }
+            } catch (error) {}
           });
         }
       });

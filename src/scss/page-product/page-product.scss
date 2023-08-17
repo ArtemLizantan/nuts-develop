@@ -43,8 +43,10 @@
     @media (max-width: 1235px) {
       width: 100%;
     }
-    &:hover {
-      border: 1.5px solid $yellowGreenColor;
+    @media (min-width: 1000px) {
+      &:hover {
+        border: 1.5px solid $yellowGreenColor;
+      }
     }
   }
 
@@ -236,9 +238,9 @@
 
     &__button {
       padding: 17px 60px;
-      &:disabled{
+      &:disabled {
         opacity: 0.5;
-        pointer-events: none
+        pointer-events: none;
       }
       @extend %mainButton;
       @media (max-width: 768px) {

@@ -50,6 +50,12 @@
     }
   }
 
+  &__menu-link{
+    @media (max-width: $md2+px) {
+      width: 100%;
+    }
+  }
+
   // .footer__contact
 
   &__contact {

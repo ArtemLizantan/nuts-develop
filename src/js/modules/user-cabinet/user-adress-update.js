@@ -1,5 +1,6 @@
 import axios from "axios";
 import JustValidate from "just-validate";
+import { API } from "../globals";
 
 async function userAdressUpdate() {
   const form = document.getElementById("userAdressEdit");
@@ -64,7 +65,7 @@ async function userAdressUpdate() {
               region = selectHeaderUssually[1].textContent.replace(regex, "");
               try {
                 const response = await axios.get(
-                  "http://localhost:1337/api/users/me",
+                  `${API}/api/users/me`,
                   {
                     headers: {
                       Authorization: `Bearer ${jwt}`,
@@ -79,7 +80,7 @@ async function userAdressUpdate() {
                   region: region,
                 };
                 await axios.put(
-                  `http://localhost:1337/api/users/${userId}`,
+                  `${API}/api/users/${userId}`,
                   updateAdress
                 );
                 form.insertAdjacentElement("afterend", sucsess);
@@ -87,7 +88,6 @@ async function userAdressUpdate() {
                   location.href = "user-cabinet.html";
                 }, 1000);
               } catch (error) {
-                console.log(error);
               }
             });
           }

@@ -1,14 +1,13 @@
 import axios from "axios";
 import Swiper, { Navigation, Pagination, Autoplay, Scrollbar } from "swiper";
+import { API } from "../globals";
 
 async function dataProductPage() {
   const urlParams = new URLSearchParams(window.location.search);
   const articul = urlParams.get("articul");
   const pageProduct = document.querySelector(".page-product");
   try {
-    const response = await axios.get(
-      "http://localhost:1337/api/products?populate=deep"
-    );
+    const response = await axios.get(`${API}/api/products?populate=deep`);
     const { data } = response.data;
     data.forEach(
       (
@@ -48,7 +47,7 @@ async function dataProductPage() {
                       <!-- Slides -->
                       <div class="swiper-slide page-product__swiper-slide">
                         <div class="page-product__card">
-                          <img src="http://localhost:1337${url}" alt="" />
+                          <img src="${API}${url}" alt="" />
                         </div>
                       </div>
                       <div class="swiper-slide page-product__swiper-slide">
@@ -133,9 +132,9 @@ async function dataProductPage() {
                           </div>
                         </div>
                         <div class="products__bottom-right">
-                          <button data-art="${Articul}" class="page-product__button">
+                          <a href="checkout.html" data-art="${Articul}" class="page-product__button">
                             Заказать
-                          </button>
+                          </a>
                         </div>
                       </div>
                     </div>

@@ -350,7 +350,7 @@ async function addToCart() {
         if (
           cartProductList.querySelector(".cart-open__item").dataset.art === id
         ) {
-          location.href = "index.html";
+          location.href = "cart.html";
         } else {
           cartProductList.insertAdjacentHTML(
             "afterbegin",
@@ -360,7 +360,7 @@ async function addToCart() {
           printQuantity();
           printFullPrice();
           updateStorage();
-          location.href = "index.html";
+          location.href = "cart.html";
         }
       } else {
         cartProductList.insertAdjacentHTML(
@@ -447,6 +447,16 @@ async function addToCart() {
       });
     }
   }
+
+  window.addEventListener("click", (e) => {
+    if (
+      !e.target.closest(".cart-open") &&
+      !e.target.closest(".header__cart") &&
+      !e.target.closest(".cart-open__close")
+    ) {
+      document.querySelector(".cart-open").classList.remove("_active");
+    }
+  });
 }
 
 export default addToCart;

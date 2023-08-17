@@ -1,5 +1,6 @@
 import JustValidate from "just-validate";
 import axios from "axios";
+import { API } from "../globals";
 
 async function adressInfo() {
   let jwt = document.cookie;
@@ -43,7 +44,7 @@ async function adressInfo() {
       userAdressEdit.querySelectorAll(".select-header");
 
     try {
-      const response = await axios.get("http://localhost:1337/api/users/me", {
+      const response = await axios.get(`${API}/api/users/me`, {
         headers: {
           Authorization: `Bearer ${jwt}`,
         },

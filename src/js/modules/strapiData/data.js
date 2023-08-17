@@ -1,5 +1,6 @@
 import Swiper, { Navigation, Pagination, Autoplay, Scrollbar } from "swiper";
 import axios from "axios";
+import { API } from "../globals";
 
 async function getData() {
   const productsCards = document.querySelectorAll(".products__card-link");
@@ -7,9 +8,7 @@ async function getData() {
 
   if (productsCards.length != 0) {
     try {
-      const response = await axios.get(
-        "http://localhost:1337/api/products?populate=deep"
-      );
+      const response = await axios.get(`${API}/api/products?populate=deep`);
       const { data } = response.data;
       data.forEach(
         (
@@ -42,7 +41,7 @@ async function getData() {
             <div class="swiper-slide products__swiper-slide">
               <img
                 class="products__cards-swiper-img"
-                src="http://localhost:1337${url}"
+                src="${API}${url}"
                 alt="walnut"
               />
             </div>

@@ -8,6 +8,7 @@ async function filter() {
   const filterRemoveButtons = document.querySelector(".filter__remove-filter");
   const selectHeader = document.querySelectorAll(".select-header");
   const prodBtnShowMore = document.querySelector(".products__show-more");
+  
 
   let weightValue;
   let tasteValue;
